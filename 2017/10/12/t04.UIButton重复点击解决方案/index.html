@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>UIButton重复点击解决方案 | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="项目需求，为了防止用户连续点击，造成重复请求，需要设置UIButton点击后，一段时间间隔内不能点击。这个做开发经常用到，在这小小总结下： 方式一（非主流）：继承于NSObject写个工具类1.声明一个静态变量记录上次的点击时间1static long LAST_CLICK_TIME1 = 0;">
+<meta name="keywords" content="UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIButton重复点击解决方案">
+<meta property="og:url" content="http://blogzhou.top/2017/10/12/t04.UIButton重复点击解决方案/index.html">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="项目需求，为了防止用户连续点击，造成重复请求，需要设置UIButton点击后，一段时间间隔内不能点击。这个做开发经常用到，在这小小总结下： 方式一（非主流）：继承于NSObject写个工具类1.声明一个静态变量记录上次的点击时间1static long LAST_CLICK_TIME1 = 0;">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/desert_04.jpg">
+<meta property="og:updated_time" content="2020-07-18T03:20:22.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIButton重复点击解决方案">
+<meta name="twitter:description" content="项目需求，为了防止用户连续点击，造成重复请求，需要设置UIButton点击后，一段时间间隔内不能点击。这个做开发经常用到，在这小小总结下： 方式一（非主流）：继承于NSObject写个工具类1.声明一个静态变量记录上次的点击时间1static long LAST_CLICK_TIME1 = 0;">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/desert_04.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                19
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                7
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-t04.UIButton重复点击解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/desert_04.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            UIButton重复点击解决方案
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/12/t04.UIButton重复点击解决方案/">
+            <time datetime="2017-10-12T07:33:26.000Z" itemprop="datePublished">2017-10-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/UI/">UI</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h5 id="项目需求，为了防止用户连续点击，造成重复请求，需要设置UIButton点击后，一段时间间隔内不能点击。这个做开发经常用到，在这小小总结下："><a href="#项目需求，为了防止用户连续点击，造成重复请求，需要设置UIButton点击后，一段时间间隔内不能点击。这个做开发经常用到，在这小小总结下：" class="headerlink" title="项目需求，为了防止用户连续点击，造成重复请求，需要设置UIButton点击后，一段时间间隔内不能点击。这个做开发经常用到，在这小小总结下："></a>项目需求，为了防止用户连续点击，造成重复请求，需要设置UIButton点击后，一段时间间隔内不能点击。这个做开发经常用到，在这小小总结下：</h5><ul>
+<li>方式一（非主流）：<br>继承于NSObject写个工具类<br>1.声明一个静态变量记录上次的点击时间<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static long LAST_CLICK_TIME1 = 0;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<p>2.声明一个方法及实现如下（思路很简单就直接上代码了）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 根据传过来的时间间隔进行是否快速点击判断；</span><br><span class="line"> * opIntervalTime ： 时间间隔，单位毫秒；</span><br><span class="line"> **/</span><br><span class="line">+(bool)isFastDoubleClick1:(long)opIntervalTime&#123;</span><br><span class="line">    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];</span><br><span class="line">    long time = [date timeIntervalSince1970] * 1000;</span><br><span class="line">    long intervalTime = time - LAST_CLICK_TIME1;</span><br><span class="line">    if(0 &lt; intervalTime &amp;&amp; intervalTime &lt; opIntervalTime)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    LAST_CLICK_TIME1 = time;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参数说明注释写得很清楚，用法也很简单，就不多说了。</p>
+<ul>
+<li><p>方式二（较主流）<br>给UIButton写个分类（category）<br>1.分类.h文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">@interface UIButton (FMExtension)</span><br><span class="line">/** 两次点击最大时间间隔，在此时间内，所有点击事件不不执行 */</span><br><span class="line">@property (nonatomic, assign) NSTimeInterval fm_multipleClickInterval;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>由于category 中声明的property，只会生成属性的方法而不会生成方法的实现及“_”变量，所以.m中要用runtime进行属性的动态绑定。<br>2.分类.m 文件<br>具体实现步骤<br>2.1引入runtime头文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;UIButton+FMExtension.h&quot;</span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line">@interface UIButton ()</span><br><span class="line">/** 记录上一次接收点击事件的时间 */</span><br><span class="line">@property(nonatomic, assign) NSTimeInterval fm_acceptEventTime;</span><br><span class="line">@end</span><br><span class="line">/** 关联关键字 */</span><br><span class="line">static const char *UIControl_multipleClickInterval = &quot;fm_multipleClickInterval&quot;;</span><br><span class="line">static const char *UIControl_acceptEventTime = &quot;fm_acceptEventTime&quot;;</span><br><span class="line">@implementation UIButton (FMExtension)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.2动态关联对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/** 动态关联对象 */</span><br><span class="line">- (void)setFm_multipleClickInterval:(NSTimeInterval)fm_multipleClickInterval &#123;</span><br><span class="line">    //四个参数：源对象，关键字，关联的对象和一个关联策略</span><br><span class="line">    objc_setAssociatedObject(self, UIControl_multipleClickInterval, @(fm_multipleClickInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line">&#125;</span><br><span class="line">- (NSTimeInterval)fm_multipleClickInterval &#123;</span><br><span class="line">    return [objc_getAssociatedObject(self, UIControl_multipleClickInterval) doubleValue];</span><br><span class="line">&#125;</span><br><span class="line">- (void)setFm_acceptEventTime:(NSTimeInterval)fm_acceptEventTime &#123;</span><br><span class="line">    objc_setAssociatedObject(self, UIControl_acceptEventTime, @(fm_acceptEventTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line">&#125;</span><br><span class="line">- (NSTimeInterval)fm_acceptEventTime &#123;</span><br><span class="line">    return [objc_getAssociatedObject(self, UIControl_acceptEventTime) doubleValue];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.3交换方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">//交换方法</span><br><span class="line">//以上主要是实现两个方法的互换,load是gcd的只shareinstance，果断保证执行一次</span><br><span class="line">+ (void)load &#123;</span><br><span class="line">    //获取着两个方法</span><br><span class="line">    //系统方法</span><br><span class="line">    Method sysMethod = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));</span><br><span class="line">    SEL sysM = @selector(sendAction:to:forEvent:);</span><br><span class="line">    //自定义方法</span><br><span class="line">    Method myMethod = class_getInstanceMethod(self, @selector(fm_sendAction:to:forEvent:));</span><br><span class="line">    SEL myM = @selector(fm_sendAction:to:forEvent:);</span><br><span class="line">    //添加方法进去（系统方法名执行自己的自定义函数，相当于重写父类方法）</span><br><span class="line">    BOOL overrideSuccess = class_addMethod(self, sysM, method_getImplementation(myMethod), method_getTypeEncoding(myMethod));</span><br><span class="line">    //如果添加成功</span><br><span class="line">    if (overrideSuccess) &#123;</span><br><span class="line">        //自定义函数名执行系统函数</span><br><span class="line">        class_replaceMethod(self, myM, method_getImplementation(sysMethod), method_getTypeEncoding(sysMethod));</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        method_exchangeImplementations(sysMethod, myMethod);</span><br><span class="line">    &#125;</span><br><span class="line">    //这样也可以交换方法（但是注意顺序）</span><br><span class="line">    /******</span><br><span class="line">     *</span><br><span class="line">     *个人理解：</span><br><span class="line">     *不管是add还是replace和系统重名的方法，都是相当于复制了一个和系统重名的函数（也就是</span><br><span class="line">     *相当于继承重写了父类方法 ps:分类中不支持继承！系统发现有这个方法会优先调用）</span><br><span class="line">     *系统自动复制一个与自己同名的方法给开发人员用，但是method_getImplementation(systemMethod)</span><br><span class="line">     *还是获取系统自带方法的属性</span><br><span class="line">     *</span><br><span class="line">     ******/</span><br><span class="line">    /*</span><br><span class="line">    class_replaceMethod(self, sysM, method_getImplementation(myMethod), method_getTypeEncoding(myMethod));</span><br><span class="line">    class_replaceMethod(self, myM, method_getImplementation(sysMethod), method_getTypeEncoding(sysMethod));</span><br><span class="line">     */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)fm_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event &#123;</span><br><span class="line">    if (NSDate.date.timeIntervalSince1970 - self.fm_acceptEventTime &lt; self.fm_multipleClickInterval) return;</span><br><span class="line">    if (self.fm_multipleClickInterval &gt; 0) &#123;</span><br><span class="line">        self.fm_acceptEventTime = NSDate.date.timeIntervalSince1970;//记录上次点击的时间</span><br><span class="line">    &#125;</span><br><span class="line">    //这里并不是循环调用，由于交换了两个方法，fm_sendAction:to:forEvent:现在就是sendAction:to:forEvent:</span><br><span class="line">    [self fm_sendAction:action to:target forEvent:event];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>代码注释写的比较详细了（自我感觉还阔以吧），就不再多说什么。<br>PS: 交换方法那，有个人的一点小小见解，不知道对不对，欢迎大牛批评指正！！！</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2017/10/12/t04.UIButton重复点击解决方案/" data-id="ckiq15c3g000ys5g3pqcpn0ii" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/10/12/t06.iOS系统音量-屏幕亮度调节/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    iOS系统音量&amp;屏幕亮度调节
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/10/12/t07.类似“今日头条”频道编辑功能UI实现/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">类似“今日头条”频道编辑功能UI实现</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/12/15/s10-OC-Swift混编的一些小知识/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_01.jpg)" alt="OC/Swift混编的一些小知识" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/12/15/s10-OC-Swift混编的一些小知识/" class="title">OC/Swift混编的一些小知识</a></p>
+                            <p class="item-date"><time datetime="2020-12-15T05:31:57.000Z" itemprop="datePublished">2020-12-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/25/s14.Swift 小记/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_05.jpg)" alt="Swift 小记" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/11/25/s14.Swift 小记/" class="title">Swift 小记</a></p>
+                            <p class="item-date"><time datetime="2020-11-25T02:31:30.000Z" itemprop="datePublished">2020-11-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/20/s13.Array的常见操作/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/11/20/s13.Array的常见操作/" class="title">Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-11-20T04:31:57.000Z" itemprop="datePublished">2020-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swift中的指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/" class="title">Swift中的指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-11-18T01:31:57.000Z" itemprop="datePublished">2020-11-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/15/s11.关于指针的强制类型转换/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/11/15/s11.关于指针的强制类型转换/" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-11-15T05:45:57.000Z" itemprop="datePublished">2020-11-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Swift/" style="font-size: 17.5px;">Swift</a> <a href="/tags/UI/" style="font-size: 20px;">UI</a> <a href="/tags/Words/" style="font-size: 12.5px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 12.5px;">code</a> <a href="/tags/poetry/" style="font-size: 15px;">poetry</a> <a href="/tags/tool/" style="font-size: 12.5px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
