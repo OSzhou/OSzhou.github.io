@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2020 | Fighting</title>
+    <title>Swift中的指针(UnsafePointer) | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="The biggest adventure you can take is to live the life of your dreams">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fighting">
-<meta property="og:url" content="http://blogzhou.top/archives/2020/index.html">
+    <meta name="description" content="#####Swift中也有专门的指针类型，这些都被定性为“Unsafe”(不安全的)。 #####常见的有以下4种类型：  UnsafePointer&amp;lt;Pointee&amp;gt;类似于 const Pointee * UnsafeMutablePointer&amp;lt;Pointee&amp;gt; 类似于 Pointee * UnsafeRawPointer 类似于 const void * Unsafe">
+<meta name="keywords" content="Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift中的指针(UnsafePointer)">
+<meta property="og:url" content="http://blogzhou.top/2020/11/18/s12.Swift中的指针(UnsafePointer)/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta property="og:description" content="#####Swift中也有专门的指针类型，这些都被定性为“Unsafe”(不安全的)。 #####常见的有以下4种类型：  UnsafePointer&amp;lt;Pointee&amp;gt;类似于 const Pointee * UnsafeMutablePointer&amp;lt;Pointee&amp;gt; 类似于 Pointee * UnsafeRawPointer 类似于 const void * Unsafe">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_03.jpg">
+<meta property="og:updated_time" content="2020-12-15T05:51:29.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fighting">
-<meta name="twitter:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta name="twitter:title" content="Swift中的指针(UnsafePointer)">
+<meta name="twitter:description" content="#####Swift中也有专门的指针类型，这些都被定性为“Unsafe”(不安全的)。 #####常见的有以下4种类型：  UnsafePointer&amp;lt;Pointee&amp;gt;类似于 const Pointee * UnsafeMutablePointer&amp;lt;Pointee&amp;gt; 类似于 Pointee * UnsafeRawPointer 类似于 const void * Unsafe">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_03.jpg">
     
 
     
@@ -222,169 +226,29 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2020</h1>
-            </div>
+            <section id="main"><article id="post-s12.Swift中的指针(UnsafePointer)" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            
+	
+		<img src="/css/images/tree_03.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/12/15/template/">OC/Swift混编的一些小知识</a>
+        <h1 class="article-title" itemprop="name">
+            Swift中的指针(UnsafePointer)
         </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/12/15/template/">
-            <time datetime="2020-12-15T05:31:57.000Z" itemprop="datePublished">2020-12-15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Swift/">Swift</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/12/15/s10-OC-Swift混编的一些小知识/">OC/Swift混编的一些小知识</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/12/15/s10-OC-Swift混编的一些小知识/">
-            <time datetime="2020-12-15T05:31:57.000Z" itemprop="datePublished">2020-12-15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Swift/">Swift</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/11/25/s14.Swift 小记/">Swift 小记</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/11/25/s14.Swift 小记/">
-            <time datetime="2020-11-25T02:31:30.000Z" itemprop="datePublished">2020-11-25</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Swift/">Swift</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/11/20/s13.Array的常见操作/">Array的常见操作</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/11/20/s13.Array的常见操作/">
-            <time datetime="2020-11-20T04:31:57.000Z" itemprop="datePublished">2020-11-20</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Swift/">Swift</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/">Swift中的指针(UnsafePointer)</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/">
@@ -393,59 +257,162 @@ var _hmt = _hmt || [];
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Swift/">Swift</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/11/15/s11.关于指针的强制类型转换/">关于指针的强制类型转换</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>#####Swift中也有专门的指针类型，这些都被定性为“Unsafe”(不安全的)。</p>
+<p>#####常见的有以下4种类型：</p>
+<ul>
+<li><code>UnsafePointer&lt;Pointee&gt;</code>类似于 <code>const Pointee *</code></li>
+<li><code>UnsafeMutablePointer&lt;Pointee&gt;</code> 类似于 <code>Pointee *</code></li>
+<li><code>UnsafeRawPointer</code> 类似于 <code>const void *</code></li>
+<li><code>UnsafeMutableRawPointer</code> 类似于 <code>void *</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var age = 10</span><br><span class="line">func test1(_ ptr: UnsafeMutablePointer&lt;Int&gt;) &#123;</span><br><span class="line">	ptr.pointee += 10 </span><br><span class="line">&#125;</span><br><span class="line">func test2(_ ptr: UnsafePointer&lt;Int&gt;) &#123; </span><br><span class="line">	print(ptr.pointee)</span><br><span class="line">&#125;</span><br><span class="line">test1(&amp;age)</span><br><span class="line">test2(&amp;age) // 20</span><br><span class="line">print(age) // 20</span><br><span class="line"></span><br><span class="line">var age = 10</span><br><span class="line">func test3(_ ptr: UnsafeMutableRawPointer) &#123;</span><br><span class="line">	ptr.storeBytes(of: 20, as: Int.self) </span><br><span class="line">&#125;</span><br><span class="line">func test4(_ ptr: UnsafeRawPointer) &#123; </span><br><span class="line">	print(ptr.load(as: Int.self))</span><br><span class="line">&#125;</span><br><span class="line">test3(&amp;age)</span><br><span class="line">test4(&amp;age) // 20</span><br><span class="line">print(age) // 20</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>获得指向某个变量的指针:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var age = 11</span><br><span class="line">var ptr1 = withUnsafeMutablePointer(to: &amp;age) &#123; $0 &#125; </span><br><span class="line">var ptr2 = withUnsafePointer(to: &amp;age) &#123; $0 &#125; </span><br><span class="line">ptr1.pointee = 22</span><br><span class="line">print(ptr2.pointee) // 22</span><br><span class="line">print(age) // 22</span><br><span class="line"></span><br><span class="line">var ptr3 = withUnsafeMutablePointer(to: &amp;age) &#123; UnsafeMutableRawPointer($0) &#125; </span><br><span class="line">var ptr4 = withUnsafePointer(to: &amp;age) &#123; UnsafeRawPointer($0) &#125; </span><br><span class="line">ptr3.storeBytes(of: 33, as: Int.self)</span><br><span class="line">print(ptr4.load(as: Int.self)) // 33</span><br><span class="line">print(age) // 33</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获得指向堆空间实例的指针：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// UnsafeRawPointer(bitPattern:)函数用来生成指向某一地址的指针</span><br><span class="line">var ptr = UnsafeRawPointer(bitPattern: 0x100001234)</span><br><span class="line"></span><br><span class="line">class Person &#123;&#125;</span><br><span class="line">// 类似于 *p = person</span><br><span class="line">var person = Person()</span><br><span class="line">// p = &amp;person， p是person变量的地址值</span><br><span class="line">var ptr = withUnsafePointer(to: &amp;person) &#123; UnsafeRawPointer($0) &#125;</span><br><span class="line">// ptr.load(as: UInt.self) 类似于 *p， 取出地址中存储的值，也就是Person实例在堆上的地址值</span><br><span class="line">var heapPtr = UnsafeRawPointer(bitPattern: ptr.load(as: UInt.self)) </span><br><span class="line">print(heapPtr!)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建指针：</p>
+<ul>
+<li><p>非泛型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  	// 创建</span><br><span class="line">var ptr = malloc(16)</span><br><span class="line">// 存</span><br><span class="line">ptr?.storeBytes(of: 11, as: Int.self)</span><br><span class="line">ptr?.storeBytes(of: 22, toByteOffset: 8, as: Int.self)</span><br><span class="line">// 取</span><br><span class="line">print((ptr?.load(as: Int.self))!) // 11 </span><br><span class="line">// fromByteOffset: 地址偏移</span><br><span class="line">print((ptr?.load(fromByteOffset: 8, as: Int.self))!) // 22 </span><br><span class="line">// 销毁</span><br><span class="line">free(ptr)</span><br><span class="line"></span><br><span class="line">var ptr = UnsafeMutableRawPointer.allocate(byteCount: 16, alignment: 1) </span><br><span class="line">ptr.storeBytes(of: 11, as: Int.self)</span><br><span class="line">// advanced: 也是地址偏移</span><br><span class="line">ptr.advanced(by: 8).storeBytes(of: 22, as: Int.self) </span><br><span class="line">print(ptr.load(as: Int.self)) // 11</span><br><span class="line">print(ptr.advanced(by: 8).load(as: Int.self)) // 22 </span><br><span class="line">// 销毁</span><br><span class="line">ptr.deallocate()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>泛型<br>基础数据类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  var ptr = UnsafeMutablePointer&lt;Int&gt;.allocate(capacity: 3) </span><br><span class="line">ptr.initialize(to: 11)</span><br><span class="line">// successor()后继, 表示向后走&lt;Int&gt;长度个字节</span><br><span class="line">ptr.successor().initialize(to: 22) </span><br><span class="line">ptr.successor().successor().initialize(to: 33)</span><br><span class="line">print(ptr.pointee) // 11 </span><br><span class="line">// 这里的 + 指的是指针的加，步长为&lt;Int&gt;长度个字节</span><br><span class="line">print((ptr + 1).pointee) // 22 </span><br><span class="line">print((ptr + 2).pointee) // 33</span><br><span class="line"></span><br><span class="line">print(ptr[0]) // 11</span><br><span class="line">print(ptr[1]) // 22</span><br><span class="line">print(ptr[2]) // 33</span><br><span class="line">ptr.deinitialize(count: 3) </span><br><span class="line">ptr.deallocate()</span><br></pre></td></tr></table></figure>
+<p>对象类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  	class Person &#123;</span><br><span class="line">    var age: Int</span><br><span class="line">	var name: String</span><br><span class="line">	init(age: Int, name: String) &#123;</span><br><span class="line">		self.age = age</span><br><span class="line">		self.name = name </span><br><span class="line">	&#125;</span><br><span class="line">	deinit &#123; print(name, &quot;deinit&quot;) &#125; </span><br><span class="line">&#125;</span><br><span class="line">var ptr = UnsafeMutablePointer&lt;Person&gt;.allocate(capacity: 3) </span><br><span class="line">ptr.initialize(to: Person(age: 10, name: &quot;Jack&quot;))</span><br><span class="line">(ptr + 1).initialize(to: Person(age: 11, name: &quot;Rose&quot;)) </span><br><span class="line">(ptr + 2).initialize(to: Person(age: 12, name: &quot;Kate&quot;))</span><br><span class="line">// Jack deinit</span><br><span class="line">// Rose deinit</span><br><span class="line">// Kate deinit </span><br><span class="line">ptr.deinitialize(count: 3) </span><br><span class="line">ptr.deallocate()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>指针之间的转换</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  	var ptr = UnsafeMutableRawPointer.allocate(byteCount: 16, alignment: 1) </span><br><span class="line">ptr.assumingMemoryBound(to: Int.self).pointee = 11</span><br><span class="line">(ptr + 8).assumingMemoryBound(to: Double.self).pointee = 22.0 </span><br><span class="line"></span><br><span class="line">// 只改变类型，而不改变其值</span><br><span class="line">   //（值指的是二进制数据，也就是你告诉计算机这是什么类型，计算机就按什么类型解读这些二进制数据）</span><br><span class="line">print(unsafeBitCast(ptr, to: UnsafePointer&lt;Int&gt;.self).pointee) // 11</span><br><span class="line">print(unsafeBitCast(ptr + 8, to: UnsafePointer&lt;Double&gt;.self).pointee) // 22.0 </span><br><span class="line">ptr.deallocate()</span><br><span class="line"></span><br><span class="line">// unsafeBitCast是忽略数据类型的强制转换，不会因为数据类型的变化而改变原来的内存数据 </span><br><span class="line">// 类似于C++中的reinterpret_cast</span><br><span class="line"></span><br><span class="line">class Person &#123;&#125;</span><br><span class="line">var person = Person()</span><br><span class="line">var ptr = unsafeBitCast(person, to: UnsafeRawPointer.self) </span><br><span class="line">print(ptr)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><em>关于指针的强制类型转换<a href="https://www.jianshu.com/p/f9e4a04b6cad" target="_blank" rel="noopener">可参考这篇</a></em></strong></p>
+</li>
+</ul>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/11/15/s11.关于指针的强制类型转换/">
-            <time datetime="2020-11-15T05:45:57.000Z" itemprop="datePublished">2020-11-15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/code/">code</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://blogzhou.top/2020/11/18/s12.Swift中的指针(UnsafePointer)/#comments" id="sourceId::2020/11/18/s12.Swift中的指针(UnsafePointer)/" class="article-comment-link cy_cmt_count">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/11/20/s13.Array的常见操作/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Array的常见操作
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2020/11/15/s11.关于指针的强制类型转换/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">关于指针的强制类型转换</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="SOHUCS" sid="2020/11/18/s12.Swift中的指针(UnsafePointer)/"></div>
+</section>
+    
+
 </section>
             
                 
