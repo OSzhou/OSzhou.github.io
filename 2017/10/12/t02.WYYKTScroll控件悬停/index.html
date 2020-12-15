@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Category: javascript | Fighting</title>
+    <title>WYYKTScroll控件悬停 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="The biggest adventure you can take is to live the life of your dreams">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fighting">
-<meta property="og:url" content="http://blogzhou.top/categories/javascript/index.html">
+    <meta name="description" content="效果示例 这是一个控件悬停的UI效果实现，类似于网易云课堂的详情页UI效果">
+<meta name="keywords" content="UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WYYKTScroll控件悬停">
+<meta property="og:url" content="http://blogzhou.top/2017/10/12/t02.WYYKTScroll控件悬停/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta property="og:description" content="效果示例 这是一个控件悬停的UI效果实现，类似于网易云课堂的详情页UI效果">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/desert_02.jpg">
+<meta property="og:updated_time" content="2020-07-18T03:20:22.695Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fighting">
-<meta name="twitter:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta name="twitter:title" content="WYYKTScroll控件悬停">
+<meta name="twitter:description" content="效果示例 这是一个控件悬停的UI效果实现，类似于网易云课堂的详情页UI效果">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/desert_02.jpg">
     
 
     
@@ -222,50 +226,196 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">javascript</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-t02.WYYKTScroll控件悬停" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/desert_02.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/12/t05.Node环境配置/">Node环境配置</a>
+        <h1 class="article-title" itemprop="name">
+            WYYKTScroll控件悬停
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/12/t05.Node环境配置/">
-            <time datetime="2018-03-12T01:43:45.000Z" itemprop="datePublished">2018-03-12</time>
+        <a href="/2017/10/12/t02.WYYKTScroll控件悬停/">
+            <time datetime="2017-10-12T07:25:30.000Z" itemprop="datePublished">2017-10-12</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/tool/">tool</a>
+        <a class="tag-link" href="/tags/UI/">UI</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h4 id="效果示例"><a href="#效果示例" class="headerlink" title="效果示例"></a>效果示例</h4><p><img src="http://upload-images.jianshu.io/upload_images/2149459-53f2c26e6c7f08d7.gif?imageMogr2/auto-orient/strip" alt="WYDemo2.gif"></p>
+<h3 id="这是一个控件悬停的UI效果实现，类似于网易云课堂的详情页UI效果"><a href="#这是一个控件悬停的UI效果实现，类似于网易云课堂的详情页UI效果" class="headerlink" title="这是一个控件悬停的UI效果实现，类似于网易云课堂的详情页UI效果"></a>这是一个控件悬停的UI效果实现，类似于网易云课堂的详情页UI效果</h3><a id="more"></a>
+<h4 id="1-工程引入FMBaseViewController-并添加要自定义的controller"><a href="#1-工程引入FMBaseViewController-并添加要自定义的controller" class="headerlink" title="1.工程引入FMBaseViewController, 并添加要自定义的controller"></a>1.工程引入FMBaseViewController, 并添加要自定义的controller</h4><ul>
+<li>有关头部image及button的相关设置通过，FMBaseViewController的属性进行设置，示例代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FMBaseViewController *bvc = [[FMBaseViewController alloc] init];</span><br><span class="line">bvc.btnBackColor = [UIColor cyanColor];</span><br><span class="line">bvc.btnTitleArr = @[@&quot;张三&quot;, @&quot;李四&quot;, @&quot;王五&quot;];</span><br><span class="line">bvc.indicatorColor = [UIColor yellowColor];</span><br><span class="line">bvc.isIndicatorHidden = YES;</span><br><span class="line">bvc.headImage_H = 100;</span><br><span class="line">bvc.button_H = 30;</span><br><span class="line">bvc.headImageName = @&quot;picture_3&quot;;</span><br><span class="line">bvc.isStretch = NO;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-注意：自定义的controller-必须继承于FMParentViewController-h-并且子控制器暂时只支持UITableViewController"><a href="#2-注意：自定义的controller-必须继承于FMParentViewController-h-并且子控制器暂时只支持UITableViewController" class="headerlink" title="2.注意：自定义的controller 必须继承于FMParentViewController.h, 并且子控制器暂时只支持UITableViewController"></a>2.注意：自定义的controller 必须继承于FMParentViewController.h, 并且子控制器暂时只支持UITableViewController</h4><ul>
+<li><p>子控制器类型1 ：FMTableViewStylePlain 初始化代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FMT2ViewController *t2 = [[FMT2ViewController alloc] initWithTableViewStyle:FMTableViewStylePlain];</span><br><span class="line">或者（default）</span><br><span class="line">FMT1ViewController *t1 = [[FMT1ViewController alloc] init];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子控制器类型2：FMTableViewStyleGroup 初始化代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FMT2ViewController *t2 = [[FMT2ViewController alloc] initWithTableViewStyle:FMTableViewStyleGrouped];</span><br><span class="line">或者（用属性修改）</span><br><span class="line">FMT1ViewController *t2 = [[FMT1ViewController alloc] init];</span><br><span class="line">t2.tableViewStyle = FMTableViewStyleGrouped;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-头部视图是否可以拉伸："><a href="#3-头部视图是否可以拉伸：" class="headerlink" title="3.头部视图是否可以拉伸："></a>3.头部视图是否可以拉伸：</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isStretch 属性（default is YES）</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>测试效果查看，在AppDelegate.m 的launch函数中添加（或替换）如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FMBaseViewController *bvc = [[FMBaseViewController alloc] init];</span><br><span class="line">    self.window.rootViewController = bvc;</span><br><span class="line">    [self.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自定义子controller初始化后传入该数组childVCArr，示例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FMBaseViewController *bvc = [[FMBaseViewController alloc] init];</span><br><span class="line">FMT1ViewController *t1 = [[FMT1ViewController alloc] init];</span><br><span class="line">FMT2ViewController *t2 = [[FMT2ViewController alloc] initWithTableViewStyle:FMTableViewStyleGrouped];</span><br><span class="line">FMT3ViewController *t3= [[FMT3ViewController alloc] init];</span><br><span class="line">bvc.childVCArr = @[t1, t2, t3];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>####子控制器最好不要超过5个， 暂不支持滑动（以后可能添加，敬请期待！）</p>
+<ul>
+<li>headView上的内容可自定义添加，通过 ftc.headView可拿到head部分的视图添加自己的控件。</li>
+<li>支持cocoaPods 安装 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pod search WYTest</span><br><span class="line">在Podfile中添加</span><br><span class="line">pod &quot;WYTest&quot;</span><br><span class="line">pod install || pod update</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###2018.08.01更新</p>
+<p>####增加对UICollectionView的支持，controller必须继承自FMBaseCollectionViewController</p>
+<ul>
+<li>示例代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FMT1ViewController *t1 = [[FMT1ViewController alloc] init];</span><br><span class="line">t1.tableViewStyle = FMTableViewStyleGrouped;</span><br><span class="line">FMC1ViewController *c1 = [[FMC1ViewController alloc] init];</span><br><span class="line">FMT3ViewController *t3= [[FMT3ViewController alloc] init];</span><br></pre></td></tr></table></figure>
+<h4 id="效果示例-全collectionView"><a href="#效果示例-全collectionView" class="headerlink" title="效果示例 - 全collectionView"></a>效果示例 - 全collectionView</h4><p><img src="https://upload-images.jianshu.io/upload_images/2149459-81372f034ffad1fa.gif?imageMogr2/auto-orient/strip" alt="collectionSupport1.gif"></p>
+<h4 id="效果示例-collectionView-和-tableView混合"><a href="#效果示例-collectionView-和-tableView混合" class="headerlink" title="效果示例 - collectionView 和 tableView混合"></a>效果示例 - collectionView 和 tableView混合</h4><p><img src="https://upload-images.jianshu.io/upload_images/2149459-5e3a134d074774c1.gif?imageMogr2/auto-orient/strip" alt="collectionSupport.gif"></p>
+<p>##github Demo下载地址<br><a href="https://github.com/OSzhou/WYYKTScroll.git" target="_blank" rel="noopener">点击去下载</a></p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://blogzhou.top/2017/10/12/t02.WYYKTScroll控件悬停/#comments" id="sourceId::2017/10/12/t02.WYYKTScroll控件悬停/" class="article-comment-link cy_cmt_count">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/10/12/t03.UICollectionView下拉刷新闪一下问题解决/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    UICollectionView下拉刷新闪一下问题解决
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/10/11/t01.如何使项目支持cocoaPods/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">如何利用pod trunk发布程序</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="SOHUCS" sid="2017/10/12/t02.WYYKTScroll控件悬停/"></div>
+</section>
+    
+
 </section>
             
                 
