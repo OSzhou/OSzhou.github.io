@@ -5,19 +5,19 @@
     
     <title>OC/Swift混编的一些小知识 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="###Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突">
+    <meta name="description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OC&#x2F;Swift混编的一些小知识">
 <meta property="og:url" content="http://blogzhou.top/2020/12/15/s10-OC-Swift混编的一些小知识/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="###Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突">
+<meta property="og:description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://blogzhou.top/css/images/tree_01.jpg">
-<meta property="og:updated_time" content="2020-12-15T05:38:11.065Z">
+<meta property="og:updated_time" content="2020-12-16T06:14:49.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OC&#x2F;Swift混编的一些小知识">
-<meta name="twitter:description" content="###Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突">
+<meta name="twitter:description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
 <meta name="twitter:image" content="http://blogzhou.top/css/images/tree_01.jpg">
     
 
@@ -278,7 +278,7 @@ var _hmt = _hmt || [];
         
             
             <ul>
-<li>###Swift调用OC<br>桥接头文件:<blockquote>
+<li><h3 id="Swift调用OC"><a href="#Swift调用OC" class="headerlink" title="Swift调用OC"></a>Swift调用OC</h3>桥接头文件:<blockquote>
 <p>1.新建1个桥接头文件，文件名格式默认为:<code>{targetName}-Bridging-Header.h</code><br>2.在<code>{targetName}-Bridging-Header.h</code> 文件中#import OC需要暴露给Swift的内容<br>(可通过编译器自动生成)</p>
 </blockquote>
 </li>
@@ -289,8 +289,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <a id="more"></a>
 <ul>
-<li><p>###OC调用Swift</p>
-<blockquote>
+<li><h3 id="OC调用Swift"><a href="#OC调用Swift" class="headerlink" title="OC调用Swift"></a>OC调用Swift</h3><blockquote>
 <p>Xcode已经默认生成一个用于OC调用Swift的头文件，文件名格式是: <code>{targetName}-Swift.h</code></p>
 </blockquote>
 </li>
@@ -326,7 +325,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/12/15/s10-OC-Swift混编的一些小知识/" data-id="ckir0ogw4000ijug34d8klazj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/12/15/s10-OC-Swift混编的一些小知识/" data-id="ckir0wzcw000kmwg3l6il6e4h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
