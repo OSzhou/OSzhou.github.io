@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>node-lesson3 | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="#node-lesson3 1.0 nvm常用命令 nvm项目地址：nvm-github地址 查看所有已安装的本地的node版本nvm list 切换node版本nvm use 版本号 安装指定版本的nodenvm install 版本号 位数 卸载已安装的指定版本的nodenvm uninstall 版本号  ###1.1模块的分类 ```12345678910111213141516- 核心模">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node-lesson3">
+<meta property="og:url" content="http://blogzhou.top/2016/12/08/old_06.node-lesson3/index.html">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="#node-lesson3 1.0 nvm常用命令 nvm项目地址：nvm-github地址 查看所有已安装的本地的node版本nvm list 切换node版本nvm use 版本号 安装指定版本的nodenvm install 版本号 位数 卸载已安装的指定版本的nodenvm uninstall 版本号  ###1.1模块的分类 ```12345678910111213141516- 核心模">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_11.jpg">
+<meta property="og:updated_time" content="2020-12-16T07:41:00.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node-lesson3">
+<meta name="twitter:description" content="#node-lesson3 1.0 nvm常用命令 nvm项目地址：nvm-github地址 查看所有已安装的本地的node版本nvm list 切换node版本nvm use 版本号 安装指定版本的nodenvm install 版本号 位数 卸载已安装的指定版本的nodenvm uninstall 版本号  ###1.1模块的分类 ```12345678910111213141516- 核心模">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_11.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                28
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                9
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-old_06.node-lesson3" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/tree_11.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            node-lesson3
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/12/08/old_06.node-lesson3/">
+            <time datetime="2016-12-08T02:30:50.000Z" itemprop="datePublished">2016-12-08</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JS/">JS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>#node-lesson3</p>
+<h2 id="1-0-nvm常用命令"><a href="#1-0-nvm常用命令" class="headerlink" title="1.0 nvm常用命令"></a>1.0 nvm常用命令</h2><ul>
+<li>nvm项目地址：<a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="noopener">nvm-github地址</a></li>
+<li>查看所有已安装的本地的node版本<br><code>nvm list</code></li>
+<li>切换node版本<br><code>nvm use 版本号</code></li>
+<li>安装指定版本的node<br><code>nvm install 版本号 位数</code></li>
+<li>卸载已安装的指定版本的node<br><code>nvm uninstall 版本号</code></li>
+</ul>
+<p>###1.1模块的分类</p>
+<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- 核心模块</span><br><span class="line">  + fs file system</span><br><span class="line">  + http</span><br><span class="line">  + os</span><br><span class="line">  + path</span><br><span class="line">  + querystring</span><br><span class="line">  + url</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">###1.2模块三兄弟 require、module、exports</span><br><span class="line"></span><br><span class="line">- require的实现原理</span><br><span class="line"></span><br><span class="line">```把代码从文件中读出来，用匿名函数的方式头尾包装，返回modules.exports对象，曝露出想要曝露出来的属性、方法、对象。</span><br><span class="line">   补充了exports是指向modules.exports的一个指针，exports能做的，modules.exports都能做的。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>require查找文件、包原理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第二次加载的时候优先从缓存查找读取，</span><br><span class="line">node_modules中没有的，从父文件夹中查找，如果没有，直到根目录为止</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>module</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">里面保存了模块的信息路径、父子信息、曝露出的对象信息</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>exports</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports 别名</span><br><span class="line">module.exports=123;已经使用过一次了，exports就不生效了</span><br><span class="line">module.exports.a=12;这样使用,exports是还可以使用的</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###1.4包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">package.json是包的说明书，</span><br><span class="line">dependencies当前包所依赖的包：&gt;、&lt;、&gt;=、&lt;=、~、*、&quot; &quot;、X、^、</span><br><span class="line"> devDependencies 开发环境中包所依赖的包：</span><br></pre></td></tr></table></figure></p>
+<p>###1.5npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm init  创建package.json文件</span><br><span class="line">npm install  将package.json中的文件依赖的包从网上下载到本地</span><br><span class="line">npm install -save 包名  将包下载下来并且加载到dependencies中去</span><br><span class="line">npm i -S 包名 替代上面的命令</span><br><span class="line">npm install -save-dev 包名 将包下载下来并且加载到devDependencies中去</span><br><span class="line">npm i -D 包名 替代上面的命令</span><br><span class="line">npm install -g 包名 全局安装  安装的是全局工具</span><br><span class="line">npm docs 包名 查看包的文档</span><br></pre></td></tr></table></figure></p>
+<p>###1.6nrm npm的数据源管理工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nrm ls 查看npm的数据源</span><br><span class="line">nrm use 切换npm下载包的地址</span><br><span class="line">nrm test  测试下哪个数据源快</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-7-3m"><a href="#1-7-3m" class="headerlink" title="1.7 3m"></a>1.7 3m</h3><p>npm node的包管理工具<br>nvm node的版本管理工具<br>nrm npm的数据源管理工具</p>
+<p>###1.8箭头函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法糖替代function()&#123;&#125;  v=&gt;v</span><br></pre></td></tr></table></figure></p>
+<p>#2.i/o</p>
+<p>###2.1什么是i/o？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">io input、output 输入输出，电脑的输入输出，例如音频录音表示声音输入、听音乐是声音的输出</span><br><span class="line">网络上的传输全部是在传字符串，i/o在服务器上可以理解为读写操作。</span><br></pre></td></tr></table></figure>
+<p>###2.2什么是并发？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个时间段中有几个程序都处于已启动运行到运行完毕之间。</span><br></pre></td></tr></table></figure></p>
+<p>#3异步i/o与事件驱动</p>
+<p>###3.1什么是进程？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">进程是为运行当中的应用程序提供运行环境的</span><br><span class="line">一个运行当中的应用程序就会有一个进程与之相对应</span><br></pre></td></tr></table></figure></p>
+<p>###3.2什么是线程？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">线程是用来运行应用程序中代码的，</span><br><span class="line">一个线程在一个时间只能做一件事件。</span><br><span class="line">多线程，调度起来很麻烦。</span><br><span class="line">node是单线程执行，用异步替代了多线程</span><br></pre></td></tr></table></figure></p>
+<p>###3.3同步、异步有什么不同？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">异步不会阻塞后面的代码，同步会阻塞后面的代码</span><br><span class="line">一条线程先执行同步的代码后执行异步的代码。</span><br></pre></td></tr></table></figure></p>
+<p>###3.4异步非i/o操作和异步i/o操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">异步非io setTimeout setInterval</span><br><span class="line">异步IO操作 操作文件 网络操作 fs</span><br></pre></td></tr></table></figure></p>
+<p>###3.5node的事件驱动模型？<br><img src="./pic/event-loop.png" alt="Alt text"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>###3.5异步和多线程的比较？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node的异步是帮助我们去做了多线程的操作，简化了代码</span><br></pre></td></tr></table></figure></p>
+<p>#4.文件操作</p>
+<p>###4.1文件的完整读写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs模块---》操作文件---》io----》node的特长</span><br><span class="line">fs模块是node非常重要的模块，能体现出node的优势</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>fs.readFile()  读文件</li>
+<li>fs.writeFile()  写文件</li>
+<li>fs.appendFile() 在文件的内部去追加写一些内容</li>
+<li>fs.mkdir() 创建文件夹</li>
+<li>fs.readdir() 读文件夹</li>
+<li>fs.access() 判断路径</li>
+<li>fs.stat()<br>isFile：用于判断被查看的对象是否为一个文件，如果是返回true，否则，返回false；<br>isDirectory：用于判断被查看的对象是否为一个目录，如果是的话则返回true，否则，返回false；<br>isSymbolicLink：用于判断被查看的文件是否为一个符号链接文件，如果是的话则返回true，否则，返回false。该方法仅在lstat方法的回调函数中有效；</li>
+</ul>
+<p>#5.异常处理<br>什么是异常？<br>计算机不能处理的状况称之为异常<br>try catch 只能捕获同步异常<br>try {<br>  fs.accessSync(‘./02sfdasdfio.js’);<br>} catch (err) {<br>  console.log(“1”+err);<br>}<br>异步异常对象和被try catch捕获的对象是一样的</p>
+<p>#6.path</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2016/12/08/old_06.node-lesson3/" data-id="ckir4c81a000k55g3oht9egmw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/12/15/old_07.node-lesson4/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    node-lesson4
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/11/28/old_05.node-lesson2/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">node-lesson2</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/20/s13.Array的常见操作/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/11/20/s13.Array的常见操作/" class="title">Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-11-20T04:31:57.000Z" itemprop="datePublished">2020-11-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swift中的指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/" class="title">Swift中的指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-11-18T01:31:57.000Z" itemprop="datePublished">2020-11-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/11/15/s11.关于指针的强制类型转换/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/11/15/s11.关于指针的强制类型转换/" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-11-15T05:45:57.000Z" itemprop="datePublished">2020-11-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/25/old_02.App启动优化/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/25/old_02.App启动优化/" class="title">App启动优化</a></p>
+                            <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/25/s14.Swift 小记/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_05.jpg)" alt="Swift 小记" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2019/12/25/s14.Swift 小记/" class="title">Swift 小记</a></p>
+                            <p class="item-date"><time datetime="2019-12-25T02:31:30.000Z" itemprop="datePublished">2019-12-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/OC/" style="font-size: 12px;">OC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/UI/" style="font-size: 18px;">UI</a> <a href="/tags/Words/" style="font-size: 12px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 12px;">code</a> <a href="/tags/poetry/" style="font-size: 14px;">poetry</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
