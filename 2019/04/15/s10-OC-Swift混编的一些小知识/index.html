@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Category: javascript | Fighting</title>
+    <title>OC/Swift混编的一些小知识 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="The biggest adventure you can take is to live the life of your dreams">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fighting">
-<meta property="og:url" content="http://blogzhou.top/categories/javascript/index.html">
+    <meta name="description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
+<meta name="keywords" content="Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OC&#x2F;Swift混编的一些小知识">
+<meta property="og:url" content="http://blogzhou.top/2019/04/15/s10-OC-Swift混编的一些小知识/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta property="og:description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_01.jpg">
+<meta property="og:updated_time" content="2020-12-16T06:20:33.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fighting">
-<meta name="twitter:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta name="twitter:title" content="OC&#x2F;Swift混编的一些小知识">
+<meta name="twitter:description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_01.jpg">
     
 
     
@@ -222,50 +226,209 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">javascript</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-s10-OC-Swift混编的一些小知识" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/tree_01.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/03/12/t05.Node环境配置/">Node环境配置</a>
+        <h1 class="article-title" itemprop="name">
+            OC/Swift混编的一些小知识
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/12/t05.Node环境配置/">
-            <time datetime="2018-03-12T01:43:45.000Z" itemprop="datePublished">2018-03-12</time>
+        <a href="/2019/04/15/s10-OC-Swift混编的一些小知识/">
+            <time datetime="2019-04-15T12:31:57.000Z" itemprop="datePublished">2019-04-15</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/tool/">tool</a>
+        <a class="tag-link" href="/tags/Swift/">Swift</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <ul>
+<li><h3 id="Swift调用OC"><a href="#Swift调用OC" class="headerlink" title="Swift调用OC"></a>Swift调用OC</h3>桥接头文件:<blockquote>
+<p>1.新建1个桥接头文件，文件名格式默认为:<code>{targetName}-Bridging-Header.h</code><br>2.在<code>{targetName}-Bridging-Header.h</code> 文件中#import OC需要暴露给Swift的内容<br>(可通过编译器自动生成)</p>
+</blockquote>
+</li>
+</ul>
+<p><code>@_silgen_name</code>关键字：</p>
+<blockquote>
+<p>1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了<br>2.可以在Swift中使用 @_silgen_name 修改C函数名（可以用此方法调用系统底层函数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// C语言</span><br><span class="line">int sum(int a, int b) &#123;</span><br><span class="line">return a + b; &#125;</span><br><span class="line"></span><br><span class="line">// Swift</span><br><span class="line">@_silgen_name(&quot;sum&quot;) </span><br><span class="line">func swift_sum(_ v1: Int32, _ v2: Int32) -&gt; Int32</span><br><span class="line"></span><br><span class="line">print(swift_sum(10, 20)) // 30</span><br><span class="line">print(sum(10, 20)) // 30</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<a id="more"></a>
+<ul>
+<li><h3 id="OC调用Swift"><a href="#OC调用Swift" class="headerlink" title="OC调用Swift"></a>OC调用Swift</h3><blockquote>
+<p>Xcode已经默认生成一个用于OC调用Swift的头文件，文件名格式是: <code>{targetName}-Swift.h</code></p>
+</blockquote>
+</li>
+<li><p>Swift暴露给OC的类最终继承自NSObject </p>
+</li>
+<li>使用<code>@objc</code>修饰需要暴露给OC的成员</li>
+<li>使用<code>@objcMembers</code>修饰类 <ul>
+<li>代表默认所有成员都会暴露给OC(包括扩展中定义的成员) </li>
+<li>最终是否成功暴露，还需要考虑成员自身的访问级别</li>
+</ul>
+</li>
+</ul>
+<p><code>@objc</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 可以通过@objc 重命名Swift暴露给OC的符号名(类名、属性名、函数名等)</span><br><span class="line">@objc(MJCar)</span><br><span class="line">@objcMembers class Car: NSObject &#123;</span><br><span class="line">	var price: Double</span><br><span class="line">	@objc(name)</span><br><span class="line">	var band: String</span><br><span class="line">	init(price: Double, band: String) &#123;</span><br><span class="line">		self.price = price</span><br><span class="line">		self.band = band </span><br><span class="line">	&#125;</span><br><span class="line">	@objc(drive)</span><br><span class="line">	func run() &#123; print(price, band, &quot;run&quot;) &#125; </span><br><span class="line">	static func run() &#123; print(&quot;Car run&quot;) &#125;</span><br><span class="line">&#125;</span><br><span class="line">extension Car &#123;</span><br><span class="line">    @objc(exec:v2:)</span><br><span class="line">	func test() &#123; print(price, band, &quot;test&quot;) &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>选择器(<code>Selector</code>):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// Swift中依然可以使用选择器，使用#selector(name)定义一个选择器 </span><br><span class="line">// 必须是被@objcMembers或@objc修饰的方法才可以定义选择器</span><br><span class="line">@objcMembers class Person: NSObject &#123;</span><br><span class="line">	func test1(v1: Int) &#123; print(&quot;test1&quot;) &#125;</span><br><span class="line">	func test2(v1: Int, v2: Int) &#123; print(&quot;test2(v1:v2:)&quot;) &#125;</span><br><span class="line">	func test2(_ v1: Double, _ v2: Double) &#123; print(&quot;test2(_:_:)&quot;) &#125; </span><br><span class="line">	func run() &#123;</span><br><span class="line">		perform(#selector(test1)) </span><br><span class="line">		perform(#selector(test1(v1:))) </span><br><span class="line">		perform(#selector(test2(v1:v2:))) </span><br><span class="line">		perform(#selector(test2(_:_:))) </span><br><span class="line">		perform(#selector(test2 as (Double, Double) -&gt; Void))</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>dynamic</code><br> 被 @objc dynamic 修饰的内容会具有动态性，比如调用方法会走runtime那一套流程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Dog: NSObject &#123;</span><br><span class="line">    @objc dynamic func test1() &#123;&#125;</span><br><span class="line">    func test2() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">var d = Dog() </span><br><span class="line">d.test1()</span><br><span class="line">d.test2()</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h3 id="Swift语言中的一些编译器特性："><a href="#Swift语言中的一些编译器特性：" class="headerlink" title="Swift语言中的一些编译器特性："></a>Swift语言中的一些编译器特性：</h3>代码注释相关：<blockquote>
+<p>// MARK: 类似于OC中的 #pragma mark<br>// MARK: - 类似于OC中的 #pragma mark -<br>// TODO: 用于标记未完成的任务<br>// FIXME: 用于标记待修复的问题<br><code>#warning(&quot;undo&quot;)</code></p>
+</blockquote>
+</li>
+</ul>
+<p>条件编译：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 操作系统:macOS\iOS\tvOS\watchOS\Linux\Android\Windows\FreeBSD #if os(macOS) || os(iOS)</span><br><span class="line">// CPU架构:i386\x86_64\arm\arm64</span><br><span class="line">#elseif arch(x86_64) || arch(arm64)</span><br><span class="line">// swift版本</span><br><span class="line">#elseif swift(&lt;5) &amp;&amp; swift(&gt;=3)</span><br><span class="line">// 模拟器</span><br><span class="line">#elseif targetEnvironment(simulator) </span><br><span class="line">// 可以导入某模块</span><br><span class="line">#elseif canImport(Foundation)</span><br><span class="line">#else</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure></p>
+<p>系统版本检测:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if #available(iOS 10, macOS 10.12, *) &#123;</span><br><span class="line">	// 对于iOS平台，只在iOS10及以上版本执行</span><br><span class="line">	// 对于macOS平台，只在macOS 10.12及以上版本执行 // 最后的*表示在其他所有平台都执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>API可用性说明:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@available(iOS 10, macOS 10.15, *) </span><br><span class="line">class Person &#123;&#125;</span><br><span class="line">struct Student &#123;</span><br><span class="line">    @available(*, unavailable, renamed: &quot;study&quot;)</span><br><span class="line">    func study_() &#123;&#125;</span><br><span class="line">    func study() &#123;&#125;</span><br><span class="line">	@available(iOS, deprecated: 11) </span><br><span class="line">	@available(macOS, deprecated: 10.12) </span><br><span class="line">	func run() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://docs.swift.org/swift-book/ReferenceManual/Attributes.html" target="_blank" rel="noopener">更多用法参考</a><br>自定义打印:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func logger&lt;T&gt;(_ msg: T,</span><br><span class="line">			    file: NSString = #file,</span><br><span class="line">                line: Int = #line,</span><br><span class="line">                  fn: String = #function) &#123;</span><br><span class="line">    #if DEBUG</span><br><span class="line">	let prefix = &quot;\(file.lastPathComponent)_\(line)_\(fn):&quot; </span><br><span class="line">	print(prefix, msg)</span><br><span class="line">	#endif</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://blogzhou.top/2019/04/15/s10-OC-Swift混编的一些小知识/" data-id="ckir109c1000lpfg33mml8obo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/12/25/s14.Swift 小记/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Swift 小记
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/05/03/t08.几种常见的排序/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">几种常见的排序</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
 </section>
             
                 
