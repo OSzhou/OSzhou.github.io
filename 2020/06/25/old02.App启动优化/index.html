@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Swift 小记 | Fighting</title>
+    <title>App启动优化 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="#####一、冷启动和热启动  定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行">
+    <meta name="description" content="一、冷启动和热启动 定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行缓存，所以比">
 <meta name="keywords" content="OC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift 小记">
+<meta property="og:title" content="App启动优化">
 <meta property="og:url" content="http://blogzhou.top/2020/06/25/old02.App启动优化/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="#####一、冷启动和热启动  定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行">
+<meta property="og:description" content="一、冷启动和热启动 定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行缓存，所以比">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://blogzhou.top/css/images/tree_07.jpg">
-<meta property="og:updated_time" content="2020-12-16T06:07:46.566Z">
+<meta property="og:updated_time" content="2020-12-16T06:11:23.467Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift 小记">
-<meta name="twitter:description" content="#####一、冷启动和热启动  定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行">
+<meta name="twitter:title" content="App启动优化">
+<meta name="twitter:description" content="一、冷启动和热启动 定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行缓存，所以比">
 <meta name="twitter:image" content="http://blogzhou.top/css/images/tree_07.jpg">
     
 
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Swift 小记
+            App启动优化
         </h1>
     
 
@@ -277,8 +277,7 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>#####一、冷启动和热启动</p>
-<ul>
+            <h5 id="一、冷启动和热启动"><a href="#一、冷启动和热启动" class="headerlink" title="一、冷启动和热启动"></a>一、冷启动和热启动</h5><ul>
 <li>定义：<ul>
 <li>1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。</li>
 <li>2.关于热启动：<br>   对热启动有两种不同的看法：<ul>
@@ -331,9 +330,8 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>1.动态库尽可能少，不要多与6个，如果多了，尽可能合并<br>2.20000个类  800毫秒<br>3.swift静态语言，性能更高</p>
 </blockquote>
-<p>#####六、ObjC SetUp<br>由于之前2步骤的优化，这一步实际上没有什么可做的。几乎都靠 Rebasing 和 Binding 步骤中减少所需 fix-up 内容。因为前面的工作也会使得这步耗时减少。</p>
-<p>#####七、Initializers</p>
-<ul>
+<h5 id="六、ObjC-SetUp"><a href="#六、ObjC-SetUp" class="headerlink" title="六、ObjC SetUp"></a>六、ObjC SetUp</h5><p>由于之前2步骤的优化，这一步实际上没有什么可做的。几乎都靠 Rebasing 和 Binding 步骤中减少所需 fix-up 内容。因为前面的工作也会使得这步耗时减少。</p>
+<h5 id="七、Initializers"><a href="#七、Initializers" class="headerlink" title="七、Initializers"></a>七、Initializers</h5><ul>
 <li>以上三步属于静态调整，都是在修改<code>__DATA segment</code>中的内容<br>现在开始动态调整，在堆和栈中写入内容。 工作主要有：<br>1、<code>Objc</code>的<code>+load()</code>函数<br>2、C++的构造函数属性函数 形如<code>attribute((constructor)) void DoSomeInitializationWork()</code><br>3、非基本类型的C++静态全局变量的创建(通常是类或结构体)(non-trivial initializer) 比如一个全局静态结构体的构建，如果在构造函数中有繁重的工作，那么会拖慢启动速度<br><strong><em>可以做的优化有：</em></strong><br>①使用 +initialize 来替代 +load<br>②不要使用 atribute((constructor)) 将方法显式标记为初始化器，而是让初始化方法调用时才执行。 比如使用 dispatch_once(),pthread_once() 或 std::once()。也就是在第一次使用时才初始化，推迟了一部分工作耗时。 也尽量不要用到C++的静态对象。<blockquote>
 <p>从效率上来说，在<code>+load</code> 和<code>+initialize</code>里执行同样的代码，效率是一样的，即使有差距，也不会差距太大。 但所有的<code>+load</code>方法都在启动的时候调用，方法多了就会严重影响启动速度了。 就说我们项目中，有200个左右<code>+load</code>方法，一共耗时大概1s 左右，这块就会严重影响到用户感知了。 而<code>+initialize</code>方法是在对应 Class 第一次使用的时候调用，这是一个懒加载的方法，理想情况下，这200个<code>+load</code>方法都使用<code>+initialize</code>来代替，将耗时分摊到用户使用过程中，每个方法平均耗时只有5ms，用户完全可以无感知。</p>
 </blockquote>
@@ -346,7 +344,7 @@ var _hmt = _hmt || [];
 <p>system trace<br>Main Thread<br>Virtual Memory  File Backard Page In</p>
 <p>ldyd<br>order_file    自己写一个文件，里边指定方法的顺序，可以将启动要调用的方法，都放到里边。<br>libc-order在objc源码里边，这就是二进制重排</p>
 <p>所有OC方法获取<br>用fishhook 去 HOOK objc_msgSend()方法，可以拿到所有的函数<br>可以用Clang插庒的方式AOP</p>
-<p>main过程：<br><img src="https://upload-images.jianshu.io/upload_images/2149459-8b027b61da9c161d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="八、main过程："><a href="#八、main过程：" class="headerlink" title="八、main过程："></a>八、main过程：</h5><p><img src="https://upload-images.jianshu.io/upload_images/2149459-8b027b61da9c161d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
 <li><p>Main函数之后</p>
 <blockquote>
@@ -387,7 +385,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/06/25/old02.App启动优化/" data-id="ckir0k1ng0007gdg3u7sdxb9c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/06/25/old02.App启动优化/" data-id="ckir0ogv60003jug3bc78f1gw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
