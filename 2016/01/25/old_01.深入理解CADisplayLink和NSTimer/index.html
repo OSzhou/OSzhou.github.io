@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>关于指针的强制类型转换 | Fighting</title>
+    <title>Swift 小记 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
-<meta name="keywords" content="code">
+    <meta name="description" content="深入理解CADisplayLink和NSTimer 一、什么是CADisplayLink简单地说，它就是一个定时器，每隔几毫秒刷新一次屏幕。  CADisplayLink是一个能让我们以和屏幕刷新率相同的频率将内容画到屏幕上的定时器。我们在应用中创建一个新的 CADisplayLink 对象，把它添加到一个runloop中，并给它提供一个 target 和 selector 在屏幕刷新的时候调用。">
+<meta name="keywords" content="OC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于指针的强制类型转换">
-<meta property="og:url" content="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/index.html">
+<meta property="og:title" content="Swift 小记">
+<meta property="og:url" content="http://blogzhou.top/2016/01/25/old_01.深入理解CADisplayLink和NSTimer/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
+<meta property="og:description" content="深入理解CADisplayLink和NSTimer 一、什么是CADisplayLink简单地说，它就是一个定时器，每隔几毫秒刷新一次屏幕。  CADisplayLink是一个能让我们以和屏幕刷新率相同的频率将内容画到屏幕上的定时器。我们在应用中创建一个新的 CADisplayLink 对象，把它添加到一个runloop中，并给它提供一个 target 和 selector 在屏幕刷新的时候调用。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://blogzhou.top/css/images/tree_02.jpg">
-<meta property="og:updated_time" content="2020-12-15T05:48:31.067Z">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_06.jpg">
+<meta property="og:updated_time" content="2020-12-16T04:18:00.320Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于指针的强制类型转换">
-<meta name="twitter:description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
-<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_02.jpg">
+<meta name="twitter:title" content="Swift 小记">
+<meta name="twitter:description" content="深入理解CADisplayLink和NSTimer 一、什么是CADisplayLink简单地说，它就是一个定时器，每隔几毫秒刷新一次屏幕。  CADisplayLink是一个能让我们以和屏幕刷新率相同的频率将内容画到屏幕上的定时器。我们在应用中创建一个新的 CADisplayLink 对象，把它添加到一个runloop中，并给它提供一个 target 和 selector 在屏幕刷新的时候调用。">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_06.jpg">
     
 
     
@@ -226,12 +226,12 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-s11.关于指针的强制类型转换" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-old_01.深入理解CADisplayLink和NSTimer" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="/css/images/tree_02.jpg" class="article-banner" />
+		<img src="/css/images/tree_06.jpg" class="article-banner" />
 	
 
 
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            关于指针的强制类型转换
+            Swift 小记
         </h1>
     
 
@@ -251,8 +251,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/11/15/s11.关于指针的强制类型转换/">
-            <time datetime="2020-11-15T05:45:57.000Z" itemprop="datePublished">2020-11-15</time>
+        <a href="/2016/01/25/old_01.深入理解CADisplayLink和NSTimer/">
+            <time datetime="2016-01-25T02:31:30.000Z" itemprop="datePublished">2016-01-25</time>
         </a>
     </div>
 
@@ -266,7 +266,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/code/">code</a>
+        <a class="tag-link" href="/tags/OC/">OC</a>
     </div>
 
                     </div>
@@ -277,11 +277,59 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <blockquote>
-<p><strong>将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。</strong></p>
-</blockquote>
-<p><em>强制类型转换的一个效果是改变指针运算的伸缩。</em><br>例如：<br>如果p是个char <em>类型的指针，他的值为P，那么表达式<br>`(int </em>)p + 7 = P + 28<code>因为int占4字节，而char只占1字节
-而:</code>(int <em>)(p + 7) = P + 7`<br>因为，强制类型转换的优先级高于加法。<br>**</em>PS:<em>**<br>指针+i，表示加i个单元格，即加`i </em> sizeof(指针本身去掉一个*)`的字节：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(int *)p + 7 = P + 7 * sizeof(int) = P + 28</span><br></pre></td></tr></table></figure></p>
+            <p><a href="https://www.cnblogs.com/oc-bowen/p/8665465.html" target="_blank" rel="noopener">深入理解CADisplayLink和NSTimer</a></p>
+<h5 id="一、什么是CADisplayLink"><a href="#一、什么是CADisplayLink" class="headerlink" title="一、什么是CADisplayLink"></a>一、什么是CADisplayLink</h5><p>简单地说，它就是一个定时器，每隔几毫秒刷新一次屏幕。 </p>
+<p><code>CADisplayLink</code>是一个能让我们以和屏幕刷新率相同的频率将内容画到屏幕上的定时器。我们在应用中创建一个新的 <code>CADisplayLink</code> 对象，把它添加到一个<code>runloop</code>中，并给它提供一个 <code>target</code> 和 <code>selector</code> 在屏幕刷新的时候调用。 </p>
+<p>一但 <code>CADisplayLink</code> 以特定的模式注册到<code>runloop</code>之后，每当屏幕需要刷新的时候，<code>runloop</code>就会调用<code>CADisplayLink</code>绑定的<code>target</code>上的<code>selector</code>，这时<code>target</code>可以读到 <code>CADisplayLink</code> 的每次调用的时间戳，用来准备下一帧显示需要的数据。例如一个视频应用使用时间戳来计算下一帧要显示的视频数据。在UI做动画的过程中，需要通过时间戳来计算UI对象在动画的下一帧要更新的大小等等。 </p>
+<p>在添加进<code>runloop</code>的时候我们应该选用高一些的优先级，来保证动画的平滑。可以设想一下，我们在动画的过程中，<code>runloop</code>被添加进来了一个高优先级的任务，那么，下一次的调用就会被暂停转而先去执行高优先级的任务，然后在接着执行<code>CADisplayLink</code>的调用，从而造成动画过程的卡顿，使动画不流畅。 </p>
+<p><code>duration</code>属性:提供了每帧之间的时间，也就是屏幕每次刷新之间的的时间。该属性在<code>target</code>的<code>selector</code>被首次调用以后才会被赋值。<code>selector</code>的调用间隔时间计算方式是：<code>时间=duration×frameInterval</code>。 我们可以使用这个时间来计算出下一帧要显示的UI的数值。但是 <code>duration</code>只是个大概的时间，如果CPU忙于其它计算，就没法保证以相同的频率执行屏幕的绘制操作，这样会跳过几次调用回调方法的机会。 </p>
+<p><code>frameInterval</code>属性:是可读可写的<code>NSInteger</code>型值，标识间隔多少帧调用一次<code>selector</code> 方法，默认值是1，即每帧都调用一次。如果每帧都调用一次的话，对于iOS设备来说那刷新频率就是60HZ也就是每秒60次，如果将 <code>frameInterval</code>设为2 那么就会两帧调用一次，也就是变成了每秒刷新30次。 </p>
+<p><code>pause</code>属性:控制<code>CADisplayLink</code>的运行。当我们想结束一个<code>CADisplayLink</code>的时候，应该调用<code>-(void)invalidate</code>从<code>runloop</code>中删除并删除之前绑定的<code>target</code>跟<code>selector</code></p>
+<p><code>timestamp</code>属性: 只读的<code>CFTimeInterval</code>值，表示屏幕显示的上一帧的时间戳，这个属性通常被target用来计算下一帧中应该显示的内容。 打印<code>timestamp</code>值，其样式类似于：179699.631584。 </p>
+<a id="more"></a>
+<p><strong><em>另外 <code>CADisplayLink</code> 不能被继承。</em></strong></p>
+<p>给非UI对象添加动画效果 </p>
+<p>我们知道动画效果就是一个属性的线性变化，比如 <code>UIView</code> 动画的 <code>EasyIn EasyOut</code> 。通过数值按照不同速率的变化我们能生成更接近真实世界的动画效果。我们也可以利用这个特性来使一些其他属性按照我们期望的曲线变化。比如当播放视频时关掉视频的声音我可以通过 <code>CADisplayLink</code> 来实现一个 <code>EasyOut</code>的渐出效果：先快速的降低音量，在慢慢的渐变到静音。 </p>
+<p>注意 :</p>
+<p>通常来讲：iOS设备的刷新频率事60HZ也就是每秒60次。那么每一次刷新的时间就是1/60秒 大概16.7毫秒。当我们的<code>frameInterval</code>值为1的时候我们需要保证的是<code>CADisplayLink</code>调用的<code>target</code>的函数计算时间不应该大于 16.7否则就会出现严重的丢帧现象。 在mac应用中我们使用的不是<code>CADisplayLink</code>而是 <code>CVDisplayLink</code>它是基于C接口的用起来配置有些麻烦但是用起来还是很简单的。 </p>
+<p>#####二、CADisplayLink 与 NSTimer 有什么不同? </p>
+<p>1.原理不同 </p>
+<p><code>CADisplayLink</code>是一个能让我们以和屏幕刷新率同步的频率将特定的内容画到屏幕上的定时器类。 <code>CADisplayLink</code>以特定模式注册到<code>runloop</code>后， 每当屏幕显示内容刷新结束的时候，<code>runloop</code>就会向 <code>CADisplayLink</code>指定的<code>target</code>发送一次指定的<code>selector</code>消息，  <code>CADisplayLink</code>类对应的<code>selector</code>就会被调用一次。 </p>
+<p><code>NSTimer</code>以指定的模式注册到<code>runloop</code>后，每当设定的周期时间到达后，<code>runloop</code>会向指定的<code>target</code>发送一次指定的<code>selector</code>消息。 </p>
+<p>2.周期设置方式不同</p>
+<p>iOS设备的屏幕刷新频率(FPS)是60Hz，因此<code>CADisplayLink</code>的<code>selector</code>默认调用周期是每秒60次，这个周期可以通过<code>frameInterval</code>属性设置， <code>CADisplayLink</code>的<code>selector`</code>每秒调用次数=60/ frameInterval<code>。比如当</code> frameInterval<code>设为2，每秒调用就变成30次。因此，</code>CADisplayLink `周期的设置方式略显不便。 </p>
+<p><code>NSTimer</code>的<code>selector</code>调用周期可以在初始化时直接设定，相对就灵活的多。 </p>
+<p>3、精确度不同</p>
+<p>iOS设备的屏幕刷新频率是固定的，<code>CADisplayLink</code>在正常情况下会在每次刷新结束都被调用，精确度相当高。 </p>
+<p><code>NSTimer</code>的精确度就显得低了点，比如<code>NSTimer</code>的触发时间到的时候，<code>runloop</code>如果在阻塞状态，触发时间就会推迟到下一个<code>runloop</code>周期。并且 <code>NSTimer</code>新增了<code>tolerance</code>属性，让用户可以设置可以容忍的触发的时间的延迟范围。 </p>
+<p>4、使用场景</p>
+<p><code>CADisplayLink</code>使用场合相对专一，适合做UI的不停重绘，比如自定义动画引擎或者视频播放的渲染。 </p>
+<p><code>NSTimer</code>的使用范围要广泛的多，各种需要单次或者循环定时处理的任务都可以使用。 </p>
+<p>#####三、CADisplayLink和NSTimer的使用 </p>
+<ul>
+<li>CADisplayLink的使用 </li>
+</ul>
+<p>1.创建方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink:)]; </span><br><span class="line"></span><br><span class="line">[self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];</span><br></pre></td></tr></table></figure></p>
+<p>2.停止方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[self.displayLink invalidate]; </span><br><span class="line"></span><br><span class="line">self.displayLink = nil;</span><br></pre></td></tr></table></figure></p>
+<p>当把<code>CADisplayLink</code>对象add到<code>runloop</code>中后，<code>selector</code>就能被周期性调用，类似于重复的<code>NSTimer</code>被启动了；执行<code>invalidate</code>操作时，<code>CADisplayLink</code>对象就会从<code>runloop</code>中移除，<code>selector</code>调用也随即停止，类似于<code>NSTimer</code>的<code>invalidate</code>方法。 </p>
+<ul>
+<li>NSTimer的使用 </li>
+</ul>
+<ol>
+<li><p>创建方法 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(action:) userInfo:nil repeats:NO]; </span><br><span class="line"></span><br><span class="line">TimerInterval : 执行之前等待的时间。比如设置成1.0，就代表1秒后执行方法 </span><br><span class="line"></span><br><span class="line">target : 需要执行方法的对象。 </span><br><span class="line"></span><br><span class="line">selector : 需要执行的方法 </span><br><span class="line"></span><br><span class="line">repeats : 是否需要循环</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>释放方法 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[timer invalidate];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong><em>注意</em></strong> :调用创建方法后，<code>target</code>对象的计数器会加1，直到执行完毕，自动减1。如果是循环执行的话，就必须手动关闭，否则可以不执行释放方法。 </p>
+<ol start="3">
+<li>特性 </li>
+</ol>
+<p>存在延迟 ，不管是一次性的还是周期性的<code>timer</code>的实际触发事件的时间，都会与所加入的<code>RunLoop</code>和<code>RunLoop Mode</code>有关，如果此<code>RunLoop</code>正在执行一个连续性的运算，<code>timer</code>就会被延时出发。重复性的<code>timer</code>遇到这种情况，如果延迟超过了一个周期，则会在延时结束后立刻执行，并按照之前指定的周期继续执行。 </p>
+<p><strong><em>注意</em></strong>：必须加入Runloop </p>
+<p>使用上面的创建方式，会自动把<code>timer</code>加入<code>MainRunloop</code>的<code>NSDefaultRunLoopMode</code>中。如果使用以下方式创建定时器，就必须手动加入<code>Runloop</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSTimer *timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerAction) userInfo:nil repeats:YES]; </span><br><span class="line"></span><br><span class="line">[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -292,7 +340,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/" data-id="ckir0k1nz000lgdg3xddq9gqg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/01/25/old_01.深入理解CADisplayLink和NSTimer/" data-id="ckir0k1mu0001gdg34uu3eovw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -367,20 +415,15 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/10/11/t01.如何使项目支持cocoaPods/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Swift中的指针(UnsafePointer)
+                    如何利用pod trunk发布程序
                 
             </div>
         </a>
     
-    
-        <a href="/2020/06/25/old02.App启动优化/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Swift 小记</div>
-        </a>
     
 </nav>
 

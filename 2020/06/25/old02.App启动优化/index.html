@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>关于指针的强制类型转换 | Fighting</title>
+    <title>Swift 小记 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
-<meta name="keywords" content="code">
+    <meta name="description" content="#####一、冷启动和热启动  定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行">
+<meta name="keywords" content="OC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于指针的强制类型转换">
-<meta property="og:url" content="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/index.html">
+<meta property="og:title" content="Swift 小记">
+<meta property="og:url" content="http://blogzhou.top/2020/06/25/old02.App启动优化/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
+<meta property="og:description" content="#####一、冷启动和热启动  定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://blogzhou.top/css/images/tree_02.jpg">
-<meta property="og:updated_time" content="2020-12-15T05:48:31.067Z">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_07.jpg">
+<meta property="og:updated_time" content="2020-12-16T06:07:46.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于指针的强制类型转换">
-<meta name="twitter:description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
-<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_02.jpg">
+<meta name="twitter:title" content="Swift 小记">
+<meta name="twitter:description" content="#####一、冷启动和热启动  定义： 1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。 2.关于热启动：   对热启动有两种不同的看法： 1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动； 2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_07.jpg">
     
 
     
@@ -226,12 +226,12 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-s11.关于指针的强制类型转换" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-old02.App启动优化" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="/css/images/tree_02.jpg" class="article-banner" />
+		<img src="/css/images/tree_07.jpg" class="article-banner" />
 	
 
 
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            关于指针的强制类型转换
+            Swift 小记
         </h1>
     
 
@@ -251,8 +251,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/11/15/s11.关于指针的强制类型转换/">
-            <time datetime="2020-11-15T05:45:57.000Z" itemprop="datePublished">2020-11-15</time>
+        <a href="/2020/06/25/old02.App启动优化/">
+            <time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time>
         </a>
     </div>
 
@@ -266,7 +266,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/code/">code</a>
+        <a class="tag-link" href="/tags/OC/">OC</a>
     </div>
 
                     </div>
@@ -277,11 +277,106 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <blockquote>
-<p><strong>将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。</strong></p>
+            <p>#####一、冷启动和热启动</p>
+<ul>
+<li>定义：<ul>
+<li>1.关于冷启动：业界对冷启动的定义没有问题，普遍认为是手机开机后第一次启动某个APP。</li>
+<li>2.关于热启动：<br>   对热启动有两种不同的看法：<ul>
+<li>1.有些人认为是按下home键把APP挂到后台，之后点击APP的icon再拉回来到前台算是热启动；</li>
+<li>2.也有些人认为是手机开机后在短时间内第二次启动APP（杀掉进程重启）算是热启动（此时dyld会对部分APP的数据和库进行缓存，所以比第一次启动要快）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>（一般认为APP从后台拉起到前台的时间没啥研究的意义，所以在统计启动时间时，会倾向于后一种说法，不过具体怎么定义看个人，知道其中的区别就好）</em></strong></p>
+<blockquote>
+<p>如果启动过，内存页就已经加载进内存了，内存页如果要销毁只能是被覆盖，所以这时候的加载进物理内存的时候，实际内存中已经存在值，所以启动就会变快。</p>
 </blockquote>
-<p><em>强制类型转换的一个效果是改变指针运算的伸缩。</em><br>例如：<br>如果p是个char <em>类型的指针，他的值为P，那么表达式<br>`(int </em>)p + 7 = P + 28<code>因为int占4字节，而char只占1字节
-而:</code>(int <em>)(p + 7) = P + 7`<br>因为，强制类型转换的优先级高于加法。<br>**</em>PS:<em>**<br>指针+i，表示加i个单元格，即加`i </em> sizeof(指针本身去掉一个*)`的字节：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(int *)p + 7 = P + 7 * sizeof(int) = P + 28</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h5 id="二、优化的方向"><a href="#二、优化的方向" class="headerlink" title="二、优化的方向"></a>二、优化的方向</h5><p>1.减少流程的数量。<br>2.减少每个流程的消耗。</p>
+<h5 id="三、APP的启动过程"><a href="#三、APP的启动过程" class="headerlink" title="三、APP的启动过程"></a>三、APP的启动过程</h5><p><img src="https://upload-images.jianshu.io/upload_images/2149459-f2c4f65fb7c36bf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="四、启动时间分布"><a href="#四、启动时间分布" class="headerlink" title="四、启动时间分布"></a>四、启动时间分布</h5><p>在Xcode中，可以通过设置环境变量来查看App的启动时间，<code>DYLD_PRINT_STATISTICS</code>和<code>DYLD_PRINT_STATISTICS_DETAILS</code>。<br><img src="https://upload-images.jianshu.io/upload_images/2149459-4282a86147430e34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>根据xcode打印可以看到:<br>动态库的加载</p>
+<ul>
+<li>rebase/binding  <ul>
+<li>方法、类、Category这些需要rebase和 binding</li>
+<li>binding<br>  Mach-O _DATA建立指针，指向外部函数，我们编译的时候，共享缓存库里边的代码指向的就是这里，链接的时候，通过dyld指向外部具体真实的地址。PIC技术<br>fishook就是利用这个中转，hook的系统c函数。</li>
+</ul>
+</li>
+<li><p>Objc setup  </p>
+<ul>
+<li>类的初始化过程在这里边<br>①读取二进制文件的 DATA 段内容，找到与 objc 相关的信息<br>②注册 Objc 类，ObjC Runtime 需要维护一张映射类名与类的全局表。当加载一个 dylib 时，其定义的所有的类都需要被注册到这个全局表中；<br>③读取 protocol 以及 category 的信息，把category的定义插入方法列表 (category registration)，<br>④确保 selector 的唯一性</li>
+</ul>
+</li>
+<li><p>initializer<br>  load等函数，C++的构造函数</p>
+</li>
+</ul>
+<p>耗时比较多的<br>加载自己的库可能比较耗时</p>
+<p>两个阶段分别是 pre- main  和  main启动到viewDidAppear:<br><img src="https://upload-images.jianshu.io/upload_images/2149459-a04c355aa8a08685.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>pre-main过程：<br><img src="https://upload-images.jianshu.io/upload_images/2149459-34d3df6d07464d42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>什么是dyld?<br>    dyld是一个专门用来加载动态链接库的库。<br>    执行从dyld开始，dyld从可执行文件的依赖开始, 递归加载所有的依赖动态链接库。</p>
+<h5 id="五、-Dyld加载过程"><a href="#五、-Dyld加载过程" class="headerlink" title="五、 Dyld加载过程"></a>五、 Dyld加载过程</h5><p>加载Mach-O文件，加载一块比较大的内存空间，地址重定向<br>启动dyld的main函数</p>
+<ul>
+<li>配置xcode的环境变量 (arguments)</li>
+<li>加载共享缓存库，UIKit 和 Foundation这些</li>
+</ul>
+<p>加载LoadCommons段一系列加载<br>加载动态库，包括自己的和系统的，实例化主程序的imageLoader，添加进imageList<br>链接主程序</p>
+<p>开始初始化主程序<br> <em>runtime配合加载，runtime加载loadImages方法，这个方法就是prepare_load_methods(mh)
+ </em>加载load和C++构造函数<br>找main函数<br>配置（环境变量） —  加载（共享动态库，主程序，动态库） — 链接（链接主程序，动态库） — 初始化（程序）</p>
+<ul>
+<li>加载动态库过程，动态链接器dyld需要做如下操作<br>1.分析依赖的动态库<br>2.找到动态库的Mach-O文件<br>3.打开文件<br>4.验证文件<br>5.在系统的内核注册文件签名<br>6.对动态库的每个segment调用mmap()</li>
+</ul>
+<p>针对这一步优化</p>
+<blockquote>
+<p>1.减少非系统的动态库<br>2.使用静态库而不是动态库<br>3.合并非系统的动态库为一个</p>
+</blockquote>
+<blockquote>
+<p>1.动态库尽可能少，不要多与6个，如果多了，尽可能合并<br>2.20000个类  800毫秒<br>3.swift静态语言，性能更高</p>
+</blockquote>
+<p>#####六、ObjC SetUp<br>由于之前2步骤的优化，这一步实际上没有什么可做的。几乎都靠 Rebasing 和 Binding 步骤中减少所需 fix-up 内容。因为前面的工作也会使得这步耗时减少。</p>
+<p>#####七、Initializers</p>
+<ul>
+<li>以上三步属于静态调整，都是在修改<code>__DATA segment</code>中的内容<br>现在开始动态调整，在堆和栈中写入内容。 工作主要有：<br>1、<code>Objc</code>的<code>+load()</code>函数<br>2、C++的构造函数属性函数 形如<code>attribute((constructor)) void DoSomeInitializationWork()</code><br>3、非基本类型的C++静态全局变量的创建(通常是类或结构体)(non-trivial initializer) 比如一个全局静态结构体的构建，如果在构造函数中有繁重的工作，那么会拖慢启动速度<br><strong><em>可以做的优化有：</em></strong><br>①使用 +initialize 来替代 +load<br>②不要使用 atribute((constructor)) 将方法显式标记为初始化器，而是让初始化方法调用时才执行。 比如使用 dispatch_once(),pthread_once() 或 std::once()。也就是在第一次使用时才初始化，推迟了一部分工作耗时。 也尽量不要用到C++的静态对象。<blockquote>
+<p>从效率上来说，在<code>+load</code> 和<code>+initialize</code>里执行同样的代码，效率是一样的，即使有差距，也不会差距太大。 但所有的<code>+load</code>方法都在启动的时候调用，方法多了就会严重影响启动速度了。 就说我们项目中，有200个左右<code>+load</code>方法，一共耗时大概1s 左右，这块就会严重影响到用户感知了。 而<code>+initialize</code>方法是在对应 Class 第一次使用的时候调用，这是一个懒加载的方法，理想情况下，这200个<code>+load</code>方法都使用<code>+initialize</code>来代替，将耗时分摊到用户使用过程中，每个方法平均耗时只有5ms，用户完全可以无感知。</p>
+</blockquote>
+#####八、二进制重排<br>iOS的虚拟内存和物理内存：<br><img src="https://upload-images.jianshu.io/upload_images/2149459-6813bd4a98988521.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>之前所有应用都加载进内存条中，会有安全问题，会访问到其他人的软件中去</li>
+</ul>
+<p>iOS虚拟内存有4G的</p>
+<p>CPU通过  操作系统映射表   映射虚拟内存和物理真实内存<br>也就是我们访问虚拟内存，都会走到映射表，然后映射到真实的物理内存。（每个映虚拟内存对应一个映射表）<br>（mmp）分页加载，提高内存的利用率<img src="https://upload-images.jianshu.io/upload_images/2149459-594826c17d457028.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>内存是以字节为单位，内存以页管理 PAGE，Linux每1页4KB，iOS每一页16KB</p>
+<p>用这种分页加载，用到哪块内存就加载到真实内存<br>上述P2加载的时候，发现真实内存没有，缺页，CPU会临时加载</p>
+<p>如果启动的时候缺页比较多（缺页异常），就会不断去映射到物理内存，就会卡顿<br>iOS的内存地址，与编译顺序有关，所以如果方法在不同的类，类的加载差距比较大，那么就会加载比较多的页，就会浪费时间。<br>iOS系统还会对加载的每一页做签名认证，所以更加消耗时间。</p>
+<p>system trace<br>Main Thread<br>Virtual Memory  File Backard Page In</p>
+<p>ldyd<br>order_file    自己写一个文件，里边指定方法的顺序，可以将启动要调用的方法，都放到里边。<br>libc-order在objc源码里边，这就是二进制重排</p>
+<p>所有OC方法获取<br>用fishhook 去 HOOK objc_msgSend()方法，可以拿到所有的函数<br>可以用Clang插庒的方式AOP</p>
+<p>main过程：<br><img src="https://upload-images.jianshu.io/upload_images/2149459-8b027b61da9c161d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>Main函数之后</p>
+<blockquote>
+<p>1.懒加载<br>2.发挥CPU的价值，用多线程的方式。<br>3.框架的搭建尽量避免stroyboard   和  xib</p>
+</blockquote>
+</li>
+<li><p>分阶段加载：</p>
+<ul>
+<li>在didFinishLunch中启动的：<ul>
+<li>埋点功能、</li>
+<li>Crash 采集</li>
+<li>网络配置等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在首页viewDidappear</p>
+<ul>
+<li>初始化SDK，友盟SDK、人脸识别SDK后移</li>
+<li>开始定位（显示定位中），定位可以缓存，先加载，定位同步进行，如果缓存的地理位置不一样，然后才更新</li>
+<li>配置下发等</li>
+</ul>
+</li>
+<li><p>多线程启动</p>
+<blockquote>
+<p>尝试使用多线程启动<br>将数据库的配置、SDwebimage UA的配置放到子线程中初始化，引入状态管理，需要监控子线程任务状态，判断是否取消假的开屏页面。</p>
+</blockquote>
+</li>
+</ul>
+<p>广告同步加载，2秒回来了就展示，不回来就过<br><a href="[https://www.dazhuanlan.com/2019/09/28/5d8f40b3545f3/](https://www.dazhuanlan.com/2019/09/28/5d8f40b3545f3/">Timer Profile的使用</a><br>)</p>
 
         
         </div>
@@ -292,7 +387,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/" data-id="ckir0k1nz000lgdg3xddq9gqg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/06/25/old02.App启动优化/" data-id="ckir0k1ng0007gdg3u7sdxb9c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -367,19 +462,19 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2020/11/15/s11.关于指针的强制类型转换/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Swift中的指针(UnsafePointer)
+                    关于指针的强制类型转换
                 
             </div>
         </a>
     
     
-        <a href="/2020/06/25/old02.App启动优化/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/05/03/t08.几种常见的排序/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Swift 小记</div>
+            <div class="article-nav-title">几种常见的排序</div>
         </a>
     
 </nav>

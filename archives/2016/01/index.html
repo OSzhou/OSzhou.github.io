@@ -3,22 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>关于指针的强制类型转换 | Fighting</title>
+    <title>Archive: 2016/1 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
-<meta name="keywords" content="code">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于指针的强制类型转换">
-<meta property="og:url" content="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/index.html">
+    <meta name="description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fighting">
+<meta property="og:url" content="http://blogzhou.top/archives/2016/01/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
+<meta property="og:description" content="The biggest adventure you can take is to live the life of your dreams">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://blogzhou.top/css/images/tree_02.jpg">
-<meta property="og:updated_time" content="2020-12-15T05:48:31.067Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于指针的强制类型转换">
-<meta name="twitter:description" content="将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。  强制类型转换的一个效果是改变指针运算的伸缩。例如：如果p是个char 类型的指针，他的值为P，那么表达式`(int )p + 7 = P + 28因为int占4字节，而char只占1字节 而:(int )(p + 7) = P + 7`因为，强制类型转换的优先级高于加法。**PS:**指针+i，表示加i个单元格，即加`i">
-<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_02.jpg">
+<meta name="twitter:title" content="Fighting">
+<meta name="twitter:description" content="The biggest adventure you can take is to live the life of your dreams">
     
 
     
@@ -226,176 +222,50 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-s11.关于指针的强制类型转换" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2016</h1>
+            </div>
         
-            
-	
-		<img src="/css/images/tree_02.jpg" class="article-banner" />
-	
-
-
-
-        
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            关于指针的强制类型转换
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2016/01/25/old_01.深入理解CADisplayLink和NSTimer/">Swift 小记</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/11/15/s11.关于指针的强制类型转换/">
-            <time datetime="2020-11-15T05:45:57.000Z" itemprop="datePublished">2020-11-15</time>
+        <a href="/2016/01/25/old_01.深入理解CADisplayLink和NSTimer/">
+            <time datetime="2016-01-25T02:31:30.000Z" itemprop="datePublished">2016-01-25</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/code/">code</a>
+        <a class="tag-link" href="/tags/OC/">OC</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <blockquote>
-<p><strong>将指针从一种类型强制转换成另一种类型，只改变他的类型，而不改变他的值。</strong></p>
-</blockquote>
-<p><em>强制类型转换的一个效果是改变指针运算的伸缩。</em><br>例如：<br>如果p是个char <em>类型的指针，他的值为P，那么表达式<br>`(int </em>)p + 7 = P + 28<code>因为int占4字节，而char只占1字节
-而:</code>(int <em>)(p + 7) = P + 7`<br>因为，强制类型转换的优先级高于加法。<br>**</em>PS:<em>**<br>指针+i，表示加i个单元格，即加`i </em> sizeof(指针本身去掉一个*)`的字节：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(int *)p + 7 = P + 7 * sizeof(int) = P + 28</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/" data-id="ckir0k1nz000lgdg3xddq9gqg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2020/11/18/s12.Swift中的指针(UnsafePointer)/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Swift中的指针(UnsafePointer)
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2020/06/25/old02.App启动优化/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Swift 小记</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-        <section id="comments">
-    <div id="valine-thread"></div>
-</section>
-    
-
+</div>
 </section>
             
                 
