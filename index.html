@@ -170,7 +170,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                30
+                33
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -295,7 +295,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/11/20/s13.Array的常见操作/" data-id="ckir5hcco001dikg33sig1gxr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/11/20/s13.Array的常见操作/" data-id="ckislifju00270cy03pi2z4l5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -442,7 +442,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/11/18/s12.Swift中的指针(UnsafePointer)/" data-id="ckir5hcde0022ikg3iyq89whg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/11/18/s12.Swift中的指针(UnsafePointer)/" data-id="ckislifjs00240cy0vd6q6uxv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -586,7 +586,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/" data-id="ckir5hccr001gikg3iwivmwzb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/11/15/s11.关于指针的强制类型转换/" data-id="ckislifj6001t0cy04er1gylp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -741,7 +741,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2020/06/25/old_02.App启动优化/" data-id="ckir5hcas0009ikg3r0vhavz5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/06/25/old_02.App启动优化/" data-id="ckislifiv001d0cy01tlpze1d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -886,7 +886,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2019/12/25/s14.Swift 小记/" data-id="ckir5hcdl0029ikg3eh4q93a5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2019/12/25/s14.Swift 小记/" data-id="ckislifjx002a0cy02vmqo700" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1028,7 +1028,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2019/06/20/net_01.What exactly is RESTful programming?/" data-id="ckir5hca40002ikg3knkaultm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2019/06/20/net_01.What exactly is RESTful programming?/" data-id="ckislifgt00010cy0j50dsex0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1178,7 +1178,453 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2019/04/15/s10-OC-Swift混编的一些小知识/" data-id="ckir5hcby0010ikg3jxqibicf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2019/04/15/s10-OC-Swift混编的一些小知识/" data-id="ckislifj4001q0cy073ok45qc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-net_04.Socket原理知识摘要03" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2018/09/10/net_04.Socket原理知识摘要03/" itemprop="url">
+            <img src="/css/images/tree_19.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/09/10/net_04.Socket原理知识摘要03/">Socket原理知识摘要03</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/10/net_04.Socket原理知识摘要03/">
+            <time datetime="2018-09-10T03:30:50.000Z" itemprop="datePublished">2018-09-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Net/">Net</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h3 id="socket中TCP的三次握手建立连接详解"><a href="#socket中TCP的三次握手建立连接详解" class="headerlink" title="socket中TCP的三次握手建立连接详解"></a>socket中TCP的三次握手建立连接详解</h3><p>我们知道tcp建立连接要进行“三次握手”，即交换三个分组。大致流程如下：</p>
+<ul>
+<li>客户端向服务器发送一个SYN J</li>
+<li><p>服务器向客户端响应一个SYN K，并对SYN J进行确认ACK J+1</p>
+</li>
+<li><p>客户端再想服务器发一个确认ACK K+1</p>
+</li>
+</ul>
+<p>只有就完了三次握手，但是这个三次握手发生在socket的那几个函数中呢？请看下图：<br><img src="https://upload-images.jianshu.io/upload_images/2149459-0a5ca6309a72c1f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="socket中发送的TCP三次握手"><br></p>
+            <p class="article-more-link">
+                <a href="/2018/09/10/net_04.Socket原理知识摘要03/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2018/09/10/net_04.Socket原理知识摘要03/" data-id="ckislifho000c0cy010n7qi0l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-net_03.Socket原理知识摘要02" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2018/08/30/net_03.Socket原理知识摘要02/" itemprop="url">
+            <img src="/css/images/tree_18.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/08/30/net_03.Socket原理知识摘要02/">Socket原理知识摘要02</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/08/30/net_03.Socket原理知识摘要02/">
+            <time datetime="2018-08-30T02:30:50.000Z" itemprop="datePublished">2018-08-30</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Net/">Net</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>我们深谙信息交流的价值，那网络中进程之间如何通信，如我们每天打开浏览器浏览网页 时，浏览器的进程怎么与web服务器通信的？当你用QQ聊天时，QQ进程怎么与服务器或你好友所在的QQ进程通信？这些都得靠socket？那什么是 socket？socket的类型有哪些？还有socket的基本函数，这些都是本文想介绍的。本文的主要内容如下：</p>
+<h5 id="1-网络中进程之间如何通信？"><a href="#1-网络中进程之间如何通信？" class="headerlink" title="1.网络中进程之间如何通信？"></a>1.网络中进程之间如何通信？</h5><p>本地的进程间通信（IPC）有很多种方式，但可以总结为下面4类：</p>
+<ul>
+<li><p>消息传递（管道、FIFO、消息队列）</p>
+</li>
+<li><p>同步（互斥量、条件变量、读写锁、文件和写记录锁、信号量）</p>
+</li>
+<li><p>共享内存（匿名的和具名的）</p>
+</li>
+<li><p>远程过程调用（Solaris门和Sun RPC）</p>
+</li>
+</ul>
+<p>但这些都不是本文的主题！我们要讨论的是网络中进程之间如何通信？首要解决的问题是如何唯一标识一个进程，否则通信无从谈起！在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。其实TCP/IP协议族已经帮我们解决了这个问题，网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。<br></p>
+            <p class="article-more-link">
+                <a href="/2018/08/30/net_03.Socket原理知识摘要02/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2018/08/30/net_03.Socket原理知识摘要02/" data-id="ckislifhb00060cy0nug9ydwl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-net_02.Socket原理知识摘要01" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2018/08/20/net_02.Socket原理知识摘要01/" itemprop="url">
+            <img src="/css/images/tree_17.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/08/20/net_02.Socket原理知识摘要01/">Socket原理知识摘要01</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/08/20/net_02.Socket原理知识摘要01/">
+            <time datetime="2018-08-20T12:30:50.000Z" itemprop="datePublished">2018-08-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Net/">Net</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><ul>
+<li>什么是TCP/IP、UDP？<br>TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。<pre><code> UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。
+这里有一张图，表明了这些协议的关系。
+</code></pre><img src="https://upload-images.jianshu.io/upload_images/2149459-018a4abf564f5151.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>TCP/IP协议族包括运输层、网络层、链路层。现在你知道TCP/IP与UDP的关系了吧。</p>
+            <p class="article-more-link">
+                <a href="/2018/08/20/net_02.Socket原理知识摘要01/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2018/08/20/net_02.Socket原理知识摘要01/" data-id="ckislifh000030cy0nmj1sayy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1319,7 +1765,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2018/05/03/t08.几种常见的排序/" data-id="ckir5hce2002pikg39bcq3oxf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2018/05/03/t08.几种常见的排序/" data-id="ckislifkh002w0cy0qb26vrdb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1487,7 +1933,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2018/03/12/t05.Node环境配置/" data-id="ckir5hcdw002jikg3e0fkl95y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2018/03/12/t05.Node环境配置/" data-id="ckislifk5002k0cy0p1qxqmje" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1635,7 +2081,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2018/03/08/p04.Favorite Words/" data-id="ckir5hcd0001oikg34mz0swdy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2018/03/08/p04.Favorite Words/" data-id="ckislifiy001i0cy0mp1mrao1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1777,7 +2223,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2018/03/07/p05.MyWords/" data-id="ckir5hccx001likg32fwq343d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2018/03/07/p05.MyWords/" data-id="ckislifj0001l0cy0bxq47g5a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1922,7 +2368,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/25/p03.My-poetry（胡乱写写）/" data-id="ckir5hccj0018ikg3jxt8s5z7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/25/p03.My-poetry（胡乱写写）/" data-id="ckislifio00150cy058v7j210" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2070,7 +2516,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/23/t09.如何清理XCode缓存/" data-id="ckir5hcdz002nikg3ebdqqe16" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/23/t09.如何清理XCode缓存/" data-id="ckislifke002s0cy0hxk3pxpi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2212,7 +2658,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/17/p01.诗歌（inland）/" data-id="ckir5hcbb000jikg3ayucxzwk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/17/p01.诗歌（inland）/" data-id="ckislifid000w0cy092hkp1ji" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2355,7 +2801,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/16/p02.诗歌（foreign）/" data-id="ckir5hcc10015ikg3yu0k74q8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/16/p02.诗歌（foreign）/" data-id="ckislifis001a0cy0y8vn3zk5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2497,7 +2943,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/12/t06.iOS系统音量-屏幕亮度调节/" data-id="ckir5hcdn002cikg3zax2nkez" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/12/t06.iOS系统音量-屏幕亮度调节/" data-id="ckislifk2002h0cy01oonsi81" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2641,7 +3087,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/12/t04.UIButton重复点击解决方案/" data-id="ckir5hcdh0024ikg34fzf7o6g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/12/t04.UIButton重复点击解决方案/" data-id="ckislifjz002e0cy0im90jen7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2787,7 +3233,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/12/t07.类似“今日头条”频道编辑功能UI实现/" data-id="ckir5hcds002gikg3p2xtj7h0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/12/t07.类似“今日头条”频道编辑功能UI实现/" data-id="ckislifk8002n0cy09caiinvw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -2928,7 +3374,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/12/t03.UICollectionView下拉刷新闪一下问题解决/" data-id="ckir5hcd7001vikg3fw1lwncr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/12/t03.UICollectionView下拉刷新闪一下问题解决/" data-id="ckislifkc002q0cy0dxuxtrny" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -3070,7 +3516,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/12/t02.WYYKTScroll控件悬停/" data-id="ckir5hcda001yikg3zjm0f288" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/12/t02.WYYKTScroll控件悬停/" data-id="ckislifjp00200cy0j65eg3eh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -3218,7 +3664,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/10/11/t01.如何使项目支持cocoaPods/" data-id="ckir5hcd4001sikg3wtej6377" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/10/11/t01.如何使项目支持cocoaPods/" data-id="ckislifjn001x0cy0kc6b2qsg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -3371,7 +3817,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2017/01/20/old_10.文件流、网络操作、服务端Web开发基础/" data-id="ckir5hcbv000xikg3enigqxci" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2017/01/20/old_10.文件流、网络操作、服务端Web开发基础/" data-id="ckislifi7000s0cy0141o6d2w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -3524,7 +3970,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/12/28/old_09.node-lesson6/" data-id="ckir5hcbo000sikg3bwtjemb9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/12/28/old_09.node-lesson6/" data-id="ckislifif000y0cy0naf3d9vp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -3683,7 +4129,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/12/23/old_08.node-lesson5/" data-id="ckir5hcbl000qikg3hb1fainp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/12/23/old_08.node-lesson5/" data-id="ckislifii00120cy0jhd4jui4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -3827,7 +4273,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/12/15/old_07.node-lesson4/" data-id="ckir5hcbf000mikg39dfn406l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/12/15/old_07.node-lesson4/" data-id="ckislifi4000q0cy04zzr8mpf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -3955,59 +4401,17 @@ var _hmt = _hmt || [];
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>#node-lesson3</p>
+            <p><p>#node-lesson3</p>
 <h2 id="1-0-nvm常用命令"><a href="#1-0-nvm常用命令" class="headerlink" title="1.0 nvm常用命令"></a>1.0 nvm常用命令</h2><ul>
 <li>nvm项目地址：<a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="noopener">nvm-github地址</a></li>
 <li>查看所有已安装的本地的node版本<br><code>nvm list</code></li>
 <li>切换node版本<br><code>nvm use 版本号</code></li>
 <li>安装指定版本的node<br><code>nvm install 版本号 位数</code></li>
 <li>卸载已安装的指定版本的node<br><code>nvm uninstall 版本号</code></li>
-</ul>
-<p>###1.1模块的分类</p>
-<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- 核心模块</span><br><span class="line">  + fs file system</span><br><span class="line">  + http</span><br><span class="line">  + os</span><br><span class="line">  + path</span><br><span class="line">  + querystring</span><br><span class="line">  + url</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">###1.2模块三兄弟 require、module、exports</span><br><span class="line"></span><br><span class="line">- require的实现原理</span><br><span class="line"></span><br><span class="line">```把代码从文件中读出来，用匿名函数的方式头尾包装，返回modules.exports对象，曝露出想要曝露出来的属性、方法、对象。</span><br><span class="line">   补充了exports是指向modules.exports的一个指针，exports能做的，modules.exports都能做的。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>require查找文件、包原理</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第二次加载的时候优先从缓存查找读取，</span><br><span class="line">node_modules中没有的，从父文件夹中查找，如果没有，直到根目录为止</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>module</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">里面保存了模块的信息路径、父子信息、曝露出的对象信息</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>exports</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports 别名</span><br><span class="line">module.exports=123;已经使用过一次了，exports就不生效了</span><br><span class="line">module.exports.a=12;这样使用,exports是还可以使用的</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>###1.4包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">package.json是包的说明书，</span><br><span class="line">dependencies当前包所依赖的包：&gt;、&lt;、&gt;=、&lt;=、~、*、&quot; &quot;、X、^、</span><br><span class="line"> devDependencies 开发环境中包所依赖的包：</span><br></pre></td></tr></table></figure></p>
-<p>###1.5npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm init  创建package.json文件</span><br><span class="line">npm install  将package.json中的文件依赖的包从网上下载到本地</span><br><span class="line">npm install -save 包名  将包下载下来并且加载到dependencies中去</span><br><span class="line">npm i -S 包名 替代上面的命令</span><br><span class="line">npm install -save-dev 包名 将包下载下来并且加载到devDependencies中去</span><br><span class="line">npm i -D 包名 替代上面的命令</span><br><span class="line">npm install -g 包名 全局安装  安装的是全局工具</span><br><span class="line">npm docs 包名 查看包的文档</span><br></pre></td></tr></table></figure></p>
-<p>###1.6nrm npm的数据源管理工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nrm ls 查看npm的数据源</span><br><span class="line">nrm use 切换npm下载包的地址</span><br><span class="line">nrm test  测试下哪个数据源快</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-7-3m"><a href="#1-7-3m" class="headerlink" title="1.7 3m"></a>1.7 3m</h3><p>npm node的包管理工具<br>nvm node的版本管理工具<br>nrm npm的数据源管理工具</p>
-<p>###1.8箭头函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法糖替代function()&#123;&#125;  v=&gt;v</span><br></pre></td></tr></table></figure></p>
-<p>#2.i/o</p>
-<p>###2.1什么是i/o？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">io input、output 输入输出，电脑的输入输出，例如音频录音表示声音输入、听音乐是声音的输出</span><br><span class="line">网络上的传输全部是在传字符串，i/o在服务器上可以理解为读写操作。</span><br></pre></td></tr></table></figure>
-<p>###2.2什么是并发？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个时间段中有几个程序都处于已启动运行到运行完毕之间。</span><br></pre></td></tr></table></figure></p>
-<p>#3异步i/o与事件驱动</p>
-<p>###3.1什么是进程？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">进程是为运行当中的应用程序提供运行环境的</span><br><span class="line">一个运行当中的应用程序就会有一个进程与之相对应</span><br></pre></td></tr></table></figure></p>
-<p>###3.2什么是线程？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">线程是用来运行应用程序中代码的，</span><br><span class="line">一个线程在一个时间只能做一件事件。</span><br><span class="line">多线程，调度起来很麻烦。</span><br><span class="line">node是单线程执行，用异步替代了多线程</span><br></pre></td></tr></table></figure></p>
-<p>###3.3同步、异步有什么不同？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">异步不会阻塞后面的代码，同步会阻塞后面的代码</span><br><span class="line">一条线程先执行同步的代码后执行异步的代码。</span><br></pre></td></tr></table></figure></p>
-<p>###3.4异步非i/o操作和异步i/o操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">异步非io setTimeout setInterval</span><br><span class="line">异步IO操作 操作文件 网络操作 fs</span><br></pre></td></tr></table></figure></p>
-<p>###3.5node的事件驱动模型？<br><img src="./pic/event-loop.png" alt="Alt text"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>###3.5异步和多线程的比较？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node的异步是帮助我们去做了多线程的操作，简化了代码</span><br></pre></td></tr></table></figure></p>
-<p>#4.文件操作</p>
-<p>###4.1文件的完整读写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs模块---》操作文件---》io----》node的特长</span><br><span class="line">fs模块是node非常重要的模块，能体现出node的优势</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>fs.readFile()  读文件</li>
-<li>fs.writeFile()  写文件</li>
-<li>fs.appendFile() 在文件的内部去追加写一些内容</li>
-<li>fs.mkdir() 创建文件夹</li>
-<li>fs.readdir() 读文件夹</li>
-<li>fs.access() 判断路径</li>
-<li>fs.stat()<br>isFile：用于判断被查看的对象是否为一个文件，如果是返回true，否则，返回false；<br>isDirectory：用于判断被查看的对象是否为一个目录，如果是的话则返回true，否则，返回false；<br>isSymbolicLink：用于判断被查看的文件是否为一个符号链接文件，如果是的话则返回true，否则，返回false。该方法仅在lstat方法的回调函数中有效；</li>
-</ul>
-<p>#5.异常处理<br>什么是异常？<br>计算机不能处理的状况称之为异常<br>try catch 只能捕获同步异常<br>try {<br>  fs.accessSync(‘./02sfdasdfio.js’);<br>} catch (err) {<br>  console.log(“1”+err);<br>}<br>异步异常对象和被try catch捕获的对象是一样的</p>
-<p>#6.path</p>
-
+</ul></p>
+            <p class="article-more-link">
+                <a href="/2016/12/08/old_06.node-lesson3/#more">Read More</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -4017,7 +4421,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/12/08/old_06.node-lesson3/" data-id="ckir5hcb7000fikg3y9nurr9g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/12/08/old_06.node-lesson3/" data-id="ckislifhx000i0cy0utq832m0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -4177,7 +4581,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/11/28/old_05.node-lesson2/" data-id="ckir5hcb3000eikg3yijllpc7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/11/28/old_05.node-lesson2/" data-id="ckislifi0000l0cy0vwni3hpx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -4324,7 +4728,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/11/21/old_04.node-lesson1/" data-id="ckir5hcaw000aikg3qa3p2je3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/11/21/old_04.node-lesson1/" data-id="ckislifht000d0cy0zi53g63j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -4469,7 +4873,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/11/11/old_03.JavaScript 模块化编程/" data-id="ckir5hcap0008ikg3ksydxgaq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/11/11/old_03.JavaScript 模块化编程/" data-id="ckislifhj00080cy09d1vw7kh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -4618,7 +5022,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2016/01/25/old_01.深入理解CADisplayLink和NSTimer/" data-id="ckir5hcab0004ikg3u9drlojp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/01/25/old_01.深入理解CADisplayLink和NSTimer/" data-id="ckislifhf00070cy0jyiwt9i5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -4808,7 +5212,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
         </div>
     </div>
 
@@ -4817,7 +5221,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -4826,7 +5230,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -4835,7 +5239,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 10px;">Net</a> <a href="/tags/OC/" style="font-size: 12px;">OC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/UI/" style="font-size: 18px;">UI</a> <a href="/tags/Words/" style="font-size: 12px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 12px;">code</a> <a href="/tags/poetry/" style="font-size: 14px;">poetry</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a>
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 16px;">Net</a> <a href="/tags/OC/" style="font-size: 12px;">OC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/UI/" style="font-size: 18px;">UI</a> <a href="/tags/Words/" style="font-size: 12px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 12px;">code</a> <a href="/tags/poetry/" style="font-size: 14px;">poetry</a> <a href="/tags/tool/" style="font-size: 12px;">tool</a>
         </div>
     </div>
 
