@@ -5,19 +5,19 @@
     
     <title>Swfit-02.闭包,属性,inout,下标,继承。。。 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="#####11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2:">
+    <meta name="description" content="11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2: Int)">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swfit-02.闭包,属性,inout,下标,继承。。。">
 <meta property="og:url" content="http://blogzhou.top/2019/12/30/s15_Swift小记02/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="#####11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2:">
+<meta property="og:description" content="11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2: Int)">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://blogzhou.top/css/images/tree_20.jpg">
-<meta property="og:updated_time" content="2020-12-17T12:31:57.943Z">
+<meta property="og:updated_time" content="2020-12-17T12:55:44.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swfit-02.闭包,属性,inout,下标,继承。。。">
-<meta name="twitter:description" content="#####11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2:">
+<meta name="twitter:description" content="11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2: Int)">
 <meta name="twitter:image" content="http://blogzhou.top/css/images/tree_20.jpg">
     
 
@@ -278,7 +278,7 @@ var _hmt = _hmt || [];
         
             
             <ul>
-<li>#####11. 闭包表达式(Closure Expression) ：<code>一种函数的定义方式</code><ul>
+<li><h5 id="11-闭包表达式-Closure-Expression-：一种函数的定义方式"><a href="#11-闭包表达式-Closure-Expression-：一种函数的定义方式" class="headerlink" title="11. 闭包表达式(Closure Expression) ：一种函数的定义方式"></a>11. 闭包表达式(Closure Expression) ：<code>一种函数的定义方式</code></h5><ul>
 <li>在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">func sum(_ v1: Int, _ v2: Int) -&gt; Int &#123; v1 + v2 &#125;</span><br><span class="line"></span><br><span class="line">var fn = &#123;</span><br><span class="line">(v1: Int, v2: Int) -&gt; Int in </span><br><span class="line">    return v1 + v2</span><br><span class="line">&#125;</span><br><span class="line">fn(10, 20)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">(v1: Int, v2: Int) -&gt; Int in </span><br><span class="line">    return v1 + v2</span><br><span class="line">&#125;(10, 20)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">(参数列表) -&gt; 返回值类型 in 函数体代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -286,8 +286,7 @@ var _hmt = _hmt || [];
 </ul>
 <a id="more"></a>
 <ul>
-<li><p>#####12. 闭包</p>
-<ul>
+<li><h5 id="12-闭包"><a href="#12-闭包" class="headerlink" title="12. 闭包"></a>12. 闭包</h5><ul>
 <li>一个函数和它所捕获的变量\常量环境组合起来，称为闭包 <ol>
 <li>一般指定义在函数内部的函数</li>
 <li>一般它捕获的是外层函数的局部变量\常量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typealias Fn = (Int) -&gt; Int </span><br><span class="line">func getFn() -&gt; Fn &#123;</span><br><span class="line">    var num = 0</span><br><span class="line">    func plus(_ i: Int) -&gt; Int &#123;</span><br><span class="line">        num += i</span><br><span class="line">        return num </span><br><span class="line">    &#125;</span><br><span class="line">    return plus</span><br><span class="line">&#125; // 返回的plus和num形成了闭包</span><br></pre></td></tr></table></figure>
@@ -306,8 +305,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </li>
-<li><p>#####13. 自动闭包<code>@autoclosure</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 如果第1个数大于0，返回第一个数。否则返回第2个数</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: Int) -&gt; Int &#123;</span><br><span class="line">    return v1 &gt; 0 ? v1 : v2</span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(10, 20) // 10 </span><br><span class="line">getFirstPositive(-2, 20) // 20 </span><br><span class="line">getFirstPositive(0, -4) // -4</span><br><span class="line">// 改成函数类型的参数，可以让v2延迟加载</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: () -&gt; Int) -&gt; Int? &#123;</span><br><span class="line">    return v1 &gt; 0 ? v1 : v2() </span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(-4) &#123; 20 &#125;</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: @autoclosure () -&gt; Int) -&gt; Int? &#123;</span><br><span class="line">     return v1 &gt; 0 ? v1 : v2()</span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(-4, 20)</span><br></pre></td></tr></table></figure>
+<li><h5 id="13-自动闭包-autoclosure"><a href="#13-自动闭包-autoclosure" class="headerlink" title="13. 自动闭包@autoclosure"></a>13. 自动闭包<code>@autoclosure</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 如果第1个数大于0，返回第一个数。否则返回第2个数</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: Int) -&gt; Int &#123;</span><br><span class="line">    return v1 &gt; 0 ? v1 : v2</span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(10, 20) // 10 </span><br><span class="line">getFirstPositive(-2, 20) // 20 </span><br><span class="line">getFirstPositive(0, -4) // -4</span><br><span class="line">// 改成函数类型的参数，可以让v2延迟加载</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: () -&gt; Int) -&gt; Int? &#123;</span><br><span class="line">    return v1 &gt; 0 ? v1 : v2() </span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(-4) &#123; 20 &#125;</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: @autoclosure () -&gt; Int) -&gt; Int? &#123;</span><br><span class="line">     return v1 &gt; 0 ? v1 : v2()</span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(-4, 20)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>@autoclosure 会自动将 20 封装成闭包 { 20 }</p>
 </li>
@@ -316,8 +314,7 @@ var _hmt = _hmt || [];
 <li>空合并运算符 ?? 使用了 @autoclosure 技术</li>
 <li><p>有@autoclosure、无@autoclosure，构成了函数重载<br><code>为了避免与期望冲突，使用了@autoclosure的地方最好明确注释清楚:这个值会被推迟执行</code></p>
 <ul>
-<li><p>#####14. 属性</p>
-<ul>
+<li><h5 id="14-属性"><a href="#14-属性" class="headerlink" title="14. 属性"></a>14. 属性</h5><ul>
 <li>######存储属性(Stored Property)<ul>
 <li>类似于成员变量这个概念</li>
 <li>存储在实例的内存中</li>
@@ -381,8 +378,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </li>
-<li><p>#####15. 属性观察器(Property Observer)</p>
-<ul>
+<li><h5 id="15-属性观察器-Property-Observer"><a href="#15-属性观察器-Property-Observer" class="headerlink" title="15. 属性观察器(Property Observer)"></a>15. 属性观察器(Property Observer)</h5><ul>
 <li>可以为非lazy的var存储属性设置属性观察器</li>
 <li>willSet会传递新值，默认叫newValu</li>
 <li>didSet会传递旧值，默认叫oldValue</li>
@@ -393,8 +389,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </li>
-<li><p>#####16. inout的本质</p>
-<ul>
+<li><h5 id="16-inout的本质"><a href="#16-inout的本质" class="headerlink" title="16. inout的本质"></a>16. inout的本质</h5><ul>
 <li>如果实参有物理内存地址，且没有设置属性观察器 <ul>
 <li>直接将实参的内存地址传入函数(实参进行引用传递)</li>
 </ul>
@@ -411,12 +406,12 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </li>
-<li>#####17. 方法<ul>
+<li><h5 id="17-方法"><a href="#17-方法" class="headerlink" title="17. 方法"></a>17. 方法</h5><ul>
 <li><code>mutating</code><br>结构体和枚举是值类型，默认情况下，值类型的属性不能被自身的实例方法修改。<br>在func关键字前加mutating可以允许这种修改行为</li>
 <li><code>@discardableResult</code><br> 在func前面加个@discardableResult，可以消除:<strong><em>函数调用后返回值未被使用</em></strong>的警告<br>⚠</li>
 </ul>
 </li>
-<li>#####18. 下标(subscript)<ul>
+<li><h5 id="18-下标-subscript"><a href="#18-下标-subscript" class="headerlink" title="18. 下标(subscript)"></a>18. 下标(subscript)</h5><ul>
 <li>使用subscript可以给任意类型(枚举、结构体、类)增加下标功能，有些地方也翻译为:下标脚本 </li>
 <li>subscript的语法类似于实例方法、计算属性，<strong><em>本质就是方法(函数)</em></strong></li>
 <li>subscript中定义的返回值类型决定了<br>  get方法的返回值类型<br>  set方法中newValue的类型</li>
@@ -424,7 +419,7 @@ var _hmt = _hmt || [];
 <li>subscript可以没有set方法，但必须要有get方法。如果只有get方法，可以省略。</li>
 </ul>
 </li>
-<li>#####19.继承(Inheritance)<blockquote>
+<li><h5 id="19-继承-Inheritance"><a href="#19-继承-Inheritance" class="headerlink" title="19.继承(Inheritance)"></a>19.继承(Inheritance)</h5><blockquote>
 <ul>
 <li><strong><em>值类型(枚举、结构体)不支持继承</em></strong>，只有类支持继承。 </li>
 <li>没有父类的类，称为:基类</li>
@@ -474,7 +469,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2019/12/30/s15_Swift小记02/" data-id="ckisugpdc00273my079im6ayy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2019/12/30/s15_Swift小记02/" data-id="ckisun8up002a68y0y5zbdle7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
