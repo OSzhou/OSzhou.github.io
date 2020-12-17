@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>My Words | Fighting</title>
+    <title>Array的常见操作 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="为了锦绣前程也好，花样人生也罢，然而，还是恨透了 别离。  长大，淡然了许多事，唯别离愈发的难以释怀。">
-<meta name="keywords" content="Words">
+    <meta name="description" content="map / filter / reduce 12345678var arr = [1, 2, 3, 4]// [2, 4, 6, 8]var arr2 = arr.map &amp;#123; $0 * 2 &amp;#125;// [2, 4]var arr3 = arr.filter &amp;#123; $0 % 2 == 0 &amp;#125; // 10var arr4 = arr.reduce(0) &amp;#123;">
+<meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My Words">
-<meta property="og:url" content="http://blogzhou.top/2018/03/07/p05.MyWords/index.html">
+<meta property="og:title" content="Array的常见操作">
+<meta property="og:url" content="http://blogzhou.top/2020/06/20/s13.Array的常见操作/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="为了锦绣前程也好，花样人生也罢，然而，还是恨透了 别离。  长大，淡然了许多事，唯别离愈发的难以释怀。">
+<meta property="og:description" content="map / filter / reduce 12345678var arr = [1, 2, 3, 4]// [2, 4, 6, 8]var arr2 = arr.map &amp;#123; $0 * 2 &amp;#125;// [2, 4]var arr3 = arr.filter &amp;#123; $0 % 2 == 0 &amp;#125; // 10var arr4 = arr.reduce(0) &amp;#123;">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://blogzhou.top/css/images/flower_05.jpg">
-<meta property="og:updated_time" content="2020-07-18T03:20:22.674Z">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_04.jpg">
+<meta property="og:updated_time" content="2020-12-17T08:53:12.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Words">
-<meta name="twitter:description" content="为了锦绣前程也好，花样人生也罢，然而，还是恨透了 别离。  长大，淡然了许多事，唯别离愈发的难以释怀。">
-<meta name="twitter:image" content="http://blogzhou.top/css/images/flower_05.jpg">
+<meta name="twitter:title" content="Array的常见操作">
+<meta name="twitter:description" content="map / filter / reduce 12345678var arr = [1, 2, 3, 4]// [2, 4, 6, 8]var arr2 = arr.map &amp;#123; $0 * 2 &amp;#125;// [2, 4]var arr3 = arr.filter &amp;#123; $0 % 2 == 0 &amp;#125; // 10var arr4 = arr.reduce(0) &amp;#123;">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_04.jpg">
     
 
     
@@ -226,12 +226,12 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-p05.MyWords" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-s13.Array的常见操作" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="/css/images/flower_05.jpg" class="article-banner" />
+		<img src="/css/images/tree_04.jpg" class="article-banner" />
 	
 
 
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            My Words
+            Array的常见操作
         </h1>
     
 
@@ -251,8 +251,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/07/p05.MyWords/">
-            <time datetime="2018-03-07T10:32:41.000Z" itemprop="datePublished">2018-03-07</time>
+        <a href="/2020/06/20/s13.Array的常见操作/">
+            <time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time>
         </a>
     </div>
 
@@ -260,13 +260,13 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/favwords/">favwords</a>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Words/">Words</a>
+        <a class="tag-link" href="/tags/Swift/">Swift</a>
     </div>
 
                     </div>
@@ -277,9 +277,34 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>为了锦绣前程也好，<br>花样人生也罢，<br>然而，<br>还是恨透了 别离。</p>
-<hr>
-<p>长大，<br>淡然了许多事，<br>唯别离愈发的难以释怀。</p>
+            <ul>
+<li><p><code>map</code> / <code>filter</code> / <code>reduce</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4]</span><br><span class="line">// [2, 4, 6, 8]</span><br><span class="line">var arr2 = arr.map &#123; $0 * 2 &#125;</span><br><span class="line">// [2, 4]</span><br><span class="line">var arr3 = arr.filter &#123; $0 % 2 == 0 &#125; // 10</span><br><span class="line">var arr4 = arr.reduce(0) &#123; $0 + $1 &#125; // 10</span><br><span class="line">// 可简写为</span><br><span class="line">var arr5 = arr.reduce(0, +)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>map</code>接收函数作为参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func double(_ i: Int) -&gt; Int &#123; i * 2 &#125; </span><br><span class="line">var arr = [1, 2, 3, 4]</span><br><span class="line">// [2, 4, 6, 8] </span><br><span class="line">print(arr.map(double))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p><code>compactMap</code>默认解包并去除nil</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&quot;123&quot;, &quot;test&quot;, &quot;jack&quot;, &quot;-30&quot;] </span><br><span class="line"></span><br><span class="line">// [Optional(123), nil, nil, Optional(-30)] </span><br><span class="line">var arr2 = arr.map &#123; Int($0) &#125;</span><br><span class="line"></span><br><span class="line">// [123, -30]</span><br><span class="line">var arr3 = arr.compactMap &#123; Int($0) &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>reduce</code>实现<code>map</code>、<code>filter</code>函数的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">// [2, 4, 6, 8]</span><br><span class="line">print(arr.map &#123; $0 * 2 &#125;) </span><br><span class="line">// 等价于👆函数功能</span><br><span class="line">print(arr.reduce([]) &#123; $0 + [$1 * 2] &#125;)</span><br><span class="line"></span><br><span class="line">// [2, 4]</span><br><span class="line">print(arr.filter &#123; $0 % 2 == 0 &#125;) </span><br><span class="line">// 等价于👆函数功能</span><br><span class="line">print(arr.reduce([]) &#123; $1 % 2 == 0 ? $0 + [$1] : $0 &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>map</code>,<code>flatMap</code>功能对比</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3]</span><br><span class="line">// [[1], [2, 2], [3, 3, 3]] 拿到什么(数组)，返回数组(二维数组)就放什么，不做处理。</span><br><span class="line">var arr2 = arr.map &#123; Array.init(repeating: $0, count: $0) &#125;</span><br><span class="line">// [1, 2, 2, 3, 3, 3] 将拿到的数组中的元素取出放到返回数组(一维数组)中。扁平化处理。</span><br><span class="line">var arr3 = arr.flatMap &#123; Array.init(repeating: $0, count: $0) &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用<code>lazy</code>的优化map</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1, 2, 3]</span><br><span class="line">let result = arr.lazy.map &#123;</span><br><span class="line">	(i: Int) -&gt; Int in </span><br><span class="line">	print(&quot;mapping \(i)&quot;) </span><br><span class="line">	return i * 2</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;begin-----&quot;)</span><br><span class="line">print(&quot;mapped&quot;, result[0]) </span><br><span class="line">print(&quot;mapped&quot;, result[1]) </span><br><span class="line">print(&quot;mapped&quot;, result[2]) </span><br><span class="line">print(&quot;end----&quot;)</span><br><span class="line">// 第一次用到时，才会执行相应逻辑</span><br><span class="line">begin----- </span><br><span class="line">mapping 1 </span><br><span class="line">mapped 2 </span><br><span class="line">mapping 2 </span><br><span class="line">mapped 4 </span><br><span class="line">mapping 3 </span><br><span class="line">mapped 6 </span><br><span class="line">end----</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>map</code>和<code>flatMap</code>可选值<code>Optional</code>处理中的应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var num1: Int? = 10</span><br><span class="line">// Optional(20)</span><br><span class="line">var num2 = num1.map &#123; $0 * 2 &#125;</span><br><span class="line"></span><br><span class="line">var num3: Int? = nil</span><br><span class="line">// nil，发现$0为nil直接返回nil</span><br><span class="line">var num4 = num3.map &#123; $0 * 2 &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>map</code> 和 <code>flatMap</code>对比<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var num1: Int? = 10</span><br><span class="line">// Optional(Optional(20)), map还是会对可选值再包装一层</span><br><span class="line">var num2 = num1.map &#123; Optional.some($0 * 2) &#125;</span><br><span class="line"></span><br><span class="line">// Optional(20), flatMap发现已经是可选值，就不会再包装了</span><br><span class="line">var num3 = num1.flatMap &#123; Optional.some($0 * 2) &#125;</span><br></pre></td></tr></table></figure></p>
+<p>可用于简化代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">// 示例一：</span><br><span class="line">var num1: Int? = 10</span><br><span class="line">var num2 = (num1 != nil) ? (num1! + 10) : nil </span><br><span class="line">var num3 = num1.map &#123; $0 + 10 &#125;</span><br><span class="line">// num2、num3是等价的</span><br><span class="line"></span><br><span class="line">// 示例二：</span><br><span class="line">var fmt = DateFormatter()</span><br><span class="line">fmt.dateFormat = &quot;yyyy-MM-dd&quot;</span><br><span class="line">var str: String? = &quot;2011-09-10&quot;</span><br><span class="line">// old</span><br><span class="line">var date1 = str != nil ? fmt.date(from: str!) : nil </span><br><span class="line">// new</span><br><span class="line">var date2 = str.flatMap(fmt.date)</span><br><span class="line"></span><br><span class="line">// 示例三：</span><br><span class="line">var score: Int? = 98</span><br><span class="line">// old</span><br><span class="line">var str1 = score != nil ? &quot;socre is \(score!)&quot; : &quot;No score&quot; </span><br><span class="line">// new</span><br><span class="line">var str2 = score.map &#123; &quot;score is \($0)&quot; &#125; ?? &quot;No score&quot;</span><br><span class="line"></span><br><span class="line">// 示例四：</span><br><span class="line">struct Person &#123;</span><br><span class="line">    var name: String</span><br><span class="line">    var age: Int</span><br><span class="line">&#125;</span><br><span class="line">var items = [</span><br><span class="line">	Person(name: &quot;jack&quot;, age: 20), </span><br><span class="line">	Person(name: &quot;rose&quot;, age: 21), </span><br><span class="line">	Person(name: &quot;kate&quot;, age: 22)</span><br><span class="line">]</span><br><span class="line">// old</span><br><span class="line">func getPerson1(_ name: String) -&gt; Person? &#123;</span><br><span class="line">	let index = items.firstIndex &#123; $0.name == name &#125; </span><br><span class="line">	return index != nil ? items[index!] : nil</span><br><span class="line">&#125;</span><br><span class="line">// new</span><br><span class="line">func getPerson2(_ name: String) -&gt; Person? &#123;</span><br><span class="line">	return items.firstIndex &#123; $0.name == name &#125;.map &#123; items[$0] &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 示例五：</span><br><span class="line">struct Person &#123;</span><br><span class="line">	var name: String</span><br><span class="line">	var age: Int</span><br><span class="line">	init?(_ json: [String : Any]) &#123;</span><br><span class="line">		guard let name = json[&quot;name&quot;] as? String, </span><br><span class="line">		let age = json[&quot;age&quot;] as? Int else &#123;</span><br><span class="line">			return nil</span><br><span class="line">		&#125;</span><br><span class="line">		self.name = name </span><br><span class="line">		self.age = age</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line">var json: Dictionary? = [&quot;name&quot; : &quot;Jack&quot;, &quot;age&quot; : 10] </span><br><span class="line">// old</span><br><span class="line">var p1 = json != nil ? Person(json!) : nil</span><br><span class="line">// new</span><br><span class="line">var p2 = json.flatMap(Person.init)</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -290,7 +315,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2018/03/07/p05.MyWords/" data-id="ckislx6ee001i72y0076ezqz3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2020/06/20/s13.Array的常见操作/" data-id="ckislx6ew002472y0tuo6wisu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -365,19 +390,19 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2018/03/08/p04.Favorite Words/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2020/06/25/old_02.App启动优化/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Favorite Words
+                    App启动优化
                 
             </div>
         </a>
     
     
-        <a href="/2017/10/25/p03.My-poetry（胡乱写写）/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/12/25/s14.Swift 小记/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">胡乱写写(My poetry)</div>
+            <div class="article-nav-title">Swift 小记</div>
         </a>
     
 </nav>
