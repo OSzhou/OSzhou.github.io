@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>OC/Swift混编的一些小知识 | Fighting</title>
+    <title>node-lesson1 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
-<meta name="keywords" content="Swift">
+    <meta name="description" content="#node-lesson1 ##1.解决几个问题？ ###1.前端、后端都是干什么的？前端 做静态资源的后端 操控服务器的硬件的 ###2.为什么学习node.js？1.就业有市场2.有商业用途国内一些创业公司用用的比较多，功夫熊（做上门保健的，美甲、按摩）国外的一些大公司都有使用：Facebook、Twitter、Google国内的一些大公司：Alibaba（天猫所有的页面都是通过Node提供的">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OC&#x2F;Swift混编的一些小知识">
-<meta property="og:url" content="http://blogzhou.top/2019/04/15/s10-OC-Swift混编的一些小知识/index.html">
+<meta property="og:title" content="node-lesson1">
+<meta property="og:url" content="http://blogzhou.top/2016/11/21/05-JS-old-04-node-lesson1/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
+<meta property="og:description" content="#node-lesson1 ##1.解决几个问题？ ###1.前端、后端都是干什么的？前端 做静态资源的后端 操控服务器的硬件的 ###2.为什么学习node.js？1.就业有市场2.有商业用途国内一些创业公司用用的比较多，功夫熊（做上门保健的，美甲、按摩）国外的一些大公司都有使用：Facebook、Twitter、Google国内的一些大公司：Alibaba（天猫所有的页面都是通过Node提供的">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://blogzhou.top/css/images/tree_01.jpg">
-<meta property="og:updated_time" content="2020-12-16T06:20:33.058Z">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_09.jpg">
+<meta property="og:updated_time" content="2020-12-16T07:35:11.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OC&#x2F;Swift混编的一些小知识">
-<meta name="twitter:description" content="Swift调用OC桥接头文件: 1.新建1个桥接头文件，文件名格式默认为:{targetName}-Bridging-Header.h2.在{targetName}-Bridging-Header.h 文件中#import OC需要暴露给Swift的内容(可通过编译器自动生成)    @_silgen_name关键字：  1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了2.">
-<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_01.jpg">
+<meta name="twitter:title" content="node-lesson1">
+<meta name="twitter:description" content="#node-lesson1 ##1.解决几个问题？ ###1.前端、后端都是干什么的？前端 做静态资源的后端 操控服务器的硬件的 ###2.为什么学习node.js？1.就业有市场2.有商业用途国内一些创业公司用用的比较多，功夫熊（做上门保健的，美甲、按摩）国外的一些大公司都有使用：Facebook、Twitter、Google国内的一些大公司：Alibaba（天猫所有的页面都是通过Node提供的">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_09.jpg">
     
 
     
@@ -226,12 +226,12 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-s10-OC-Swift混编的一些小知识" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-05-JS-old-04-node-lesson1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="/css/images/tree_01.jpg" class="article-banner" />
+		<img src="/css/images/tree_09.jpg" class="article-banner" />
 	
 
 
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            OC/Swift混编的一些小知识
+            node-lesson1
         </h1>
     
 
@@ -251,8 +251,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2019/04/15/s10-OC-Swift混编的一些小知识/">
-            <time datetime="2019-04-15T12:31:57.000Z" itemprop="datePublished">2019-04-15</time>
+        <a href="/2016/11/21/05-JS-old-04-node-lesson1/">
+            <time datetime="2016-11-21T04:31:30.000Z" itemprop="datePublished">2016-11-21</time>
         </a>
     </div>
 
@@ -260,13 +260,13 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Swift/">Swift</a>
+        <a class="tag-link" href="/tags/JS/">JS</a>
     </div>
 
                     </div>
@@ -277,44 +277,88 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <ul>
-<li><h3 id="Swift调用OC"><a href="#Swift调用OC" class="headerlink" title="Swift调用OC"></a>Swift调用OC</h3>桥接头文件:<blockquote>
-<p>1.新建1个桥接头文件，文件名格式默认为:<code>{targetName}-Bridging-Header.h</code><br>2.在<code>{targetName}-Bridging-Header.h</code> 文件中#import OC需要暴露给Swift的内容<br>(可通过编译器自动生成)</p>
-</blockquote>
-</li>
-</ul>
-<p><code>@_silgen_name</code>关键字：</p>
-<blockquote>
-<p>1.如果C语言暴露给Swift的函数名跟Swift中的其他函数名冲突了<br>2.可以在Swift中使用 @_silgen_name 修改C函数名（可以用此方法调用系统底层函数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// C语言</span><br><span class="line">int sum(int a, int b) &#123;</span><br><span class="line">return a + b; &#125;</span><br><span class="line"></span><br><span class="line">// Swift</span><br><span class="line">@_silgen_name(&quot;sum&quot;) </span><br><span class="line">func swift_sum(_ v1: Int32, _ v2: Int32) -&gt; Int32</span><br><span class="line"></span><br><span class="line">print(swift_sum(10, 20)) // 30</span><br><span class="line">print(sum(10, 20)) // 30</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+            <p>#node-lesson1</p>
+<p>##1.解决几个问题？</p>
+<p>###1.前端、后端都是干什么的？<br>前端 做静态资源的<br>后端 操控服务器的硬件的</p>
+<p>###2.为什么学习node.js？<br>1.就业有市场<br>2.有商业用途<br>国内一些创业公司用用的比较多，功夫熊（做上门保健的，美甲、按摩）<br>国外的一些大公司都有使用：Facebook、Twitter、Google<br>国内的一些大公司：Alibaba（天猫所有的页面都是通过Node提供的服务）、Tencent、Baidu<br>3.本身技术是有价值<br>4.js开发</p>
+<p>###3.什么是JavaScript？<br>一门脚步语言 需要嵌入html执行</p>
+<p>###4.浏览器中的JavaScript可以做什么？<br>校验表单 操作dom 等等</p>
+<p>###5.浏览器中的JavaScript不可以做什么？<br>操作服务器硬件</p>
 <a id="more"></a>
+<p>###6.浏览器与JavaScript是什么关系？<br>浏览器解析js，目的是为了让计算机能看懂js，看懂01010101，机器码、字节码<br>编译</p>
+<p>内核–&gt;js引擎</p>
+<p>引擎 1.转化  汽油柴油等等-&gt;转化-&gt;成动能<br>             模板+数据—&gt;页面<br>              js代码—&gt;机器码\字节码<br>     2.移植性<br>     js引擎套一个壳子，写js代码传给js引擎，操作硬件<br>     node.js  v8引擎去解析js</p>
+<p>###7.JavaScript只可以运行在浏览器中吗？</p>
+<p>##什么是 Node?</p>
 <ul>
-<li><h3 id="OC调用Swift"><a href="#OC调用Swift" class="headerlink" title="OC调用Swift"></a>OC调用Swift</h3><blockquote>
-<p>Xcode已经默认生成一个用于OC调用Swift的头文件，文件名格式是: <code>{targetName}-Swift.h</code></p>
-</blockquote>
+<li><a href="">https://nodejs.org/en/</a></li>
+<li>node是js运行环境基于v8引擎<br>特点用事件驱动、无阻塞的io模型<br>优势轻量、高效</li>
+<li>node是门技术不是语言<br>java java<br>.net c#<br>node js</li>
+<li>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. <ul>
+<li>JavaScript runtime  JavaScript 运行时</li>
+<li>Chrome’s V8 JavaScript engine Chrome 浏览器 V8 引擎</li>
+<li>Node.js 是一个 构建于 谷歌的 Chrome 浏览器的 V8 引擎之上的一个 <code>JavaScript运行时</code> 环境</li>
+<li>Node.js可以解析和执行 JavaScript 代码</li>
+</ul>
 </li>
-<li><p>Swift暴露给OC的类最终继承自NSObject </p>
+<li>Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. <ul>
+<li>event-driven  事件驱动模型</li>
+<li>non-blocking I/O model  非阻塞IO模型  IO（input/output）输入与输出</li>
+<li>lightweight[ˈlaɪtweɪt]  轻量级<ul>
+<li>在软件开发行业中，轻量级标识褒义词</li>
+<li>轻量级也就意味着 运行速度快</li>
+<li>轻量级也就意味着有更好的 跨平台 特性（平台的差异性，兼容性）</li>
+</ul>
 </li>
-<li>使用<code>@objc</code>修饰需要暴露给OC的成员</li>
-<li>使用<code>@objcMembers</code>修饰类 <ul>
-<li>代表默认所有成员都会暴露给OC(包括扩展中定义的成员) </li>
-<li>最终是否成功暴露，还需要考虑成员自身的访问级别</li>
+<li>efficient[ɪˈfɪʃnt] 高效的</li>
+<li>Node.js的 事件驱动和非阻塞IO模型使得Node.js本身非常的轻量和高效</li>
+</ul>
+</li>
+<li>Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.<ul>
+<li>package ecosystem npm  包生态系统 npm</li>
+<li>largest  最大的</li>
+<li>open source libraries 开源库<ul>
+<li>理论意义上 开源就表示有成熟的社区，开放源代码</li>
+</ul>
+</li>
+<li>Node.js 的npm包生态系统，是世界上 最大的 开源库 生态系统</li>
+<li>以前的 客户端中 JavaScript 库 散列在互联网的各个地方</li>
+<li>npm 就是 把大家经常使用的一些开源库 给 组织到了一起</li>
 </ul>
 </li>
 </ul>
-<p><code>@objc</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 可以通过@objc 重命名Swift暴露给OC的符号名(类名、属性名、函数名等)</span><br><span class="line">@objc(MJCar)</span><br><span class="line">@objcMembers class Car: NSObject &#123;</span><br><span class="line">	var price: Double</span><br><span class="line">	@objc(name)</span><br><span class="line">	var band: String</span><br><span class="line">	init(price: Double, band: String) &#123;</span><br><span class="line">		self.price = price</span><br><span class="line">		self.band = band </span><br><span class="line">	&#125;</span><br><span class="line">	@objc(drive)</span><br><span class="line">	func run() &#123; print(price, band, &quot;run&quot;) &#125; </span><br><span class="line">	static func run() &#123; print(&quot;Car run&quot;) &#125;</span><br><span class="line">&#125;</span><br><span class="line">extension Car &#123;</span><br><span class="line">    @objc(exec:v2:)</span><br><span class="line">	func test() &#123; print(price, band, &quot;test&quot;) &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>选择器(<code>Selector</code>):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// Swift中依然可以使用选择器，使用#selector(name)定义一个选择器 </span><br><span class="line">// 必须是被@objcMembers或@objc修饰的方法才可以定义选择器</span><br><span class="line">@objcMembers class Person: NSObject &#123;</span><br><span class="line">	func test1(v1: Int) &#123; print(&quot;test1&quot;) &#125;</span><br><span class="line">	func test2(v1: Int, v2: Int) &#123; print(&quot;test2(v1:v2:)&quot;) &#125;</span><br><span class="line">	func test2(_ v1: Double, _ v2: Double) &#123; print(&quot;test2(_:_:)&quot;) &#125; </span><br><span class="line">	func run() &#123;</span><br><span class="line">		perform(#selector(test1)) </span><br><span class="line">		perform(#selector(test1(v1:))) </span><br><span class="line">		perform(#selector(test2(v1:v2:))) </span><br><span class="line">		perform(#selector(test2(_:_:))) </span><br><span class="line">		perform(#selector(test2 as (Double, Double) -&gt; Void))</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>dynamic</code><br> 被 @objc dynamic 修饰的内容会具有动态性，比如调用方法会走runtime那一套流程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Dog: NSObject &#123;</span><br><span class="line">    @objc dynamic func test1() &#123;&#125;</span><br><span class="line">    func test2() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">var d = Dog() </span><br><span class="line">d.test1()</span><br><span class="line">d.test2()</span><br></pre></td></tr></table></figure></p>
+<p>Node 是一个可以解析和执行 JavaScript 代码的 运行时环境</p>
 <ul>
-<li><h3 id="Swift语言中的一些编译器特性："><a href="#Swift语言中的一些编译器特性：" class="headerlink" title="Swift语言中的一些编译器特性："></a>Swift语言中的一些编译器特性：</h3>代码注释相关：<blockquote>
-<p>// MARK: 类似于OC中的 #pragma mark<br>// MARK: - 类似于OC中的 #pragma mark -<br>// TODO: 用于标记未完成的任务<br>// FIXME: 用于标记待修复的问题<br><code>#warning(&quot;undo&quot;)</code></p>
-</blockquote>
+<li>Node.js 的作者<ul>
+<li>瑞恩.达尔</li>
+</ul>
 </li>
 </ul>
-<p>条件编译：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 操作系统:macOS\iOS\tvOS\watchOS\Linux\Android\Windows\FreeBSD #if os(macOS) || os(iOS)</span><br><span class="line">// CPU架构:i386\x86_64\arm\arm64</span><br><span class="line">#elseif arch(x86_64) || arch(arm64)</span><br><span class="line">// swift版本</span><br><span class="line">#elseif swift(&lt;5) &amp;&amp; swift(&gt;=3)</span><br><span class="line">// 模拟器</span><br><span class="line">#elseif targetEnvironment(simulator) </span><br><span class="line">// 可以导入某模块</span><br><span class="line">#elseif canImport(Foundation)</span><br><span class="line">#else</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure></p>
-<p>系统版本检测:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if #available(iOS 10, macOS 10.12, *) &#123;</span><br><span class="line">	// 对于iOS平台，只在iOS10及以上版本执行</span><br><span class="line">	// 对于macOS平台，只在macOS 10.12及以上版本执行 // 最后的*表示在其他所有平台都执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>API可用性说明:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@available(iOS 10, macOS 10.15, *) </span><br><span class="line">class Person &#123;&#125;</span><br><span class="line">struct Student &#123;</span><br><span class="line">    @available(*, unavailable, renamed: &quot;study&quot;)</span><br><span class="line">    func study_() &#123;&#125;</span><br><span class="line">    func study() &#123;&#125;</span><br><span class="line">	@available(iOS, deprecated: 11) </span><br><span class="line">	@available(macOS, deprecated: 10.12) </span><br><span class="line">	func run() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://docs.swift.org/swift-book/ReferenceManual/Attributes.html" target="_blank" rel="noopener">更多用法参考</a><br>自定义打印:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func logger&lt;T&gt;(_ msg: T,</span><br><span class="line">			    file: NSString = #file,</span><br><span class="line">                line: Int = #line,</span><br><span class="line">                  fn: String = #function) &#123;</span><br><span class="line">    #if DEBUG</span><br><span class="line">	let prefix = &quot;\(file.lastPathComponent)_\(line)_\(fn):&quot; </span><br><span class="line">	print(prefix, msg)</span><br><span class="line">	#endif</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Node-的实现结构"><a href="#Node-的实现结构" class="headerlink" title="Node 的实现结构"></a>Node 的实现结构</h3><ul>
+<li>V8 JavaScript 解析执行引擎   ECMAScript</li>
+<li>中间层 （提供了文件操作、网络操作登陆接口）更加接近操作系统的接口供开发人员使用</li>
+<li>硬件层</li>
+</ul>
+<h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><h3 id="3m安装法-nvm-npm-nrm"><a href="#3m安装法-nvm-npm-nrm" class="headerlink" title="3m安装法 nvm npm nrm"></a>3m安装法 nvm npm nrm</h3><h3 id="安装包的方式安装"><a href="#安装包的方式安装" class="headerlink" title="安装包的方式安装"></a>安装包的方式安装</h3><ul>
+<li>问题1：安装了node 没有卸载 2:32和64搞混了 3：；拼写错误，路径错误——&gt;老师眼力</li>
+<li>下载地址：</li>
+<li>一路下一步 next</li>
+<li>如何确认是否安装成功：<ul>
+<li><code>win + r</code> ，然后输入 <code>cmd</code> ，然后敲回车 就可以进入 cmd 控制台</li>
+</ul>
+</li>
+</ul>
+<h3 id="nvm-安装和管理我们的-Node-js版本"><a href="#nvm-安装和管理我们的-Node-js版本" class="headerlink" title="nvm 安装和管理我们的 Node.js版本"></a>nvm 安装和管理我们的 Node.js版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nvm的安装方式，node.js version manager 是一个node的版本管理工具</span><br><span class="line">为了解决node版本切换问题</span><br><span class="line">右键在此电脑上点击一下--》属性---》系统---》高级系统设置---》环境变量</span><br><span class="line">控制面板---》系统---》高级系统设置---》环境变量</span><br><span class="line">NVM_HOME---C:\dev\nvm</span><br><span class="line">NVM_SYMLINK--C:\dev\nodejs</span><br><span class="line">新建一个path     %NVM_HOME%;%NVM_SYMLINK%</span><br></pre></td></tr></table></figure>
+<p>nvm 用法<br>查看版本号<br>nvm list<br>用哪个版本（已经下载过的版本）<br>nvm use 版本号<br>nvm use 版本号 32<br>下载相对应版本<br>nvm install 版本号<br>nvm install 版本号 32</p>
+<p>nvm下载的是二进制版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 控制台基本使用</span><br><span class="line"></span><br><span class="line">允许用户可以在终端命令台中与操作系统交互，其实就是输入与输出</span><br><span class="line"></span><br><span class="line">### 如何打开cmd</span><br><span class="line"></span><br><span class="line">1. 通过 按 window 键，输入 `cmd` 打开cmd程序</span><br><span class="line">2. 通过 `win+r`  输入 `cmd`，敲回车就可以进入</span><br><span class="line"></span><br><span class="line">### 基本命令</span><br><span class="line"></span><br><span class="line">- `dir` directory 列出当前目录下所有的条目</span><br><span class="line">  + 别名 `ls` 在 powershell 中可以使用</span><br><span class="line">- `cd` change directory 切换目录</span><br></pre></td></tr></table></figure></p>
+<p>切换到当前目录下的 Desktop 目录<br>当想切换到当前目录的时候，最好使用 cd ./ 相对路径的形式<br>C:\Users\iroc&gt;cd Desktop<br>C:\Users\iroc\Desktop&gt;</p>
+<p>在Windows 上切换盘符：<br><code>d:</code></p>
+<p>切换绝对路径之后再同一个盘符下才有效</p>
+<p>切换到上一级目录<br>C:\Users\iroc\Desktop\code\seajs&gt;cd ../<br>C:\Users\iroc\Desktop\code&gt;</p>
+<p>连续进入多级目录<br>C:\Users\iroc\Desktop\code&gt;cd seajs/a<br>C:\Users\iroc\Desktop\code\seajs\a&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- `cls` clear screen 清屏</span><br><span class="line">  + 别名 clear 在widnows中的 `powershell` 中可以使用</span><br><span class="line"></span><br><span class="line"> windows下的寻址用\反斜杠 </span><br><span class="line"></span><br><span class="line">### path 环境变量</span><br><span class="line"></span><br><span class="line">目的是为了在控制台中的任何目录都可以快速打开或者使用该可执行文件</span><br><span class="line"></span><br><span class="line">环境变量就是用来存储系统级别的变量</span><br><span class="line"></span><br><span class="line">- 添加环境变量</span><br><span class="line">  + 我的电脑 -&gt; 右键选择属性 -&gt; 高级系统设置 -&gt; 切换到`高级`面板 -&gt; 环境变量</span><br><span class="line">  + 第一种方式：直接把可执行文件所属的目录 放到 PATH 环境变量中（如果没有PATH环境变量，自己新建）</span><br><span class="line">  + 第二种方式：新建一个环境变量，变量名规范：逻辑名_HOME 变量值：该可执行文件所属的目录</span><br><span class="line">  + 注意：无论是直接添加的路径还是引用的变量名，一定要用 英文的分号 区分开</span><br><span class="line">  + 引用变量名的时候，变量名两边都是 `%`</span><br><span class="line"></span><br><span class="line">`&gt; feiq`</span><br><span class="line">当你在控制台中输入一个程序的名字的时候，cmd 默认把它当成一个可执行文件去执行了，</span><br><span class="line">优先找当前目录下是否有没有一个叫做feiq.exe 的可执行文件，如果有，直接执行打开</span><br><span class="line">如果没有，cmd会进入 path 环境变量中 一个目录一个目录的挨着查找里面是否有该可执行文件</span><br><span class="line"></span><br><span class="line">## REPL(Read-eval-print-loop) 运行环境</span><br><span class="line"></span><br><span class="line">用来测试一下代码的，repl和chrome的控制台很像</span><br><span class="line"></span><br><span class="line">- 通过在控制台中输入 `node` 敲回车就可以计入 REPL 运行环境</span><br><span class="line">- 通过在REPL运行环境中 连续按两次 `Ctrl+C` 就可以退出 REPL 运行环境</span><br><span class="line"></span><br><span class="line">## 执行js文件</span><br><span class="line"> 用node执行js文件，文件在当前目录下----&gt;node +文件名</span><br><span class="line"> 如果不在当前目录下，node +文件路径的形式执行</span><br><span class="line"> 相对路径</span><br><span class="line"> ./当前路径</span><br><span class="line"> ../上级目录</span><br><span class="line"> 绝对路径执行js的方式</span><br><span class="line"> node c:\Users\cena\Desktop\code\01helloworld.js</span><br><span class="line">## Global</span><br><span class="line">global和window很像，都是全局对象</span><br><span class="line">## CONSOLE</span><br></pre></td></tr></table></figure></p>
+<p>断言 是用来测试用的<br>断言就是假定一个条件，如果条件成立则不输出任何内容，如果条件不成立则报错还要输出想要输出的内容。<br>console.assert(条件,条件不成立输出的内容);<br>var foo=3;<br>console.assert(foo==3,”失败”);<br>time() timeEnd()成对出现，计算在两个方法中间的代码的运行时间，传入的参数要一致<br>console.time(‘test’);</p>
+<p>console.timeEnd(‘test1’);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### __dirname 和 __filename</span><br><span class="line">__dirnamee 用来找到当前文件夹的路径</span><br><span class="line">__filename 用来去到当前文件的路径</span><br><span class="line">不知道代码要才哪使用的时候，用于灵活的写代码取路径的时候。</span><br><span class="line">它们属于模块作用域，可以直接使用</span><br><span class="line">它们两个用来获取路径的，一般用于操作文件路径的时候，才会用到</span><br><span class="line"></span><br><span class="line">## process</span><br><span class="line"></span><br><span class="line">process 是一个全局可用对象，用来和我们现在启动中的node进行交互的</span><br><span class="line">process.version取版本号</span><br><span class="line">在控制台做标准输出</span><br><span class="line">process.stdout.write(`123123`);</span><br><span class="line">process.pid：当前进程的进程号。</span><br><span class="line">process.version：Node的版本，比如v0.10.18。</span><br><span class="line">process.platform：当前系统平台，比如Linux。</span><br><span class="line">process.env：指向当前shell的环境变量，比如process.env.HOME。</span><br><span class="line">process.stdout：指向标准输出。</span><br><span class="line">process.stdin：指向标准输入。</span><br><span class="line">process.stderr：指向标准错误。</span><br><span class="line">## 模块系统</span><br><span class="line">## node.js模块化</span><br></pre></td></tr></table></figure></p>
+<p>一个js文件在node里面我们就理解为一个模块<br>require用来加载模块<br>module.exports用来曝露属性和方法的，因为模块有封装性，需要打破封装性曝露方法和属性来<br>exports是module.exports的别名，exports可以做的事情，module.exports都可以做，exports只能用.的形式曝露属性和方法<br><code>`</code></p>
 
         
         </div>
@@ -325,7 +369,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2019/04/15/s10-OC-Swift混编的一些小知识/" data-id="ckisun8ud001x68y0l2j3apnh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2016/11/21/05-JS-old-04-node-lesson1/" data-id="ckiu4655a001ol4y0ppy1l559" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -400,19 +444,19 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2019/06/20/net_01.What exactly is RESTful programming?/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/11/28/05-JS-old-05-node-lesson2/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    What exactly is RESTful programming?
+                    node-lesson2
                 
             </div>
         </a>
     
     
-        <a href="/2018/09/10/net_04.Socket原理知识摘要03/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/11/11/05-JS-old-03-JavaScript-模块化编程/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Socket原理知识摘要03</div>
+            <div class="article-nav-title">JavaScript 模块化编程</div>
         </a>
     
 </nav>
@@ -443,7 +487,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/10/18/s12.Swift中的指针(UnsafePointer)/" class="thumbnail">
+                            <a href="/2020/10/18/03-Swift-s12-Swift中的指针-UnsafePointer/" class="thumbnail">
     
     
         <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swfit-06.指针(UnsafePointer)" class="thumbnail-image"></span>
@@ -454,7 +498,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
-                            <p class="item-title"><a href="/2020/10/18/s12.Swift中的指针(UnsafePointer)/" class="title">Swfit-06.指针(UnsafePointer)</a></p>
+                            <p class="item-title"><a href="/2020/10/18/03-Swift-s12-Swift中的指针-UnsafePointer/" class="title">Swfit-06.指针(UnsafePointer)</a></p>
                             <p class="item-date"><time datetime="2020-10-18T01:31:57.000Z" itemprop="datePublished">2020-10-18</time></p>
                         </div>
                     </li>
@@ -462,7 +506,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/09/15/s11.关于指针的强制类型转换/" class="thumbnail">
+                            <a href="/2020/09/15/06-Others-s11-关于指针的强制类型转换/" class="thumbnail">
     
     
         <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
@@ -473,7 +517,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
-                            <p class="item-title"><a href="/2020/09/15/s11.关于指针的强制类型转换/" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-title"><a href="/2020/09/15/06-Others-s11-关于指针的强制类型转换/" class="title">关于指针的强制类型转换</a></p>
                             <p class="item-date"><time datetime="2020-09-15T05:45:57.000Z" itemprop="datePublished">2020-09-15</time></p>
                         </div>
                     </li>
@@ -481,7 +525,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/06/25/old_02.App启动优化/" class="thumbnail">
+                            <a href="/2020/06/25/06-Others-old-02-App启动优化/" class="thumbnail">
     
     
         <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
@@ -492,7 +536,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
-                            <p class="item-title"><a href="/2020/06/25/old_02.App启动优化/" class="title">App启动优化</a></p>
+                            <p class="item-title"><a href="/2020/06/25/06-Others-old-02-App启动优化/" class="title">App启动优化</a></p>
                             <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
                         </div>
                     </li>
@@ -500,7 +544,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/06/20/s13.Array的常见操作/" class="thumbnail">
+                            <a href="/2020/06/20/03-Swift-s13-Array的常见操作/" class="thumbnail">
     
     
         <span style="background-image:url(/css/images/tree_04.jpg)" alt="Swfit-05.Array的常见操作" class="thumbnail-image"></span>
@@ -511,7 +555,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
-                            <p class="item-title"><a href="/2020/06/20/s13.Array的常见操作/" class="title">Swfit-05.Array的常见操作</a></p>
+                            <p class="item-title"><a href="/2020/06/20/03-Swift-s13-Array的常见操作/" class="title">Swfit-05.Array的常见操作</a></p>
                             <p class="item-date"><time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time></p>
                         </div>
                     </li>
@@ -519,7 +563,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/01/15/s17_Swift小记04/" class="thumbnail">
+                            <a href="/2020/01/15/03-Swift-s17-Swift小记04/" class="thumbnail">
     
     
         <span style="background-image:url(/css/images/tree_22.jpg)" alt="Swfit-04.类,元类,错误处理,泛型,拓展。。。" class="thumbnail-image"></span>
@@ -530,7 +574,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
-                            <p class="item-title"><a href="/2020/01/15/s17_Swift小记04/" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
+                            <p class="item-title"><a href="/2020/01/15/03-Swift-s17-Swift小记04/" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
                             <p class="item-date"><time datetime="2020-01-15T02:31:30.000Z" itemprop="datePublished">2020-01-15</time></p>
                         </div>
                     </li>
