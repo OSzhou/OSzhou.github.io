@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>What exactly is RESTful programming? | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="REST is the underlying architectural principle of the web. The amazing thing about the web is the fact that clients (browsers) and servers can interact in complex ways without the client knowing anyth">
+<meta name="keywords" content="Net">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What exactly is RESTful programming?">
+<meta property="og:url" content="http://blogzhou.top/2019/06/20/[object Object]/index.html">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="REST is the underlying architectural principle of the web. The amazing thing about the web is the fact that clients (browsers) and servers can interact in complex ways without the client knowing anyth">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_16.jpg">
+<meta property="og:updated_time" content="2020-12-18T10:35:05.859Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What exactly is RESTful programming?">
+<meta name="twitter:description" content="REST is the underlying architectural principle of the web. The amazing thing about the web is the fact that clients (browsers) and servers can interact in complex ways without the client knowing anyth">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_16.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                36
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-[object Object]" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/tree_16.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            What exactly is RESTful programming?
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/06/20/[object Object]/">
+            <time datetime="2019-06-20T12:30:50.000Z" itemprop="datePublished">2019-06-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Net/">Net</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><em>REST</em> is the underlying architectural principle of the web. The amazing thing about the web is the fact that clients (browsers) and servers can interact in complex ways without the client knowing anything beforehand about the server and the resources it hosts. The key constraint is that the server and client must both agree on the <em>media</em> used, which in the case of the web is <em>HTML</em>.</p>
+<p>An API that adheres to the principles of <em>REST</em> does not require the client to know anything about the structure of the API. Rather, the server needs to provide whatever information the client needs to interact with the service. An <em>HTML form</em> is an example of this: The server specifies the location of the resource and the required fields. <strong>The browser doesn’t know in advance where to submit the information, and it doesn’t know in advance what information to submit. Both forms of information are entirely supplied by the server.</strong> (This principle is called <a href="https://en.wikipedia.org/wiki/HATEOAS" target="_blank" rel="noopener"><em>HATEOAS</em>: Hypermedia As The Engine Of Application State</a>.)<br><a id="more"></a><br><strong>So, how does this apply to <em>HTTP</em>, and how can it be implemented in practice?</strong> HTTP is oriented around verbs and resources. The two verbs in mainstream usage are <code>GET</code> and <code>POST</code>, which I think everyone will recognize. However, the HTTP standard defines several others such as <code>PUT</code> and <code>DELETE</code>. These verbs are then applied to resources, according to the instructions provided by the server.</p>
+<p>For example, Let’s imagine that we have a user database that is managed by a web service. Our service uses a custom hypermedia based on JSON, for which we assign the mimetype <code>application/json+userdb</code> (There might also be an <code>application/xml+userdb</code> and <code>application/whatever+userdb</code> - many media types may be supported). The client and the server have both been programmed to understand this format, but they don’t know anything about each other. As <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="noopener">Roy Fielding</a> points out:</p>
+<blockquote>
+<p>A REST API should spend almost all of its descriptive effort in defining the media type(s) used for representing resources and driving application state, or in defining extended relation names and/or hypertext-enabled mark-up for existing standard media types.</p>
+</blockquote>
+<p>A request for the base resource<code>/</code>might return something like this:</p>
+<ul>
+<li><p>Request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /</span><br><span class="line">Accept: application/json+userdb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Response</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">200 OK</span><br><span class="line">Content-Type: application/json+userdb</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;1.0&quot;,</span><br><span class="line">    &quot;links&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;href&quot;: &quot;/user&quot;,</span><br><span class="line">            &quot;rel&quot;: &quot;list&quot;,</span><br><span class="line">            &quot;method&quot;: &quot;GET&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;href&quot;: &quot;/user&quot;,</span><br><span class="line">            &quot;rel&quot;: &quot;create&quot;,</span><br><span class="line">            &quot;method&quot;: &quot;POST&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>We know from the description of our media that we can find information about related resources from sections called “links”. This is called Hypermedia controls. In this case, we can tell from such a section that we can find a user list by making another request for<code>/user</code>:</p>
+<ul>
+<li><p>Request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /user</span><br><span class="line">Accept: application/json+userdb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Response</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">200 OK</span><br><span class="line">Content-Type: application/json+userdb</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;users&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;id&quot;: 1,</span><br><span class="line">            &quot;name&quot;: &quot;Emil&quot;,</span><br><span class="line">            &quot;country: &quot;Sweden&quot;,</span><br><span class="line">            &quot;links&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;href&quot;: &quot;/user/1&quot;,</span><br><span class="line">                    &quot;rel&quot;: &quot;self&quot;,</span><br><span class="line">                    &quot;method&quot;: &quot;GET&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;href&quot;: &quot;/user/1&quot;,</span><br><span class="line">                    &quot;rel&quot;: &quot;edit&quot;,</span><br><span class="line">                    &quot;method&quot;: &quot;PUT&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;href&quot;: &quot;/user/1&quot;,</span><br><span class="line">                    &quot;rel&quot;: &quot;delete&quot;,</span><br><span class="line">                    &quot;method&quot;: &quot;DELETE&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,&#123;</span><br><span class="line">            &quot;id&quot;: 2,</span><br><span class="line">            &quot;name&quot;: &quot;Adam&quot;,</span><br><span class="line">            &quot;country: &quot;Scotland&quot;,</span><br><span class="line">            &quot;links&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;href&quot;: &quot;/user/2&quot;,</span><br><span class="line">                    &quot;rel&quot;: &quot;self&quot;,</span><br><span class="line">                    &quot;method&quot;: &quot;GET&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;href&quot;: &quot;/user/2&quot;,</span><br><span class="line">                    &quot;rel&quot;: &quot;edit&quot;,</span><br><span class="line">                    &quot;method&quot;: &quot;PUT&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;href&quot;: &quot;/user/2&quot;,</span><br><span class="line">                    &quot;rel&quot;: &quot;delete&quot;,</span><br><span class="line">                    &quot;method&quot;: &quot;DELETE&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;links&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;href&quot;: &quot;/user&quot;,</span><br><span class="line">            &quot;rel&quot;: &quot;create&quot;,</span><br><span class="line">            &quot;method&quot;: &quot;POST&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>We can tell a lot from this response. For instance, we now know we can create a new user by <code>POST</code>ing to <code>/user</code>:</p>
+<ul>
+<li><p>Request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">POST /user</span><br><span class="line">Accept: application/json+userdb</span><br><span class="line">Content-Type: application/json+userdb</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;: &quot;Karl&quot;,</span><br><span class="line">    &quot;country&quot;: &quot;Austria&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Response</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">201 Created</span><br><span class="line">Content-Type: application/json+userdb</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;user&quot;: &#123;</span><br><span class="line">        &quot;id&quot;: 3,</span><br><span class="line">        &quot;name&quot;: &quot;Karl&quot;,</span><br><span class="line">        &quot;country&quot;: &quot;Austria&quot;,</span><br><span class="line">        &quot;links&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;href&quot;: &quot;/user/3&quot;,</span><br><span class="line">                &quot;rel&quot;: &quot;self&quot;,</span><br><span class="line">                &quot;method&quot;: &quot;GET&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;href&quot;: &quot;/user/3&quot;,</span><br><span class="line">                &quot;rel&quot;: &quot;edit&quot;,</span><br><span class="line">                &quot;method&quot;: &quot;PUT&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;href&quot;: &quot;/user/3&quot;,</span><br><span class="line">                &quot;rel&quot;: &quot;delete&quot;,</span><br><span class="line">                &quot;method&quot;: &quot;DELETE&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;links&quot;: &#123;</span><br><span class="line">       &quot;href&quot;: &quot;/user&quot;,</span><br><span class="line">       &quot;rel&quot;: &quot;list&quot;,</span><br><span class="line">       &quot;method&quot;: &quot;GET&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>We also know that we can change existing data:</p>
+<ul>
+<li><p>Request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PUT /user/1</span><br><span class="line">Accept: application/json+userdb</span><br><span class="line">Content-Type: application/json+userdb</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;: &quot;Emil&quot;,</span><br><span class="line">    &quot;country&quot;: &quot;Bhutan&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Response</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">200 OK</span><br><span class="line">Content-Type: application/json+userdb</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;user&quot;: &#123;</span><br><span class="line">        &quot;id&quot;: 1,</span><br><span class="line">        &quot;name&quot;: &quot;Emil&quot;,</span><br><span class="line">        &quot;country&quot;: &quot;Bhutan&quot;,</span><br><span class="line">        &quot;links&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;href&quot;: &quot;/user/1&quot;,</span><br><span class="line">                &quot;rel&quot;: &quot;self&quot;,</span><br><span class="line">                &quot;method&quot;: &quot;GET&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;href&quot;: &quot;/user/1&quot;,</span><br><span class="line">                &quot;rel&quot;: &quot;edit&quot;,</span><br><span class="line">                &quot;method&quot;: &quot;PUT&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;href&quot;: &quot;/user/1&quot;,</span><br><span class="line">                &quot;rel&quot;: &quot;delete&quot;,</span><br><span class="line">                &quot;method&quot;: &quot;DELETE&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;links&quot;: &#123;</span><br><span class="line">       &quot;href&quot;: &quot;/user&quot;,</span><br><span class="line">       &quot;rel&quot;: &quot;list&quot;,</span><br><span class="line">       &quot;method&quot;: &quot;GET&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Notice that we are using different <code>HTTP</code> verbs (<code>GET</code>, <code>PUT</code>, <code>POST</code>, <code>DELETE</code> etc.) to manipulate these resources, and that the only knowledge we presume on the client’s part is our media definition.<br><a href="https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming/3950863#3950863" target="_blank" rel="noopener">原文链接</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2019/06/20/[object Object]/" data-id="ckiu52k4j001gx3y0cnj20r4k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/12/25/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Swfit-01.可变参数,多重可选项，MemoryLayout。。。
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2019/04/15/[object Object]/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">OC/Swift混编的一些小知识</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/18/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swfit-06.指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/10/18/[object Object]/" class="title">Swfit-06.指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T01:31:57.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/09/15/[object Object]/" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T05:45:57.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/25/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/25/[object Object]/" class="title">App启动优化</a></p>
+                            <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/20/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Swfit-05.Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/20/[object Object]/" class="title">Swfit-05.Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_22.jpg)" alt="Swfit-04.类,元类,错误处理,泛型,拓展。。。" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/01/15/[object Object]/" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
+                            <p class="item-date"><time datetime="2020-01-15T02:31:30.000Z" itemprop="datePublished">2020-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 15px;">Net</a> <a href="/tags/OC/" style="font-size: 11.67px;">OC</a> <a href="/tags/Swift/" style="font-size: 18.33px;">Swift</a> <a href="/tags/UI/" style="font-size: 16.67px;">UI</a> <a href="/tags/Words/" style="font-size: 11.67px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/poetry/" style="font-size: 13.33px;">poetry</a> <a href="/tags/tool/" style="font-size: 11.67px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

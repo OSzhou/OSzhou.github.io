@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Swfit-02.闭包,属性,inout,下标,继承。。。 | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2: Int)">
+<meta name="keywords" content="Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swfit-02.闭包,属性,inout,下标,继承。。。">
+<meta property="og:url" content="http://blogzhou.top/2019/12/30/[object Object]/index.html">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2: Int)">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_20.jpg">
+<meta property="og:updated_time" content="2020-12-18T10:34:40.474Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swfit-02.闭包,属性,inout,下标,继承。。。">
+<meta name="twitter:description" content="11. 闭包表达式(Closure Expression) ：一种函数的定义方式 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数12345678910111213141516func sum(_ v1: Int, _ v2: Int) -&amp;gt; Int &amp;#123; v1 + v2 &amp;#125;var fn = &amp;#123;(v1: Int, v2: Int)">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_20.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                36
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-[object Object]" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/tree_20.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Swfit-02.闭包,属性,inout,下标,继承。。。
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/12/30/[object Object]/">
+            <time datetime="2019-12-30T02:31:30.000Z" itemprop="datePublished">2019-12-30</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Swift/">Swift</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <ul>
+<li><h5 id="11-闭包表达式-Closure-Expression-：一种函数的定义方式"><a href="#11-闭包表达式-Closure-Expression-：一种函数的定义方式" class="headerlink" title="11. 闭包表达式(Closure Expression) ：一种函数的定义方式"></a>11. 闭包表达式(Closure Expression) ：<code>一种函数的定义方式</code></h5><ul>
+<li>在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">func sum(_ v1: Int, _ v2: Int) -&gt; Int &#123; v1 + v2 &#125;</span><br><span class="line"></span><br><span class="line">var fn = &#123;</span><br><span class="line">(v1: Int, v2: Int) -&gt; Int in </span><br><span class="line">    return v1 + v2</span><br><span class="line">&#125;</span><br><span class="line">fn(10, 20)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">(v1: Int, v2: Int) -&gt; Int in </span><br><span class="line">    return v1 + v2</span><br><span class="line">&#125;(10, 20)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">(参数列表) -&gt; 返回值类型 in 函数体代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><h5 id="12-闭包"><a href="#12-闭包" class="headerlink" title="12. 闭包"></a>12. 闭包</h5><ul>
+<li>一个函数和它所捕获的变量\常量环境组合起来，称为闭包 <ol>
+<li>一般指定义在函数内部的函数</li>
+<li>一般它捕获的是外层函数的局部变量\常量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typealias Fn = (Int) -&gt; Int </span><br><span class="line">func getFn() -&gt; Fn &#123;</span><br><span class="line">    var num = 0</span><br><span class="line">    func plus(_ i: Int) -&gt; Int &#123;</span><br><span class="line">        num += i</span><br><span class="line">        return num </span><br><span class="line">    &#125;</span><br><span class="line">    return plus</span><br><span class="line">&#125; // 返回的plus和num形成了闭包</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>辅助理解： </p>
+<ul>
+<li>可以把闭包想象成是一个类的实例对象<ul>
+<li>内存在堆空间</li>
+<li>捕获的局部变量\常量就是对象的成员(存储属性) </li>
+<li>组成闭包的函数就是类内部定义的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Closure &#123;</span><br><span class="line">    var num = 0</span><br><span class="line">    func plus(_ i: Int) -&gt; Int &#123; num += i</span><br><span class="line">      return num </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="13-自动闭包-autoclosure"><a href="#13-自动闭包-autoclosure" class="headerlink" title="13. 自动闭包@autoclosure"></a>13. 自动闭包<code>@autoclosure</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 如果第1个数大于0，返回第一个数。否则返回第2个数</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: Int) -&gt; Int &#123;</span><br><span class="line">    return v1 &gt; 0 ? v1 : v2</span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(10, 20) // 10 </span><br><span class="line">getFirstPositive(-2, 20) // 20 </span><br><span class="line">getFirstPositive(0, -4) // -4</span><br><span class="line">// 改成函数类型的参数，可以让v2延迟加载</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: () -&gt; Int) -&gt; Int? &#123;</span><br><span class="line">    return v1 &gt; 0 ? v1 : v2() </span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(-4) &#123; 20 &#125;</span><br><span class="line">func getFirstPositive(_ v1: Int, _ v2: @autoclosure () -&gt; Int) -&gt; Int? &#123;</span><br><span class="line">     return v1 &gt; 0 ? v1 : v2()</span><br><span class="line">&#125;</span><br><span class="line">getFirstPositive(-4, 20)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@autoclosure 会自动将 20 封装成闭包 { 20 }</p>
+</li>
+<li>@autoclosure 只支持 () -&gt; T 格式的参数 </li>
+<li>@autoclosure 并非只支持最后1个参数</li>
+<li>空合并运算符 ?? 使用了 @autoclosure 技术</li>
+<li><p>有@autoclosure、无@autoclosure，构成了函数重载<br><code>为了避免与期望冲突，使用了@autoclosure的地方最好明确注释清楚:这个值会被推迟执行</code></p>
+<ul>
+<li><h5 id="14-属性"><a href="#14-属性" class="headerlink" title="14. 属性"></a>14. 属性</h5><ul>
+<li>######存储属性(Stored Property)<ul>
+<li>类似于成员变量这个概念</li>
+<li>存储在实例的内存中</li>
+<li>结构体、类可以定义存储属性 </li>
+<li>枚举<strong><em>不可以</em></strong>定义存储属性</li>
+<li>在创建类 或 结构体的实例时，必须为所有的存储属性设置一个合适的初始值<ul>
+<li>可以在初始化器里为存储属性设置一个初始值</li>
+<li>可以分配一个默认的属性值作为属性定义的一部分</li>
+</ul>
+</li>
+<li><strong>延迟存储属性(Lazy Stored Property):</strong><ul>
+<li>使用lazy可以定义一个延迟存储属性，在第一次用到属性的时候才会进行初始化</li>
+<li>lazy属性必须是var，不能是let(存储类型属性除外)</li>
+<li>let必须在实例的初始化方法完成之前就拥有值</li>
+<li>如果多条线程同时第一次访问lazy属性 <code>无法保证属性只被初始化1次</code></li>
+<li>当结构体包含一个延迟存储属性时，只有var才能访问延迟存储属性, 因为延迟属性初始化时需要改变结构体的内存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>######计算属性(Computed Property)<ul>
+<li><strong><em>本质就是方法(函数)</em></strong></li>
+<li>不占用实例的内存</li>
+<li>枚举、结构体、类都可以定义计算属性</li>
+<li>set传入的新值默认叫做newValue，也可以自定义</li>
+<li>只读计算属性:只有get，没有set(有set，必须有get)</li>
+<li>定义计算属性只能用var，不能用let。let代表常量:值是一成不变的 ，而计算属性的值是可能发生变化的(即使是只读计算属性)</li>
+<li><code>枚举原始值rawValue的本质是:只读计算属性</code></li>
+</ul>
+</li>
+<li><p>######类型属性(Type Property):</p>
+<ul>
+<li><p>属性可以分为:</p>
+<ul>
+<li>实例属性(Instance Property):只能通过实例去访问<ul>
+<li>存储实例属性(Stored Instance Property):存储在实例的内存中，每个实例都有1份 </li>
+<li>计算实例属性(Computed Instance Property)</li>
+</ul>
+</li>
+<li><p>类型属性(Type Property):只能通过类型去访问</p>
+<ul>
+<li>存储类型属性(Stored Type Property):整个程序运行过程中，就只有1份内存(类似于全局变量) </li>
+<li>计算类型属性(Computed Type Property)</li>
+<li>可以通过static定义类型属性 </li>
+<li>如果是类，也可以用关键字class</li>
+</ul>
+</li>
+<li><p>ps:类型属性细节</p>
+<ul>
+<li>不同于存储实例属性，你必须给存储类型属性设定初始值。 因为类型没有像实例那样的init初始化器来初始化存储属性</li>
+<li>存储类型属性默认就是lazy，会在第一次使用的时候才初始化。 就算被多个线程同时访问，<code>保证只会初始化一次</code>。 存储类型属性可以是let</li>
+<li>枚举类型也可以定义类型属性(存储类型属性、计算类型属性)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 单例模式</span><br><span class="line">public class FileManager &#123;</span><br><span class="line">    public static let shared = FileManager()</span><br><span class="line">    private init() &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class FileManager &#123;</span><br><span class="line">    public static let shared = &#123;</span><br><span class="line">       // ....</span><br><span class="line">       // ....</span><br><span class="line">       return FileManager()</span><br><span class="line">     &#125;()</span><br><span class="line">    private init() &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="15-属性观察器-Property-Observer"><a href="#15-属性观察器-Property-Observer" class="headerlink" title="15. 属性观察器(Property Observer)"></a>15. 属性观察器(Property Observer)</h5><ul>
+<li>可以为非lazy的var存储属性设置属性观察器</li>
+<li>willSet会传递新值，默认叫newValu</li>
+<li>didSet会传递旧值，默认叫oldValue</li>
+<li><strong><em>在初始化器中设置属性值不会触发willSet和didSet</em></strong> </li>
+<li><strong><em>在属性定义时设置初始值也不会触发willSet和didSet</em></strong></li>
+<li><strong><em>父类的属性在它自己的初始化器中赋值不会触发属性观察器，但在子类的初始化器中赋值会触发属性观察器</em></strong></li>
+<li>属性观察器、计算属性的功能，同样可以应用在全局变量、局部变量身上<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">struct Circle &#123;</span><br><span class="line">  var radius: Double &#123;</span><br><span class="line">      willSet &#123;</span><br><span class="line">         print(&quot;willSet&quot;, newValue)</span><br><span class="line">      &#125; </span><br><span class="line">      didSet &#123;</span><br><span class="line">            print(&quot;didSet&quot;, oldValue, radius)  </span><br><span class="line">      &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    init() &#123;</span><br><span class="line">        self.radius = 1.0</span><br><span class="line">        print(&quot;Circle init!&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h5 id="16-inout的本质"><a href="#16-inout的本质" class="headerlink" title="16. inout的本质"></a>16. inout的本质</h5><ul>
+<li>如果实参有物理内存地址，且没有设置属性观察器 <ul>
+<li>直接将实参的内存地址传入函数(实参进行引用传递)</li>
+</ul>
+</li>
+<li>如果实参是计算属性 或者 设置了属性观察器<ul>
+<li>采取了Copy In Copy Out的做法</li>
+<li>调用该函数时，先复制实参的值，产生副本【get】</li>
+<li>将副本的内存地址传入函数(副本进行引用传递)，在函数内部可以修改副本的值   </li>
+<li>函数返回后，再将副本的值覆盖实参的值【set】<ul>
+<li>总结:inout的本质就是引用传递(地址传递)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="17-方法"><a href="#17-方法" class="headerlink" title="17. 方法"></a>17. 方法</h5><ul>
+<li><code>mutating</code><br>结构体和枚举是值类型，默认情况下，值类型的属性不能被自身的实例方法修改。<br>在func关键字前加mutating可以允许这种修改行为</li>
+<li><code>@discardableResult</code><br> 在func前面加个@discardableResult，可以消除:<strong><em>函数调用后返回值未被使用</em></strong>的警告<br>⚠</li>
+</ul>
+</li>
+<li><h5 id="18-下标-subscript"><a href="#18-下标-subscript" class="headerlink" title="18. 下标(subscript)"></a>18. 下标(subscript)</h5><ul>
+<li>使用subscript可以给任意类型(枚举、结构体、类)增加下标功能，有些地方也翻译为:下标脚本 </li>
+<li>subscript的语法类似于实例方法、计算属性，<strong><em>本质就是方法(函数)</em></strong></li>
+<li>subscript中定义的返回值类型决定了<br>  get方法的返回值类型<br>  set方法中newValue的类型</li>
+<li>subscript可以接受多个参数，并且类型任意</li>
+<li>subscript可以没有set方法，但必须要有get方法。如果只有get方法，可以省略。</li>
+</ul>
+</li>
+<li><h5 id="19-继承-Inheritance"><a href="#19-继承-Inheritance" class="headerlink" title="19.继承(Inheritance)"></a>19.继承(Inheritance)</h5><blockquote>
+<ul>
+<li><strong><em>值类型(枚举、结构体)不支持继承</em></strong>，只有类支持继承。 </li>
+<li>没有父类的类，称为:基类</li>
+<li>Swift并没有像OC、Java那样的规定:任何类最终都要继承自某个基类</li>
+<li>子类可以重写父类的下标、方法、属性，重写<strong><em>必须加上override关键字</em></strong><ul>
+<li>重写类型方法、下标：<br>1.被class修饰的类型方法、下标，允许被子类重写<br>2.被static修饰的类型方法、下标，不允许被子类重写</li>
+<li>重写属性：<ul>
+<li>子类可以将父类的属性(存储、计算)重写为<code>计算属性</code></li>
+<li>子类不可以将父类属性重写为存储属性</li>
+<li>只能重写var属性，不能重写let属性</li>
+<li>重写时，属性名、类型要一致</li>
+<li>子类重写后的属性权限 不能小于 父类属性的权限 <ul>
+<li>如果父类属性是只读的，那么子类重写后的属性可以是只读的、也可以是可读写的 </li>
+<li>如果父类属性是可读写的，那么子类重写后的属性也必须是可读写的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>重写类型属性:<ul>
+<li>被class修饰的计算类型属性，可以被子类重写</li>
+<li>被static修饰的类型属性(存储、计算)，不可以被子类重写</li>
+</ul>
+</li>
+<li>属性观察器:<ul>
+<li>可以在子类中为父类属性(除了只读计算属性、let属性)增加属性观察器</li>
+</ul>
+</li>
+<li><code>final</code>:<ul>
+<li>被final修饰的方法、下标、属性，禁止被重写 </li>
+<li>被final修饰的类，禁止被继承</li>
+</ul>
+</li>
+<li>多态（继承）原理图示：<br><img src="https://upload-images.jianshu.io/upload_images/2149459-0e5f84a301094e9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多态"></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2019/12/30/[object Object]/" data-id="ckiu52k490017x3y02556npid" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/01/10/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Swfit-03.初始化器,可选链,协议。。。
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2019/12/25/[object Object]/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Swfit-01.可变参数,多重可选项，MemoryLayout。。。</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/18/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swfit-06.指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/10/18/[object Object]/" class="title">Swfit-06.指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T01:31:57.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/09/15/[object Object]/" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T05:45:57.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/25/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/25/[object Object]/" class="title">App启动优化</a></p>
+                            <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/20/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Swfit-05.Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/20/[object Object]/" class="title">Swfit-05.Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_22.jpg)" alt="Swfit-04.类,元类,错误处理,泛型,拓展。。。" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/01/15/[object Object]/" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
+                            <p class="item-date"><time datetime="2020-01-15T02:31:30.000Z" itemprop="datePublished">2020-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 15px;">Net</a> <a href="/tags/OC/" style="font-size: 11.67px;">OC</a> <a href="/tags/Swift/" style="font-size: 18.33px;">Swift</a> <a href="/tags/UI/" style="font-size: 16.67px;">UI</a> <a href="/tags/Words/" style="font-size: 11.67px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/poetry/" style="font-size: 13.33px;">poetry</a> <a href="/tags/tool/" style="font-size: 11.67px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

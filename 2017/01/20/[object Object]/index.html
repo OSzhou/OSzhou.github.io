@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>文件流、网络操作、服务端Web开发基础 | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="文件操作文件监视利用文件监视实现自动 markdown 文件转换 相关链接：  https://github.com/chjj/marked https://github.com/Browsersync/browser-sync    实现思路：  利用fs模块的文件监视功能监视指定MD文件 当文件发生变化后，借助marked包提供的markdown to html功能将改变后的MD文件转换为HT">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件流、网络操作、服务端Web开发基础">
+<meta property="og:url" content="http://blogzhou.top/2017/01/20/[object Object]/index.html">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="文件操作文件监视利用文件监视实现自动 markdown 文件转换 相关链接：  https://github.com/chjj/marked https://github.com/Browsersync/browser-sync    实现思路：  利用fs模块的文件监视功能监视指定MD文件 当文件发生变化后，借助marked包提供的markdown to html功能将改变后的MD文件转换为HT">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_15.jpg">
+<meta property="og:updated_time" content="2020-12-18T10:36:56.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文件流、网络操作、服务端Web开发基础">
+<meta name="twitter:description" content="文件操作文件监视利用文件监视实现自动 markdown 文件转换 相关链接：  https://github.com/chjj/marked https://github.com/Browsersync/browser-sync    实现思路：  利用fs模块的文件监视功能监视指定MD文件 当文件发生变化后，借助marked包提供的markdown to html功能将改变后的MD文件转换为HT">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_15.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                36
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-[object Object]" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/tree_15.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            文件流、网络操作、服务端Web开发基础
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/20/[object Object]/">
+            <time datetime="2017-01-20T12:30:50.000Z" itemprop="datePublished">2017-01-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JS/">JS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="文件监视"><a href="#文件监视" class="headerlink" title="文件监视"></a>文件监视</h3><h4 id="利用文件监视实现自动-markdown-文件转换"><a href="#利用文件监视实现自动-markdown-文件转换" class="headerlink" title="利用文件监视实现自动 markdown 文件转换"></a>利用文件监视实现自动 markdown 文件转换</h4><ul>
+<li><p>相关链接：</p>
+<ol>
+<li><a href="https://github.com/chjj/marked" target="_blank" rel="noopener">https://github.com/chjj/marked</a></li>
+<li><a href="https://github.com/Browsersync/browser-sync" target="_blank" rel="noopener">https://github.com/Browsersync/browser-sync</a> </li>
+</ol>
+</li>
+<li><p>实现思路：</p>
+<ol>
+<li>利用<code>fs</code>模块的文件监视功能监视指定MD文件</li>
+<li>当文件发生变化后，借助<code>marked</code>包提供的<code>markdown</code> to <code>html</code>功能将改变后的MD文件转换为HTML</li>
+<li>再将得到的HTML替换到模版中</li>
+<li>最后利用BrowserSync模块实现浏览器自动刷新<br>browsersync需要用到Python<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> marked = <span class="built_in">require</span>(<span class="string">'marked'</span>);</span><br><span class="line"><span class="keyword">var</span> bs = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> target = path.join(__dirname, process.argv[<span class="number">2</span>] || <span class="string">'./README.md'</span>);</span><br><span class="line"><span class="keyword">var</span> filename = path.basename(target, path.extname(target)) + <span class="string">'.html'</span>;</span><br><span class="line"><span class="keyword">var</span> targetHtml = path.join(path.dirname(target), filename);</span><br><span class="line"></span><br><span class="line">bs.init(&#123;</span><br><span class="line">  server: path.dirname(target),</span><br><span class="line">  index: filename,</span><br><span class="line">  notify: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">bs.reload(filename);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> template = <span class="string">`&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="string">&lt;html lang="en"&gt;</span></span><br><span class="line"><span class="string">&lt;head&gt;</span></span><br><span class="line"><span class="string">  &lt;meta charset="UTF-8"&gt;</span></span><br><span class="line"><span class="string">  &lt;title&gt;&lt;/title&gt;</span></span><br><span class="line"><span class="string">  &lt;style&gt;&#123;&#123;&#123;styles&#125;&#125;&#125;&lt;/style&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">  &lt;article class="markdown"&gt;</span></span><br><span class="line"><span class="string">    &#123;&#123;&#123;body&#125;&#125;&#125;</span></span><br><span class="line"><span class="string">  &lt;/article&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line">fs.readFile(path.join(__dirname, <span class="string">'./markdown.css'</span>), <span class="string">'utf8'</span>, (error, css) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  template = template.replace(<span class="string">'&#123;&#123;&#123;styles&#125;&#125;&#125;'</span>, css);</span><br><span class="line">  <span class="keyword">var</span> handler = <span class="function">(<span class="params">current, previous</span>) =&gt;</span> &#123;</span><br><span class="line">    fs.readFile(target, <span class="string">'utf8'</span>, (error, content) =&gt; &#123;</span><br><span class="line">      <span class="keyword">var</span> html = template.replace(<span class="string">'&#123;&#123;&#123;body&#125;&#125;&#125;'</span>, marked(content));</span><br><span class="line">      fs.writeFile(targetHtml, html, (error) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (!error) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">`updated@<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span>`</span>);</span><br><span class="line">          bs.reload(filename);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  handler();</span><br><span class="line">  fs.watchFile(target, &#123; <span class="attr">interval</span>: <span class="number">100</span> &#125;, handler);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h2><h3 id="什么是流"><a href="#什么是流" class="headerlink" title="什么是流"></a>什么是流</h3><p><img src="./img/01.png" alt="二进制的世界"></p>
+<ul>
+<li><p>现实过程的流</p>
+<ul>
+<li>水流，人流</li>
+</ul>
+</li>
+<li><p>在程序开发的概念中</p>
+<ul>
+<li>流是程序输入或输出的一个连续的字节序列</li>
+<li>文件流、网络流</li>
+<li>设备(例如鼠标、键盘、磁盘、屏幕、调制解调器和打印机)的输入和输出都是用流来处理的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Node中的流操作"><a href="#Node中的流操作" class="headerlink" title="Node中的流操作"></a>Node中的流操作</h3><p><img src="./img/02.png" alt="流的操作"></p>
+<p>在 Node 核心模块 fs 中定义了一些与流相关的 API</p>
+<ul>
+<li>fs.createReadStream()<ul>
+<li>=&gt; 得到一个ReadableStream</li>
+</ul>
+</li>
+<li>fs.createWriteStream()<ul>
+<li>=&gt; 得到一个WritableStream</li>
+</ul>
+</li>
+</ul>
+<h3 id="读取流常用-API"><a href="#读取流常用-API" class="headerlink" title="读取流常用 API"></a>读取流常用 API</h3><h4 id="Event："><a href="#Event：" class="headerlink" title="Event："></a>Event：</h4><ul>
+<li>data</li>
+<li>end</li>
+<li>error</li>
+</ul>
+<h4 id="Method："><a href="#Method：" class="headerlink" title="Method："></a>Method：</h4><ul>
+<li>read([size])、</li>
+<li>pause()、</li>
+<li>isPause()、</li>
+<li>resume()、</li>
+<li>setEncoding(encoding)、</li>
+<li>pipe(destination[, options])、</li>
+<li>unpipe([destination])</li>
+</ul>
+<h3 id="写入流常用-API"><a href="#写入流常用-API" class="headerlink" title="写入流常用 API"></a>写入流常用 API</h3><h4 id="Event"><a href="#Event" class="headerlink" title="Event:"></a>Event:</h4><ul>
+<li>error</li>
+<li>pipe</li>
+</ul>
+<h4 id="Method：-1"><a href="#Method：-1" class="headerlink" title="Method："></a>Method：</h4><ul>
+<li>write(chunk[, encoding][, callback])</li>
+<li>end([chunk][, encoding][, callback])</li>
+<li>setDefaultEncoding(encoding)</li>
+</ul>
+<hr>
+<h2 id="网络操作"><a href="#网络操作" class="headerlink" title="网络操作"></a>网络操作</h2><p>如何计算循环节长度呢？</p>
+<p>想想我们手算，如果余数比除数小，我们会在后面补0然后再除。也就是说补零之后的数是下一次的被除数。如果被除数重复出现，除数确定的，那么商和余数也就是一样的。这时，循环节就出现了。</p>
+<p>下面的函数分为两部分，</p>
+<p>补零操作<br>查找有没有同样的被除数存在，如果有，就找到了循环节，计算循环节长度并返回。在没有找到的前提下，把当前被除数记录下来，并得到余数作为下一次的被除数。<br>这里需要注意，如果某一次出现了除尽的情况，说明该分数是有限小数，循环节长度是0。<br>JavaScript<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">console.log(foo(11, 3));  </span><br><span class="line">console.log(foo(1, 7));;  </span><br><span class="line">console.log(foo(2, 10));;  </span><br><span class="line">function foo(a, b) &#123;  </span><br><span class="line">  if (!(a % b)) &#123;</span><br><span class="line">    return `$&#123;a&#125;÷$&#123;b&#125;:$&#123;a / b&#125;`;</span><br><span class="line">  &#125;</span><br><span class="line">  var all = (a / b).toString().split(&apos;.&apos;);</span><br><span class="line">  var i = getCycleSection(a, b);</span><br><span class="line">  if(i)</span><br><span class="line">    return `$&#123;a&#125;÷$&#123;b&#125;: $&#123;all[0]&#125;.&#123;$&#123;all[1].substr(0, i) &#125;&#125;`;</span><br><span class="line">    return `$&#123;a&#125;÷$&#123;b&#125;: $&#123;a / b&#125;`;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">function getCycleSection(n, m) &#123;  </span><br><span class="line">  var temp = [];</span><br><span class="line">  while (true) &#123;</span><br><span class="line">    while (n &lt; m) &#123;</span><br><span class="line">      n *= 10;</span><br><span class="line">    &#125;</span><br><span class="line">    var index = temp.indexOf(n);</span><br><span class="line">    if (index &gt;= 0) &#123;</span><br><span class="line">      return temp.length - index;</span><br><span class="line">    &#125;</span><br><span class="line">    temp.push(n);</span><br><span class="line">    n %= m;</span><br><span class="line">    if (!n)</span><br><span class="line">      return 0;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2017/01/20/[object Object]/" data-id="ckiu52k5a0025x3y0305ex968" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/10/11/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    如何利用pod trunk发布程序
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/12/28/[object Object]/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">node-lesson6</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/18/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swfit-06.指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/10/18/[object Object]/" class="title">Swfit-06.指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T01:31:57.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/09/15/[object Object]/" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T05:45:57.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/25/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/25/[object Object]/" class="title">App启动优化</a></p>
+                            <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/20/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Swfit-05.Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/20/[object Object]/" class="title">Swfit-05.Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_22.jpg)" alt="Swfit-04.类,元类,错误处理,泛型,拓展。。。" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/01/15/[object Object]/" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
+                            <p class="item-date"><time datetime="2020-01-15T02:31:30.000Z" itemprop="datePublished">2020-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 15px;">Net</a> <a href="/tags/OC/" style="font-size: 11.67px;">OC</a> <a href="/tags/Swift/" style="font-size: 18.33px;">Swift</a> <a href="/tags/UI/" style="font-size: 16.67px;">UI</a> <a href="/tags/Words/" style="font-size: 11.67px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/poetry/" style="font-size: 13.33px;">poetry</a> <a href="/tags/tool/" style="font-size: 11.67px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

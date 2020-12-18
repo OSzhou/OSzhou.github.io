@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Swfit-05.Array的常见操作 | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="map / filter / reduce 12345678var arr = [1, 2, 3, 4]// [2, 4, 6, 8]var arr2 = arr.map &amp;#123; $0 * 2 &amp;#125;// [2, 4]var arr3 = arr.filter &amp;#123; $0 % 2 == 0 &amp;#125; // 10var arr4 = arr.reduce(0) &amp;#123;">
+<meta name="keywords" content="Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swfit-05.Array的常见操作">
+<meta property="og:url" content="http://blogzhou.top/2020/06/20/[object Object]/index.html">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="map / filter / reduce 12345678var arr = [1, 2, 3, 4]// [2, 4, 6, 8]var arr2 = arr.map &amp;#123; $0 * 2 &amp;#125;// [2, 4]var arr3 = arr.filter &amp;#123; $0 % 2 == 0 &amp;#125; // 10var arr4 = arr.reduce(0) &amp;#123;">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_04.jpg">
+<meta property="og:updated_time" content="2020-12-18T10:34:24.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swfit-05.Array的常见操作">
+<meta name="twitter:description" content="map / filter / reduce 12345678var arr = [1, 2, 3, 4]// [2, 4, 6, 8]var arr2 = arr.map &amp;#123; $0 * 2 &amp;#125;// [2, 4]var arr3 = arr.filter &amp;#123; $0 % 2 == 0 &amp;#125; // 10var arr4 = arr.reduce(0) &amp;#123;">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_04.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                36
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-[object Object]" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/tree_04.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Swfit-05.Array的常见操作
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/06/20/[object Object]/">
+            <time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Swift/">Swift</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <ul>
+<li><p><code>map</code> / <code>filter</code> / <code>reduce</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4]</span><br><span class="line">// [2, 4, 6, 8]</span><br><span class="line">var arr2 = arr.map &#123; $0 * 2 &#125;</span><br><span class="line">// [2, 4]</span><br><span class="line">var arr3 = arr.filter &#123; $0 % 2 == 0 &#125; // 10</span><br><span class="line">var arr4 = arr.reduce(0) &#123; $0 + $1 &#125; // 10</span><br><span class="line">// 可简写为</span><br><span class="line">var arr5 = arr.reduce(0, +)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>map</code>接收函数作为参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func double(_ i: Int) -&gt; Int &#123; i * 2 &#125; </span><br><span class="line">var arr = [1, 2, 3, 4]</span><br><span class="line">// [2, 4, 6, 8] </span><br><span class="line">print(arr.map(double))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p><code>compactMap</code>默认解包并去除nil</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&quot;123&quot;, &quot;test&quot;, &quot;jack&quot;, &quot;-30&quot;] </span><br><span class="line"></span><br><span class="line">// [Optional(123), nil, nil, Optional(-30)] </span><br><span class="line">var arr2 = arr.map &#123; Int($0) &#125;</span><br><span class="line"></span><br><span class="line">// [123, -30]</span><br><span class="line">var arr3 = arr.compactMap &#123; Int($0) &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>reduce</code>实现<code>map</code>、<code>filter</code>函数的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">// [2, 4, 6, 8]</span><br><span class="line">print(arr.map &#123; $0 * 2 &#125;) </span><br><span class="line">// 等价于👆函数功能</span><br><span class="line">print(arr.reduce([]) &#123; $0 + [$1 * 2] &#125;)</span><br><span class="line"></span><br><span class="line">// [2, 4]</span><br><span class="line">print(arr.filter &#123; $0 % 2 == 0 &#125;) </span><br><span class="line">// 等价于👆函数功能</span><br><span class="line">print(arr.reduce([]) &#123; $1 % 2 == 0 ? $0 + [$1] : $0 &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>map</code>,<code>flatMap</code>功能对比</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3]</span><br><span class="line">// [[1], [2, 2], [3, 3, 3]] 拿到什么(数组)，返回数组(二维数组)就放什么，不做处理。</span><br><span class="line">var arr2 = arr.map &#123; Array.init(repeating: $0, count: $0) &#125;</span><br><span class="line">// [1, 2, 2, 3, 3, 3] 将拿到的数组中的元素取出放到返回数组(一维数组)中。扁平化处理。</span><br><span class="line">var arr3 = arr.flatMap &#123; Array.init(repeating: $0, count: $0) &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用<code>lazy</code>的优化map</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1, 2, 3]</span><br><span class="line">let result = arr.lazy.map &#123;</span><br><span class="line">	(i: Int) -&gt; Int in </span><br><span class="line">	print(&quot;mapping \(i)&quot;) </span><br><span class="line">	return i * 2</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;begin-----&quot;)</span><br><span class="line">print(&quot;mapped&quot;, result[0]) </span><br><span class="line">print(&quot;mapped&quot;, result[1]) </span><br><span class="line">print(&quot;mapped&quot;, result[2]) </span><br><span class="line">print(&quot;end----&quot;)</span><br><span class="line">// 第一次用到时，才会执行相应逻辑</span><br><span class="line">begin----- </span><br><span class="line">mapping 1 </span><br><span class="line">mapped 2 </span><br><span class="line">mapping 2 </span><br><span class="line">mapped 4 </span><br><span class="line">mapping 3 </span><br><span class="line">mapped 6 </span><br><span class="line">end----</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>map</code>和<code>flatMap</code>可选值<code>Optional</code>处理中的应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var num1: Int? = 10</span><br><span class="line">// Optional(20)</span><br><span class="line">var num2 = num1.map &#123; $0 * 2 &#125;</span><br><span class="line"></span><br><span class="line">var num3: Int? = nil</span><br><span class="line">// nil，发现$0为nil直接返回nil</span><br><span class="line">var num4 = num3.map &#123; $0 * 2 &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>map</code> 和 <code>flatMap</code>对比<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var num1: Int? = 10</span><br><span class="line">// Optional(Optional(20)), map还是会对可选值再包装一层</span><br><span class="line">var num2 = num1.map &#123; Optional.some($0 * 2) &#125;</span><br><span class="line"></span><br><span class="line">// Optional(20), flatMap发现已经是可选值，就不会再包装了</span><br><span class="line">var num3 = num1.flatMap &#123; Optional.some($0 * 2) &#125;</span><br></pre></td></tr></table></figure></p>
+<p>可用于简化代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">// 示例一：</span><br><span class="line">var num1: Int? = 10</span><br><span class="line">var num2 = (num1 != nil) ? (num1! + 10) : nil </span><br><span class="line">var num3 = num1.map &#123; $0 + 10 &#125;</span><br><span class="line">// num2、num3是等价的</span><br><span class="line"></span><br><span class="line">// 示例二：</span><br><span class="line">var fmt = DateFormatter()</span><br><span class="line">fmt.dateFormat = &quot;yyyy-MM-dd&quot;</span><br><span class="line">var str: String? = &quot;2011-09-10&quot;</span><br><span class="line">// old</span><br><span class="line">var date1 = str != nil ? fmt.date(from: str!) : nil </span><br><span class="line">// new</span><br><span class="line">var date2 = str.flatMap(fmt.date)</span><br><span class="line"></span><br><span class="line">// 示例三：</span><br><span class="line">var score: Int? = 98</span><br><span class="line">// old</span><br><span class="line">var str1 = score != nil ? &quot;socre is \(score!)&quot; : &quot;No score&quot; </span><br><span class="line">// new</span><br><span class="line">var str2 = score.map &#123; &quot;score is \($0)&quot; &#125; ?? &quot;No score&quot;</span><br><span class="line"></span><br><span class="line">// 示例四：</span><br><span class="line">struct Person &#123;</span><br><span class="line">    var name: String</span><br><span class="line">    var age: Int</span><br><span class="line">&#125;</span><br><span class="line">var items = [</span><br><span class="line">	Person(name: &quot;jack&quot;, age: 20), </span><br><span class="line">	Person(name: &quot;rose&quot;, age: 21), </span><br><span class="line">	Person(name: &quot;kate&quot;, age: 22)</span><br><span class="line">]</span><br><span class="line">// old</span><br><span class="line">func getPerson1(_ name: String) -&gt; Person? &#123;</span><br><span class="line">	let index = items.firstIndex &#123; $0.name == name &#125; </span><br><span class="line">	return index != nil ? items[index!] : nil</span><br><span class="line">&#125;</span><br><span class="line">// new</span><br><span class="line">func getPerson2(_ name: String) -&gt; Person? &#123;</span><br><span class="line">	return items.firstIndex &#123; $0.name == name &#125;.map &#123; items[$0] &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 示例五：</span><br><span class="line">struct Person &#123;</span><br><span class="line">	var name: String</span><br><span class="line">	var age: Int</span><br><span class="line">	init?(_ json: [String : Any]) &#123;</span><br><span class="line">		guard let name = json[&quot;name&quot;] as? String, </span><br><span class="line">		let age = json[&quot;age&quot;] as? Int else &#123;</span><br><span class="line">			return nil</span><br><span class="line">		&#125;</span><br><span class="line">		self.name = name </span><br><span class="line">		self.age = age</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line">var json: Dictionary? = [&quot;name&quot; : &quot;Jack&quot;, &quot;age&quot; : 10] </span><br><span class="line">// old</span><br><span class="line">var p1 = json != nil ? Person(json!) : nil</span><br><span class="line">// new</span><br><span class="line">var p2 = json.flatMap(Person.init)</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/2020/06/20/[object Object]/" data-id="ckiu52k410011x3y0wzu7ujkt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/06/25/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    App启动优化
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2020/01/15/[object Object]/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/18/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swfit-06.指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/10/18/[object Object]/" class="title">Swfit-06.指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T01:31:57.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/09/15/[object Object]/" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T05:45:57.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/25/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/25/[object Object]/" class="title">App启动优化</a></p>
+                            <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/20/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Swfit-05.Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/06/20/[object Object]/" class="title">Swfit-05.Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/15/[object Object]/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_22.jpg)" alt="Swfit-04.类,元类,错误处理,泛型,拓展。。。" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/2020/01/15/[object Object]/" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
+                            <p class="item-date"><time datetime="2020-01-15T02:31:30.000Z" itemprop="datePublished">2020-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 15px;">Net</a> <a href="/tags/OC/" style="font-size: 11.67px;">OC</a> <a href="/tags/Swift/" style="font-size: 18.33px;">Swift</a> <a href="/tags/UI/" style="font-size: 16.67px;">UI</a> <a href="/tags/Words/" style="font-size: 11.67px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/poetry/" style="font-size: 13.33px;">poetry</a> <a href="/tags/tool/" style="font-size: 11.67px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
