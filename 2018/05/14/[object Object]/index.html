@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2018/5 | Fighting</title>
+    <title>常用LLDB指令 | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="The biggest adventure you can take is to live the life of your dreams">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Fighting">
-<meta property="og:url" content="http://blogzhou.top/archives/2018/05/index.html">
+    <meta name="description" content="NSObject的底层实现:  Objective-C中的对象，简称OC对象，主要可以分为3种  instance对象（实例对象）  class对象（类对象）  meta-class对象（元类对象）     isa指针:  instance的isa指向class当调用对象方法时，通过instance的isa找到class，最后找到对象方法的实现进行调用  class的isa指向meta-class">
+<meta name="keywords" content="OC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用LLDB指令">
+<meta property="og:url" content="http://blogzhou.top/2018/05/14/[object Object]/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta property="og:description" content="NSObject的底层实现:  Objective-C中的对象，简称OC对象，主要可以分为3种  instance对象（实例对象）  class对象（类对象）  meta-class对象（元类对象）     isa指针:  instance的isa指向class当调用对象方法时，通过instance的isa找到class，最后找到对象方法的实现进行调用  class的isa指向meta-class">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/desert_09.jpg">
+<meta property="og:updated_time" content="2020-12-18T14:50:05.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fighting">
-<meta name="twitter:description" content="The biggest adventure you can take is to live the life of your dreams">
+<meta name="twitter:title" content="常用LLDB指令">
+<meta name="twitter:description" content="NSObject的底层实现:  Objective-C中的对象，简称OC对象，主要可以分为3种  instance对象（实例对象）  class对象（类对象）  meta-class对象（元类对象）     isa指针:  instance的isa指向class当调用对象方法时，通过instance的isa找到class，最后找到对象方法的实现进行调用  class的isa指向meta-class">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/desert_09.jpg">
     
 
     
@@ -222,25 +226,29 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2018</h1>
-            </div>
+            <section id="main"><article id="post-[object Object]" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            
+	
+		<img src="/css/images/desert_09.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/05/14/[object Object]/">常用LLDB指令</a>
+        <h1 class="article-title" itemprop="name">
+            常用LLDB指令
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2018/05/14/[object Object]/">
@@ -249,95 +257,179 @@ var _hmt = _hmt || [];
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/OC/">OC</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/05/07/[object Object]/">常用LLDB指令</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h5 id="NSObject的底层实现"><a href="#NSObject的底层实现" class="headerlink" title="NSObject的底层实现:"></a>NSObject的底层实现:</h5><p><img src="https://upload-images.jianshu.io/upload_images/2149459-d8748104223f73a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>Objective-C中的对象，简称OC对象，主要可以分为3种</p>
+<ul>
+<li><p>instance对象（实例对象）</p>
+</li>
+<li><p>class对象（类对象）</p>
+</li>
+<li><p>meta-class对象（元类对象）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="isa指针"><a href="#isa指针" class="headerlink" title="isa指针:"></a>isa指针:</h5><p><img src="https://upload-images.jianshu.io/upload_images/2149459-b4246073941bf48e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>instance的isa指向class<br>当调用对象方法时，通过instance的isa找到class，最后找到对象方法的实现进行调用</p>
+</li>
+<li><p>class的isa指向meta-class<br>当调用类方法时，通过class的isa找到meta-class，最后找到类方法的实现进行调用</p>
+<h5 id="class对象的superclass指针"><a href="#class对象的superclass指针" class="headerlink" title="class对象的superclass指针:"></a>class对象的superclass指针:</h5><p><img src="https://upload-images.jianshu.io/upload_images/2149459-8f379a244089eed7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li>当Student的instance对象要调用Person的对象方法时，会先通过isa找到Student的class，然后通过superclass找到Person的class，最后找到对象方法的实现进行调用</li>
+</ul>
+<h5 id="isa、superclass总结"><a href="#isa、superclass总结" class="headerlink" title="isa、superclass总结:"></a>isa、superclass总结:</h5><p><img src="https://upload-images.jianshu.io/upload_images/2149459-e664891713ccae92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>instance的isa指向class</p>
+</li>
+<li><p>class的isa指向meta-class</p>
+</li>
+<li><p>meta-class的isa指向基类的meta-class</p>
+</li>
+<li><p>class的superclass指向父类的class<br>如果没有父类，superclass指针为nil</p>
+</li>
+<li><p>meta-class的superclass指向父类的meta-class<br>基类的meta-class的superclass指向基类的class</p>
+</li>
+<li><p>instance调用对象方法的轨迹<br>isa找到class，方法不存在，就通过superclass找父类</p>
+</li>
+<li><p>class调用类方法的轨迹<br>isa找meta-class，方法不存在，就通过superclass找父类</p>
+</li>
+</ul>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/07/[object Object]/">
-            <time datetime="2018-05-07T07:32:08.000Z" itemprop="datePublished">2018-05-07</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/tool/">tool</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/05/03/[object Object]/">几种常见的排序</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/03/[object Object]/">
-            <time datetime="2018-05-03T06:42:15.000Z" itemprop="datePublished">2018-05-03</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/code/">code</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://blogzhou.top/2018/05/14/[object Object]/" data-id="ckiue3g5y000a9my0du2x32no" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/08/20/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Socket原理知识摘要01
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/05/07/[object Object]/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">常用LLDB指令</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
 </section>
             
                 
