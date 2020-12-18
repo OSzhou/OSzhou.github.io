@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>node-lesson6 | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="node-lesson6复习1.1复习网络编程 什么是网络编程   使用 node 进行网络编程需要使用其它web服务器作为容器吗   什么是协议？什么是http协议？   在网络编程中，为什么要有协议？制定协议有什么好处？  1.2 http协议">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node-lesson6">
+<meta property="og:url" content="http://blogzhou.top/05-JS-old-09-node-lesson6">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="node-lesson6复习1.1复习网络编程 什么是网络编程   使用 node 进行网络编程需要使用其它web服务器作为容器吗   什么是协议？什么是http协议？   在网络编程中，为什么要有协议？制定协议有什么好处？  1.2 http协议">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/tree_14.jpg">
+<meta property="og:updated_time" content="2020-12-16T07:54:46.324Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node-lesson6">
+<meta name="twitter:description" content="node-lesson6复习1.1复习网络编程 什么是网络编程   使用 node 进行网络编程需要使用其它web服务器作为容器吗   什么是协议？什么是http协议？   在网络编程中，为什么要有协议？制定协议有什么好处？  1.2 http协议">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_14.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                36
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-05-JS-old-09-node-lesson6" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/tree_14.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            node-lesson6
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/05-JS-old-09-node-lesson6">
+            <time datetime="2016-12-28T12:30:50.000Z" itemprop="datePublished">2016-12-28</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JS/">JS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="node-lesson6"><a href="#node-lesson6" class="headerlink" title="node-lesson6"></a>node-lesson6</h1><h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><h3 id="1-1复习网络编程"><a href="#1-1复习网络编程" class="headerlink" title="1.1复习网络编程"></a>1.1复习网络编程</h3><ul>
+<li>什么是网络编程</li>
+</ul>
+<ul>
+<li>使用 node 进行网络编程需要使用其它web服务器作为容器吗</li>
+</ul>
+<ul>
+<li>什么是协议？什么是http协议？</li>
+</ul>
+<ul>
+<li>在网络编程中，为什么要有协议？制定协议有什么好处？</li>
+</ul>
+<h3 id="1-2-http协议"><a href="#1-2-http协议" class="headerlink" title="1.2 http协议"></a>1.2 http协议</h3><a id="more"></a>
+<h3 id="1-3session-amp-cookie"><a href="#1-3session-amp-cookie" class="headerlink" title="1.3session&amp;cookie"></a>1.3session&amp;cookie</h3><h3 id="网站的优化—–-gt-思想"><a href="#网站的优化—–-gt-思想" class="headerlink" title="网站的优化—–&gt;思想"></a>网站的优化—–&gt;思想</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.能压缩的压缩能合并的合并</span><br><span class="line">少一个script也好，少一次请求  </span><br><span class="line">2.少用js去遍历对象或者写for循环</span><br><span class="line">3.能提前运算好的提前运算好，使用枚举法</span><br><span class="line">  var a=1024*1024;</span><br><span class="line">4.cdn</span><br><span class="line">5.响应式图片~~~~图片压缩</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-工具的使用"><a href="#1-4-工具的使用" class="headerlink" title="1.4 工具的使用"></a>1.4 工具的使用</h3><h3 id="通过-nodemon-实现-保存文件实时重启"><a href="#通过-nodemon-实现-保存文件实时重启" class="headerlink" title="通过 nodemon 实现 保存文件实时重启"></a>通过 nodemon 实现 保存文件实时重启</h3><ol>
+<li>安装nodemon <code>npm install -g nodemon</code></li>
+<li>基本使用 <code>nodemon server.js</code></li>
+</ol>
+<p>只要执行了上面的命令，那么当你修改了 server.js 那么nodemon会帮你自动重启 server</p>
+<p>###2.1 使用npm命令执行代码<br>1.package.json里面配置scripts属性里面写npm的命令<br>2.npm的命令在控制台直接npm打印出来可以查看<br>3.npm命令后面接的是具体的命令，打npm命令调用具体的命令</p>
+<p>###2.2编写node脚本<br>1.把js代码变成node脚本<br>在要执行的js文件当中加入下面这句话，是固定写法</p>
+<p>#!/usr/bin/env node</p>
+<p>2.package.json里面配置bin属性里面写命令,这个命令的名称是可以自定义的</p>
+<p>3.必须打npm link这个命令，把当前包安装到全局去</p>
+<p>###2.3通过命令调用脚本</p>
+<h2 id="http-模块"><a href="#http-模块" class="headerlink" title="http 模块"></a>http 模块</h2><h3 id="使用-http-模块进行web开发"><a href="#使用-http-模块进行web开发" class="headerlink" title="使用 http 模块进行web开发"></a>使用 http 模块进行web开发</h3><p>localhost:3000 不走网卡<br>127.0.0.1:3000  走网卡<br>192.168.141.XXX 通过网卡发请求给路由或交换机，在请求回来你的电脑</p>
+<ul>
+<li>创建 HTTP 服务器</li>
+</ul>
+<p><code>http.createServer([requestListener])</code></p>
+<ul>
+<li><p>通过监听Event: ‘request’来进行<br>server.on(‘request’,(request,response) =&gt; {});</p>
+</li>
+<li><p>request、response对象<br>request对象，用于接收请求报文内的信息<br>response对象，用于返回响应报文内的信息</p>
+</li>
+<li><p>response.write()<br>write方法用于向响应体里写内容，用于向客户端发送信息，可以被多次使用</p>
+</li>
+<li><p>response.end()<br>在一次请求和响应过程当中，只要调用了  end 就不能再继续 write 了<br>就说明你是在一次请求和响应处理过程中已经结束了响应，但是又去 向客户端发送数据<br>这个时候就会报错</p>
+</li>
+<li><p>server.listen(port[, hostname][, backlog][, callback])<br>监听端口，执行这句，服务正式被启动使用<br>server.listen(3000,’127.0.0.1’,() =&gt; {<br>console.log(‘server is listening at port 3000’);<br>});</p>
+</li>
+</ul>
+<h3 id="request"><a href="#request" class="headerlink" title="request"></a>request</h3><ul>
+<li>request.headers 请求头</li>
+<li>request.method 请求方法</li>
+<li>request.url 请求路径</li>
+<li>request.httpVersion 请求HTTP协议版本</li>
+</ul>
+<h3 id="response"><a href="#response" class="headerlink" title="response"></a>response</h3><ul>
+<li>res.writeHead(200,{‘Content-Type’: ‘text/html; charset=utf-8’});<br>设置响应报文头</li>
+<li>res.write(‘<h1>hello world</h1>‘);</li>
+<li>res.end();</li>
+</ul>
+<h3 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h3><p>内容类型，一般是指网页中存在的Content-Type，用于定义网络文件的类型和网页的编码，<br>决定文件接收方将以什么形式、什么编码读取这个文</p>
+<h3 id="通过-req-url和req-method的不同给出不同的响应"><a href="#通过-req-url和req-method的不同给出不同的响应" class="headerlink" title="通过 req.url和req.method的不同给出不同的响应"></a>通过 req.url和req.method的不同给出不同的响应</h3><p>  if (req.url == ‘/‘ &amp;&amp; req.method == ‘GET’) {<br>    res.writeHead(200, {<br>      ‘Content-Type’: ‘text/html; charset=utf-8’<br>    });<br>    res.write(‘</p><h1>首页</h1>‘);<br>    res.end();<br>  }<p></p>
+<h3 id="request通过data事件和end事件来接收post的数据"><a href="#request通过data事件和end事件来接收post的数据" class="headerlink" title="request通过data事件和end事件来接收post的数据"></a>request通过data事件和end事件来接收post的数据</h3><p>let data = ‘’;<br>req.on(‘data’, (chunk) =&gt; {<br>      data += chunk;<br>});<br> req.on(‘end’, () =&gt; {<br>      console.log(data);<br>      res.writeHead(200, {<br>        ‘Content-Type’: ‘text/html; charset=utf-8’<br>      });<br>      res.write(‘</p><h1>收到数据了</h1>‘);<br>      res.end();<br> });<p></p>
+<h3 id="通过-querystring解析post的数据"><a href="#通过-querystring解析post的数据" class="headerlink" title="通过 querystring解析post的数据"></a>通过 querystring解析post的数据</h3><p>querystring.parse(‘foo=bar&amp;baz=qux&amp;baz=quux&amp;corge’)<br>// returns { foo: ‘bar’, baz: [‘qux’, ‘quux’], corge: ‘’ }</p>
+<h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><ul>
+<li>url.parse(urlStr, [parseQueryString], [slashesDenoteHost])<br>urlStr-&gt;url字符串<br>parseQueryString-&gt;为true时将使用queryString分析查询字符串，默认为false<br>slashesDenoteHost<br>默认为false，//foo/bar 形式的字符串将被解释成 { pathname: ‘//foo/bar’ }<br>如果设置成true，//foo/bar 形式的字符串将被解释成  { host: ‘foo’, pathname: ‘/bar’ }</li>
+</ul>
+<p>服务器相关操作事件和API</p>
+<ul>
+<li>Event: ‘close’</li>
+<li>Event: ‘connection’</li>
+<li>Event: ‘request’</li>
+<li>server.close([callback])</li>
+<li>server.listen(port[, hostname][, backlog][, callback])</li>
+</ul>
+<p>请求对象</p>
+<ul>
+<li>Event: ‘data’</li>
+<li>message.headers</li>
+<li>message.httpVersion</li>
+<li>message.method</li>
+<li>message.url<ul>
+<li>require(‘url’).parse(request.url)</li>
+<li>require(‘url’).parse(request.url, true)</li>
+</ul>
+</li>
+</ul>
+<p>响应对象</p>
+<ul>
+<li>response.end([data][, encoding][, callback])</li>
+<li>response.setHeader(name, value)</li>
+<li>response.statusCode</li>
+<li>response.statusMessage</li>
+<li>response.write(chunk[, encoding][, callback])</li>
+<li>response.writeHead(statusCode[, statusMessage][, headers])</li>
+</ul>
+<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><p>  <a href="http://www.gulpjs.com" target="_blank" rel="noopener">官网</a><br>  <a href="http://www.gulpjs.com.cn" target="_blank" rel="noopener">中文网</a></p>
+<ul>
+<li><p>前端自动化构建工具<br>js压缩,var x,xname，混淆<br>合并.<br>css压缩<br>html压压缩</p>
+</li>
+<li><p>grunt ,webpack…</p>
+</li>
+</ul>
+<h3 id="核心就5个方法"><a href="#核心就5个方法" class="headerlink" title="核心就5个方法"></a>核心就5个方法</h3><ul>
+<li>task,gulp中是一个个任务的形式来实现功能。<ul>
+<li>task(‘任务名’,function(){<br>…..<br>});</li>
+</ul>
+</li>
+<li>src<ul>
+<li>src(‘./*.js’)</li>
+</ul>
+</li>
+<li>dest(‘./minjs/‘)// 指定处理后的文件的输出路径.</li>
+<li>watch(‘./*.js’,[‘任务名1’,’任务名2’]);</li>
+<li>run(‘任务名’);//执行指定的任务.</li>
+</ul>
+<h3 id="gulp的安装"><a href="#gulp的安装" class="headerlink" title="gulp的安装"></a>gulp的安装</h3><ul>
+<li>使用npm 进行安装</li>
+<li><code>npm install gulp-cli -g</code>;</li>
+<li><code>npm i -g gulp-cli</code>;</li>
+</ul>
+<h3 id="gulp-使用"><a href="#gulp-使用" class="headerlink" title="gulp 使用"></a>gulp 使用</h3><h4 id="使用时还需要在项目中通过npm非全局安装gulp"><a href="#使用时还需要在项目中通过npm非全局安装gulp" class="headerlink" title="使用时还需要在项目中通过npm非全局安装gulp"></a>使用时还需要在项目中通过npm非全局安装gulp</h4><ul>
+<li><code>npm install gulp --save-dev</code></li>
+</ul>
+<h4 id="还需要在当前项目根目录添加一个gulpfile-js文件来写具体的任务代码"><a href="#还需要在当前项目根目录添加一个gulpfile-js文件来写具体的任务代码" class="headerlink" title="还需要在当前项目根目录添加一个gulpfile.js文件来写具体的任务代码."></a>还需要在当前项目根目录添加一个gulpfile.js文件来写具体的任务代码.</h4><h3 id="gulp的一些插件"><a href="#gulp的一些插件" class="headerlink" title="gulp的一些插件"></a>gulp的一些插件</h3><ul>
+<li>也是使用npm安装</li>
+<li>对js代码进行压缩 gulp-uglify<br>.pipe(uglify())</li>
+<li>对代码进行合并 gulp-concat<br>.pipe(concat(‘all.js’))<br>.pipe(concat(‘all.css’))</li>
+<li>对css进行压缩 gulp-cssnano<br>.pipe(cssnano())</li>
+<li>对html进行压缩 gulp-htmlmin<br>.pipe(htmlmin({collapseWhitespace:true,minifyJS:false,minifyCSS:true}))</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/05-JS-old-09-node-lesson6" data-id="ckiu4hrle002iq5y0ae3g78ii" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/05-JS-old-10-文件流、网络操作、服务端Web开发基础" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    文件流、网络操作、服务端Web开发基础
+                
+            </div>
+        </a>
+    
+    
+        <a href="/05-JS-old-08-node-lesson5" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">node-lesson5</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/[object Object]" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swfit-06.指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/[object Object]" class="title">Swfit-06.指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T01:31:57.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/06-Others-s11-关于指针的强制类型转换" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/06-Others-s11-关于指针的强制类型转换" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T05:45:57.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/06-Others-old-02-App启动优化" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/06-Others-old-02-App启动优化" class="title">App启动优化</a></p>
+                            <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/03-Swift-s13-Array的常见操作" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Swfit-05.Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/03-Swift-s13-Array的常见操作" class="title">Swfit-05.Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/03-Swift-s17-Swift小记04" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_22.jpg)" alt="Swfit-04.类,元类,错误处理,泛型,拓展。。。" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/03-Swift-s17-Swift小记04" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
+                            <p class="item-date"><time datetime="2020-01-15T02:31:30.000Z" itemprop="datePublished">2020-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 15px;">Net</a> <a href="/tags/OC/" style="font-size: 11.67px;">OC</a> <a href="/tags/Swift/" style="font-size: 18.33px;">Swift</a> <a href="/tags/UI/" style="font-size: 16.67px;">UI</a> <a href="/tags/Words/" style="font-size: 11.67px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/poetry/" style="font-size: 13.33px;">poetry</a> <a href="/tags/tool/" style="font-size: 11.67px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

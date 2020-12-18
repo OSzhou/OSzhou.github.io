@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>几种常见的排序 | Fighting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1.冒泡排序1234567891011121314/* 冒泡排序 */    for (int end = cnt - 1; end &amp;gt; 0 ; end --) &amp;#123;        for (int begin = 1; begin &amp;lt;= end; begin ++) &amp;#123;            // 优化-减少已排序部分的比较            int start">
+<meta name="keywords" content="code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几种常见的排序">
+<meta property="og:url" content="http://blogzhou.top/06-Others-t08-几种常见的排序">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="1.冒泡排序1234567891011121314/* 冒泡排序 */    for (int end = cnt - 1; end &amp;gt; 0 ; end --) &amp;#123;        for (int begin = 1; begin &amp;lt;= end; begin ++) &amp;#123;            // 优化-减少已排序部分的比较            int start">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://blogzhou.top/css/images/desert_08.jpg">
+<meta property="og:updated_time" content="2020-12-15T04:48:38.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="几种常见的排序">
+<meta name="twitter:description" content="1.冒泡排序1234567891011121314/* 冒泡排序 */    for (int end = cnt - 1; end &amp;gt; 0 ; end --) &amp;#123;        for (int begin = 1; begin &amp;lt;= end; begin ++) &amp;#123;            // 优化-减少已排序部分的比较            int start">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/desert_08.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="Fighting" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.jpg" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bb8f432d5aa1ef3d8209fc47da4a43ac";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Fighting</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Zhouheng</h2>
+            <h3 id="title">iOS Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+            <a id="follow" target="_blank" href="https://github.com/OSzhou">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                36
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/OSzhou/OSzhou.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-06-Others-t08-几种常见的排序" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/css/images/desert_08.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            几种常见的排序
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/06-Others-t08-几种常见的排序">
+            <time datetime="2018-05-03T06:42:15.000Z" itemprop="datePublished">2018-05-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/code/">code</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h5 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* 冒泡排序 */</span><br><span class="line">    for (int end = cnt - 1; end &gt; 0 ; end --) &#123;</span><br><span class="line">        for (int begin = 1; begin &lt;= end; begin ++) &#123;</span><br><span class="line">            // 优化-减少已排序部分的比较</span><br><span class="line">            int startIndex = 1;</span><br><span class="line">            if (array[begin - 1] &lt; array[begin]) &#123;</span><br><span class="line">                int tmp = array[begin - 1];</span><br><span class="line">                array[begin - 1] = array[begin];</span><br><span class="line">                array[begin] = tmp;</span><br><span class="line">                startIndex = begin;</span><br><span class="line">            &#125;</span><br><span class="line">            end = startIndex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h5 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2.选择排序"></a>2.选择排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// - 比较后，记录最大索引，最后进行交换。</span><br><span class="line">for (int end= cnt - 1; end &gt; 0; end--) &#123;</span><br><span class="line">        int maxIndex = 0;</span><br><span class="line">        for (int begin = 1; begin &lt;= end; begin++) &#123;</span><br><span class="line">            if(array[maxIndex] &lt;= array[begin]) &#123;</span><br><span class="line">                maxIndex = begin;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int tmp = array[end];</span><br><span class="line">        array[end] = array[maxIndex];</span><br><span class="line">        array[maxIndex] = tmp;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-堆排序"><a href="#3-堆排序" class="headerlink" title="3.堆排序"></a>3.堆排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">int array[] = &#123;9, 5, 2, 7&#125;;</span><br><span class="line">int heapSize = array.length;</span><br><span class="line"></span><br><span class="line">void sort() &#123;</span><br><span class="line">  heapify();</span><br><span class="line">  while (heapSize &gt; 1) &#123;</span><br><span class="line">    int tmp = array[heapSize - 1];</span><br><span class="line">     array[heapSize - 1] = array[0];</span><br><span class="line">    array[0] = temp;</span><br><span class="line">    heapSize--;</span><br><span class="line">   siftDown(0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 建堆</span><br><span class="line">void heapify() &#123;</span><br><span class="line">  for (int i = (heapSize &gt;&gt; 1) - 1; i &gt;= 0; i --) &#123;</span><br><span class="line">      siftDown(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 自下而上的下滤</span><br><span class="line">void siftDown(int index) &#123;</span><br><span class="line">      int current = array[index];</span><br><span class="line">      int half = heapSize &gt;&gt; 1;</span><br><span class="line">      while (index &lt; half) &#123;</span><br><span class="line">        int childIndex = (index &lt;&lt; 1) + 1;</span><br><span class="line">        int child = array[childIndex];</span><br><span class="line">        int rightIndex = childIndex + 1;</span><br><span class="line">        if (rightIndex &lt; heapSize &amp;&amp; array[rightIndex] &gt; child) &#123;</span><br><span class="line">            child = array[childeIndex = rightIndex];</span><br><span class="line">        &#125;</span><br><span class="line">        if (current &gt;= child) break;</span><br><span class="line">        array[index] = child;</span><br><span class="line">        index = childIndex;</span><br><span class="line">      &#125;</span><br><span class="line">      array[index] = current;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-插空排序"><a href="#4-插空排序" class="headerlink" title="4.插空排序"></a>4.插空排序</h5><ul>
+<li><p>代码解析见注释。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">int  a[5]=&#123;9, 8, 10, 2, 20&#125;;</span><br><span class="line">// key为每次被拿出的值（也就是初始提供“空”的值），j为要比较到的最大索引</span><br><span class="line">int key,j;</span><br><span class="line">// 直接插入排序</span><br><span class="line">for (int i=1; i&lt;5; i++) &#123;</span><br><span class="line">    // 取出当前要比较项</span><br><span class="line">    key=a[i];</span><br><span class="line">    // 和直到索引j位置的元素逐一比较</span><br><span class="line">    for (j=i-1; j&gt;=0&amp;&amp;a[j]&gt;key; j--) &#123;</span><br><span class="line">        // j为更新出来的新空</span><br><span class="line">        a[j+1]=a[j];</span><br><span class="line">    &#125;</span><br><span class="line">    // 因为循环结束时进行一次j--操作，所以下面要+1</span><br><span class="line">    // j+1为最后留给key的空</span><br><span class="line">    a[j+1]=key;</span><br><span class="line">&#125;</span><br><span class="line">// 另一种写法</span><br><span class="line">for (int begin=1; begin &lt; 5; begin++) &#123;</span><br><span class="line">    // 记录当前索引（当前空位）</span><br><span class="line">    int cur = begin;</span><br><span class="line">    int val = a[cur];</span><br><span class="line">    // 和直到索引j位置的元素逐一比较</span><br><span class="line">    while (cur &gt; 0 &amp;&amp; val &gt; a[cur - 1]) &#123;</span><br><span class="line">        // j为更新出来的新空</span><br><span class="line">        a[cur] = a[cur - 1];</span><br><span class="line">        cur --;</span><br><span class="line">    &#125;</span><br><span class="line">    a[cur] = val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二分查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 返回找到的元素对应的索引，没找到返回-1</span><br><span class="line">int binarySearch(int array[], int v) &#123;</span><br><span class="line">  if (array == null || array.length == 0) &#123;</span><br><span class="line">      retrun -1;</span><br><span class="line">  &#125;</span><br><span class="line">  int begin = 0;</span><br><span class="line">  int end = array.length;</span><br><span class="line">  while (begin &lt; end) &#123;</span><br><span class="line">       int mid = (begin + end) &gt;&gt; 1;</span><br><span class="line">       if (v &gt; array[mid]) &#123;</span><br><span class="line">          begin = mid + 1;</span><br><span class="line">       &#125; else if (v &lt; array[mid]) &#123;</span><br><span class="line">          end = mid;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">          return mid;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结合二分查找优化插空排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void insertSort(int [] array) &#123;</span><br><span class="line">  for (int begin = 1; begin &lt; array.length; begin++) &#123;</span><br><span class="line">      insert(begin, search(begin));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 执行插入的元素位移操作</span><br><span class="line">void insert(int source, int target) &#123;</span><br><span class="line">      int v = array[source];</span><br><span class="line">      for (int i = source; i &gt; target; i --) &#123;</span><br><span class="line">            array[source] = array[source - 1];</span><br><span class="line">      &#125;</span><br><span class="line">      array[target] = v;</span><br><span class="line">&#125;</span><br><span class="line">// 用二分法查找当前取出的元素在已排好序部分对应的插入位置</span><br><span class="line">int search(int index) &#123;</span><br><span class="line">    int v = array[index];</span><br><span class="line">    int begin = 0;</span><br><span class="line">    int end = index;</span><br><span class="line">    while (begin &lt; end) &#123;</span><br><span class="line">       int mid = (begin + end) &gt;&gt; 1;</span><br><span class="line">       if (v &gt;= array[mid]) &#123;</span><br><span class="line">          begin = mid + 1;</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">          end = mid;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   return begin;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="5-归并排序"><a href="#5-归并排序" class="headerlink" title="5.归并排序"></a>5.归并排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">int[] array = &#123;9, 5, 2, 7&#125;;</span><br><span class="line">void mergeSort() &#123;</span><br><span class="line">      sortRecursive(0, array.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void sortRecursive(int begin, int end) &#123;</span><br><span class="line">      // 数组只剩一个元素，不能再分了</span><br><span class="line">      if (end - begin &lt; 2) return;</span><br><span class="line">      int mid = (begin + end) &gt;&gt; 1;</span><br><span class="line">      sortRecursive(begin, mid);</span><br><span class="line">      sortRecursive(mid, end);</span><br><span class="line">      merge(begin, mid, end);</span><br><span class="line">&#125;</span><br><span class="line">// 用来存放左边排好序部分的备用数组</span><br><span class="line">int leftArray[] = new int[array.length &gt;&gt; 1];</span><br><span class="line">void merge(int begin, int mid, int end) &#123;</span><br><span class="line">      int lp = 0, le = mid - begin;</span><br><span class="line">      int rp = mid, re = end;</span><br><span class="line">      int ap = begin;</span><br><span class="line">      for (int i = 0; i &lt; le; i ++) &#123;</span><br><span class="line">          leftArray[i] = array[begin + i];</span><br><span class="line">      &#125;</span><br><span class="line">      // 只要左边结束了，整个排序就结束了</span><br><span class="line">      while (lp &lt; le) &#123;</span><br><span class="line">            if (rp &lt; re &amp;&amp;  array[rp] &lt; leftArray[lp]) &#123;</span><br><span class="line">                array[ap++] = array[rp++];</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                array[ap] = leftArray[lp];</span><br><span class="line">                ap ++;</span><br><span class="line">                lp ++;</span><br><span class="line">           &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="6-快速排序"><a href="#6-快速排序" class="headerlink" title="6.快速排序"></a>6.快速排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">int[] array = &#123;9, 5, 2, 7&#125;;</span><br><span class="line">void pivotSort() &#123;</span><br><span class="line">      pivotRecursive(0, array.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void pivotRecursive(int begin, int end) &#123;</span><br><span class="line">      if (end - begin &lt; 2) return;</span><br><span class="line">      // 找到轴点的位置</span><br><span class="line">      int pivot = pivotIndex(begin, end);</span><br><span class="line">      // 递归轴点左</span><br><span class="line">      pivotRecursive(begin, pivot);</span><br><span class="line">      // 递归轴点右</span><br><span class="line">      pivotRecursive(pivot + 1, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int pivotIndex(int begin, int end) &#123;</span><br><span class="line">   // 优化：为了轴点左右数据更加均衡，随机选择轴点</span><br><span class="line">   int random = random(end - begin);</span><br><span class="line">   int tmp = array[begin];</span><br><span class="line">   array[begin] = array[random];</span><br><span class="line">   array[random] = tmp;</span><br><span class="line">   </span><br><span class="line">   int v = array[begin];</span><br><span class="line">   // 因为end是从array.length开始的，所以要--</span><br><span class="line">   end--;</span><br><span class="line">   // 嵌套while循环实现左右交替执行</span><br><span class="line">   while (begin &lt; end) &#123;</span><br><span class="line">           while (begin &lt; end) &#123;</span><br><span class="line">                   if (array[end] &gt; v) &#123;</span><br><span class="line">                      end--;</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                      array[begin++] = array[end]; </span><br><span class="line">                      break;</span><br><span class="line">                  &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           while (begin &lt; end) &#123;</span><br><span class="line">                   if (array[begin] &lt; v) &#123;</span><br><span class="line">                      begin++;</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                      array[end--] = array[begin]; </span><br><span class="line">                      break;</span><br><span class="line">                  &#125;</span><br><span class="line">           &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   array[begin] = v;</span><br><span class="line">   return begin</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="7-希尔排序"><a href="#7-希尔排序" class="headerlink" title="7.希尔排序"></a>7.希尔排序</h5><ul>
+<li>可看作是对插空排序的优化<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">int[] array = &#123;9, 5, 2, 7&#125;;</span><br><span class="line">void shellSort() &#123;</span><br><span class="line">      int[] steps = step(array.length);</span><br><span class="line">      for (int i = 0; i &lt; steps.length; i ++) &#123;</span><br><span class="line">           int step = steps[i];</span><br><span class="line">           for (int col = 0; col &lt; step; col ++) &#123;</span><br><span class="line">              for (int begin = col + step; begin &lt; array.length; begin += step) &#123;</span><br><span class="line">              int cur = begin;</span><br><span class="line">              int v = array[cur];</span><br><span class="line">              while (cur &gt; col &amp;&amp; v &gt; array[cur - step]) &#123;</span><br><span class="line">                      array[cur] = array[cur - step];</span><br><span class="line">                      cur -=step;</span><br><span class="line">              &#125;</span><br><span class="line">              arrau[cur] = v; </span><br><span class="line">           &#125;</span><br><span class="line">          &#125; </span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 创建步长数组</span><br><span class="line">int[] step(int step) &#123;</span><br><span class="line">    int[] steps = new int[];</span><br><span class="line">    while ((step &gt;&gt;= 1) &gt; 0) &#123;</span><br><span class="line">          steps.add(step)</span><br><span class="line">    &#125;</span><br><span class="line">    return step;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="8-计数排序"><a href="#8-计数排序" class="headerlink" title="8.计数排序"></a>8.计数排序</h5><ul>
+<li>中心思想：用空间换时间</li>
+<li>只适用于一定范围内的整数排序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">int[] array = &#123;9, 5, 2, 7&#125;;</span><br><span class="line">// 仅支持正整数版本</span><br><span class="line">// 找出最大值</span><br><span class="line">int max = array[0];</span><br><span class="line">for (int i = 1; i &lt; array.length; i ++) &#123;</span><br><span class="line">    if (array[i] &gt; max) &#123;</span><br><span class="line">      max = array[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 创建计数数组</span><br><span class="line">int[] counts = new int[max + 1];</span><br><span class="line">for (int i = 0; i &lt; array.length; i ++) &#123;</span><br><span class="line">    conuts[array[i]] += 1;</span><br><span class="line">&#125;</span><br><span class="line">// 输出排好序的数组</span><br><span class="line">int index = 0;</span><br><span class="line">for (int i = 0; i &lt; counts.length; i ++) &#123;</span><br><span class="line">    while ((counts[i]--) &gt; 0) &#123;</span><br><span class="line">         array[index++] = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 优化版本，支持负整数(包含整数属性排序的自定义对象也可以)</span><br><span class="line">// 找出最大值，最小值</span><br><span class="line">int max = array[0];</span><br><span class="line">int min = array[0];</span><br><span class="line">for (int i = 1; i &lt; array.length; i ++) &#123;</span><br><span class="line">    if (array[i] &gt; max) &#123;</span><br><span class="line">      max = array[i];</span><br><span class="line">    &#125;</span><br><span class="line">    if (array[i] &lt; min) &#123;</span><br><span class="line">      min = array[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 计数数组</span><br><span class="line">int[] counts = new int[max - min + 1];</span><br><span class="line">for (int i = 0; i &lt; array.length; i ++) &#123;</span><br><span class="line">    conuts[array[i] - min] += 1;</span><br><span class="line">&#125;</span><br><span class="line">// 累加次数</span><br><span class="line">for （int i = 1; i &lt; counts.length; i++) &#123;</span><br><span class="line">    counts[i] += counts[i - 1];</span><br><span class="line">&#125;</span><br><span class="line">// 从后往前遍历元素，将它放到有序数组中的合适位置</span><br><span class="line">int newArray = new int[array.length];</span><br><span class="line">for (int i = array.length - 1; i &gt;=0; i --) &#123;</span><br><span class="line">    newArray[--counts[array[i] - min]] = array[i];</span><br><span class="line">&#125;</span><br><span class="line">// 将有序数组赋值到array</span><br><span class="line">for (int i = 0; i &lt; array.length; i ++) &#123;</span><br><span class="line">    array[i] = newArray[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="9-基数排序"><a href="#9-基数排序" class="headerlink" title="9.基数排序"></a>9.基数排序</h5><ul>
+<li>数据从低位到高位按位排序</li>
+<li>排序用计数排序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">int[] array = &#123;9, 5, 2, 7&#125;;</span><br><span class="line">// 仅支持正整数版本</span><br><span class="line">// 找出最大值</span><br><span class="line">int max = array[0];</span><br><span class="line">for (int i = 1; i &lt; array.length; i ++) &#123;</span><br><span class="line">    if (array[i] &gt; max) &#123;</span><br><span class="line">      max = array[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 创建计数数组</span><br><span class="line">int[] counts = new int[max + 1];</span><br><span class="line">for (int devider = 1; devider &lt; max; devider * 10) &#123;</span><br><span class="line">    countingSort(devider);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void countingSort(int devide) &#123;</span><br><span class="line">     // 计数数组</span><br><span class="line">    int[] counts = new int[10];</span><br><span class="line">    for (int i = 0; i &lt; array.length; i ++) &#123;</span><br><span class="line">       conuts[array[i] / devide % 10] += 1;</span><br><span class="line">    &#125;</span><br><span class="line">    // 累加次数</span><br><span class="line">    for （int i = 1; i &lt; counts.length; i++) &#123;</span><br><span class="line">       counts[i] += counts[i - 1];</span><br><span class="line">   &#125;</span><br><span class="line">   // 从后往前遍历元素，将它放到有序数组中的合适位置</span><br><span class="line">   int newArray = new int[array.length];</span><br><span class="line">   for (int i = array.length - 1; i &gt;=0; i --) &#123;</span><br><span class="line">      newArray[--counts[array[i] / devide % 10]] = array[i];</span><br><span class="line">   &#125;</span><br><span class="line">   // 将有序数组赋值到array</span><br><span class="line">   for (int i = 0; i &lt; array.length; i ++) &#123;</span><br><span class="line">       array[i] = newArray[i];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="10-桶排序"><a href="#10-桶排序" class="headerlink" title="10.桶排序"></a>10.桶排序</h5><ul>
+<li>自定义规则</li>
+<li>按规则尽量均匀分布数据到每个桶</li>
+<li>对桶内数据排序</li>
+<li>将桶内数据串起来<blockquote>
+<p>以上均为伪代码，仅提供思路</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>整体测试代码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">void initArray(int array[],int cnt);</span><br><span class="line">void selectSortForArray(int array[],int cnt);</span><br><span class="line">void showArray(int array[],int cnt);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void initArray(int array[],int cnt)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i= 0;i&lt;cnt;i++)</span><br><span class="line">        array[i] = arc4random()  % 100;</span><br><span class="line">&#125;</span><br><span class="line">void selectSortForArray(int array[],int cnt)</span><br><span class="line">&#123;</span><br><span class="line">    /*for (int i = 0; i&lt;cnt-1; i++)&#123;</span><br><span class="line">        for (int j = i+1; j&lt;cnt; j++)</span><br><span class="line">        &#123;if (array[i] &lt; array[j]) &#123;</span><br><span class="line">                int tmp = array[i];</span><br><span class="line">                array[i] = array[j];</span><br><span class="line">                array[j] = tmp;</span><br><span class="line">     &#125;&#125;&#125;*/</span><br><span class="line">    //****************这样每次比较后都交换元素位置**********</span><br><span class="line">    for (int i= 0;i&lt;cnt-1;i++)&#123;</span><br><span class="line">        for (int j=i + 1;j&lt;cnt;j++)&#123;</span><br><span class="line">            if(array[i]&lt;array[j])&#123;</span><br><span class="line">                int tmp=array[i];</span><br><span class="line">                array[i]=array[j];</span><br><span class="line">                array[j]=tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">//    &#125;</span><br><span class="line">//*****************这样每次比较只记住索引，内循环遍历一次完成后再交换（减少交换次数），*********</span><br><span class="line">    for (int i = 0; i &lt; cnt - 1; i++) &#123;</span><br><span class="line">        int tmp = 0;</span><br><span class="line">        for (int j = i + 1; j &lt; cnt; j++) &#123;</span><br><span class="line">            if (array[i] &lt; array[j]) &#123;</span><br><span class="line">                tmp = j;</span><br><span class="line">            &#125;</span><br><span class="line">            int c = array[i];</span><br><span class="line">            array[i] = array[tmp];</span><br><span class="line">            array[tmp] = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /* 冒泡排序 */</span><br><span class="line">    for (int i = 0; i &lt; cnt - 1; i ++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; cnt - i - 1; j ++) &#123;</span><br><span class="line">            if (array[j] &lt; array[j + 1]) &#123;</span><br><span class="line">                int tmp = array[j];</span><br><span class="line">                array[j] = array[j + 1];</span><br><span class="line">                array[j + 1] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void showArray(int array[],int cnt)</span><br><span class="line">&#123;</span><br><span class="line">    for (int i = 0; i&lt;cnt; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;,array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[])</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        </span><br><span class="line">        // insert code here...</span><br><span class="line">//        NSLog(@&quot;Hello, World!&quot;);</span><br><span class="line">//</span><br><span class="line">        int array[10] = &#123;0&#125;;</span><br><span class="line">        initArray(array, 10);</span><br><span class="line">        showArray(array,10);</span><br><span class="line">        selectSortForArray(array, 10);</span><br><span class="line">        showArray(array,10);</span><br><span class="line">        </span><br><span class="line">        // C-实现 插空排序</span><br><span class="line">        int  a[5]=&#123;9,8,10,2,20&#125;;</span><br><span class="line">        int key,j;// key为每次被拿出的值（也就是初始提供“空”的值），j为要比较到的最大索引</span><br><span class="line">        for (int i=1; i&lt;5; i++) &#123;// 直接插入排序</span><br><span class="line">            key=a[i];// 取出当前要比较项</span><br><span class="line">            for (j=i-1; j&gt;=0&amp;&amp;a[j]&gt;key; j--) &#123;// 和直到索引j位置的元素逐一比较</span><br><span class="line">                a[j+1]=a[j];// j为更新出来的新空（但是只要进了循环，此次循环结束就会进行一次j--操作，所以下面要+1）</span><br><span class="line">            &#125;</span><br><span class="line">            a[j+1]=key;// j+1为最后留给key的空</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i=0; i&lt;5; i++) &#123;</span><br><span class="line">//            NSLog(@&quot;%i&quot;,a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        // OC实现</span><br><span class="line">//        NSMutableArray *array=[NSMutableArray arrayWithObjects:@9,@8,@10,@2,@20, nil];</span><br><span class="line">//        id key;</span><br><span class="line">//        NSInteger j;</span><br><span class="line">//        for (NSInteger i=1; i&lt;array.count; i++) &#123;</span><br><span class="line">//            key=[array objectAtIndex:i];//取到每一个待插入的数据,从a[1]开始查找</span><br><span class="line">//            for (j=i-1; j&gt;=0&amp;&amp;array[j]&gt;key; j--) &#123;</span><br><span class="line">//                // 如果之前的数比key大,就将这个数向后移动一个位置,留出空来让key插入就像整牌一样</span><br><span class="line">//</span><br><span class="line">//                [array exchangeObjectAtIndex:j+1 withObjectAtIndex:j];//交换</span><br><span class="line">//            &#125;</span><br><span class="line">//            [array replaceObjectAtIndex:j+1 withObject:key];</span><br><span class="line">//        &#125;</span><br><span class="line">//        for (key in array) &#123;</span><br><span class="line">//            NSLog(@&quot;%@&quot;,key);</span><br><span class="line">//        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blogzhou.top/06-Others-t08-几种常见的排序" data-id="ckiu4hrlw0031q5y058cizt5x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/04-Net-net-02-Socket原理知识摘要01" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Socket原理知识摘要01
+                
+            </div>
+        </a>
+    
+    
+        <a href="/06-Others-t05-Node环境配置" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Node环境配置</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="valine-thread"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/[object Object]" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_03.jpg)" alt="Swfit-06.指针(UnsafePointer)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/[object Object]" class="title">Swfit-06.指针(UnsafePointer)</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T01:31:57.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/06-Others-s11-关于指针的强制类型转换" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_02.jpg)" alt="关于指针的强制类型转换" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/06-Others-s11-关于指针的强制类型转换" class="title">关于指针的强制类型转换</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T05:45:57.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/06-Others-old-02-App启动优化" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_07.jpg)" alt="App启动优化" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/06-Others-old-02-App启动优化" class="title">App启动优化</a></p>
+                            <p class="item-date"><time datetime="2020-06-25T02:31:30.000Z" itemprop="datePublished">2020-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/03-Swift-s13-Array的常见操作" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_04.jpg)" alt="Swfit-05.Array的常见操作" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/03-Swift-s13-Array的常见操作" class="title">Swfit-05.Array的常见操作</a></p>
+                            <p class="item-date"><time datetime="2020-06-20T04:31:57.000Z" itemprop="datePublished">2020-06-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/03-Swift-s17-Swift小记04" class="thumbnail">
+    
+    
+        <span style="background-image:url(/css/images/tree_22.jpg)" alt="Swfit-04.类,元类,错误处理,泛型,拓展。。。" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/iOS开发/">iOS开发</a></p>
+                            <p class="item-title"><a href="/03-Swift-s17-Swift小记04" class="title">Swfit-04.类,元类,错误处理,泛型,拓展。。。</a></p>
+                            <p class="item-date"><time datetime="2020-01-15T02:31:30.000Z" itemprop="datePublished">2020-01-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/Net/" style="font-size: 15px;">Net</a> <a href="/tags/OC/" style="font-size: 11.67px;">OC</a> <a href="/tags/Swift/" style="font-size: 18.33px;">Swift</a> <a href="/tags/UI/" style="font-size: 16.67px;">UI</a> <a href="/tags/Words/" style="font-size: 11.67px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/poetry/" style="font-size: 13.33px;">poetry</a> <a href="/tags/tool/" style="font-size: 11.67px;">tool</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://coding.net">Hosted by Coding Pages</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.iluwen.com">丰子恺撒</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Zhouheng<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.6/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#valine-thread' ,
+            notify:false,
+            verify:false,
+            app_id: 'v6OCI5t6EztGCqpBbnOggekb-gzGzoHsz',
+            app_key: 'CbhhnjbP3u1giivANC3uUe4R',
+            placeholder: 'Just Do It'
+        });
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
