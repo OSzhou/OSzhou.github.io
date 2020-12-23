@@ -3,21 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>网络基础 | Fighting</title>
+    <title>FMCustomCamera 自定义相机(Swift) | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="内容出自《图解HTTP》  TCP/IP 通信传输流">
-<meta name="keywords" content="Net">
+    <meta name="keywords" content="UI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络基础">
+<meta property="og:title" content="FMCustomCamera 自定义相机(Swift)">
 <meta property="og:url" content="http://blogzhou.top/2019/08/01/[object Object]/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="内容出自《图解HTTP》  TCP/IP 通信传输流">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://blogzhou.top/css/images/flower_02.jpg">
-<meta property="og:updated_time" content="2020-12-23T08:32:03.962Z">
+<meta property="og:updated_time" content="2020-12-23T11:58:31.437Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网络基础">
-<meta name="twitter:description" content="内容出自《图解HTTP》  TCP/IP 通信传输流">
+<meta name="twitter:title" content="FMCustomCamera 自定义相机(Swift)">
 <meta name="twitter:image" content="http://blogzhou.top/css/images/flower_02.jpg">
     
 
@@ -174,7 +171,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                51
+                52
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -242,7 +239,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            网络基础
+            FMCustomCamera 自定义相机(Swift)
         </h1>
     
 
@@ -266,7 +263,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Net/">Net</a>
+        <a class="tag-link" href="/tags/UI/">UI</a>
     </div>
 
                     </div>
@@ -277,30 +274,18 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><strong><em>内容出自《图解HTTP》</em></strong></p>
+            <p><img src="https://upload-images.jianshu.io/upload_images/2149459-f5971159418b0af6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
 <ul>
-<li><h3 id="TCP-IP-通信传输流"><a href="#TCP-IP-通信传输流" class="headerlink" title="TCP/IP 通信传输流"></a>TCP/IP 通信传输流</h3><img src="https://upload-images.jianshu.io/upload_images/2149459-6e9e75e73483d6e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><a id="more"></a></li>
-<li>利用 TCP/IP 协议族进行网络通信时，会通过分层顺序与对方进行通信。发送端从应用层往下走，接收端则往应用层往上走。</li>
-<li>我们用 HTTP 举例来说明，首先作为发送端的客户端在应用层 (HTTP 协议)发出一个想看某个 Web 页面的 HTTP 请求。</li>
-<li>接着，为了传输方便，在传输层(TCP 协议)把从应用层处收到的数 据(HTTP 请求报文)进行分割，并在各个报文上打上标记序号及端 口号后转发给网络层。<br>在网络层(IP 协议)，增加作为通信目的地的 MAC 地址后转发给链 路层。这样一来，发往网络的通信请求就准备齐全了。</li>
-<li>接收端的服务器在链路层接收到数据，按序往上层发送，一直到应用<br>层。当传输到应用层，才能算真正接收到由客户端发送过来的 HTTP 请求。<br><img src="https://upload-images.jianshu.io/upload_images/2149459-23d6cda4ca590a16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该 层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层 时会把对应的首部消去。</li>
-<li><p>这种把数据信息包装起来的做法称为封装(encapsulate)。</p>
+<li><p>可能用到的delegate接口说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/// 闪光灯</span><br><span class="line">   func flashLightAction(_ cameraView: FMCameraView, handler: ((Error?) -&gt; ()))</span><br><span class="line">   /// 补光</span><br><span class="line">   func torchLightAction(_ cameraView: FMCameraView, handler: ((Error?) -&gt; ()))</span><br><span class="line">   /// 转换摄像头</span><br><span class="line">   func swicthCameraAction(_ cameraView: FMCameraView, handler: ((Error?) -&gt; ()))</span><br><span class="line">   /// 自动聚焦曝光</span><br><span class="line">   func autoFocusAndExposureAction(_ cameraView: FMCameraView, handler: ((Error?) -&gt; ()))</span><br><span class="line">   /// 聚焦</span><br><span class="line">   func focusAction(_ cameraView: FMCameraView, point: CGPoint, handler: ((Error?) -&gt; ()))</span><br><span class="line">   /// 曝光</span><br><span class="line">   func exposAction(_ cameraView: FMCameraView, point: CGPoint, handler: ((Error?) -&gt; ()))</span><br><span class="line">   /// 缩放</span><br><span class="line">   func zoomAction(_ cameraView: FMCameraView, factor: CGFloat)</span><br><span class="line"></span><br><span class="line">   /// 关闭</span><br><span class="line">   func closeAction(_ cameraView: FMCameraView)</span><br><span class="line">   /// 取消</span><br><span class="line">   func cancelAction(_ cameraView: FMCameraView)</span><br><span class="line">   /// 确定</span><br><span class="line">   func confirmAction(_ cameraView: FMCameraView)</span><br><span class="line">   /// 拍照</span><br><span class="line">   func takePhotoAction(_ cameraView: FMCameraView, handler: @escaping ((Error?) -&gt; ()))</span><br><span class="line">   /// 停止录制视频</span><br><span class="line">   func stopRecordVideoAction(_ cameraView: FMCameraView)</span><br><span class="line">   /// 开始录制视频</span><br><span class="line">   func startRecordVideoAction(_ cameraView: FMCameraView)</span><br><span class="line">   /// 改变拍摄类型 photo：拍照 video：视频</span><br><span class="line">   func didChangeTypeAction(_ cameraView: FMCameraView, type: FMCameraType)</span><br></pre></td></tr></table></figure>
 </li>
-<li><h3 id="与-HTTP-关系密切的协议-IP、TCP-和-DNS"><a href="#与-HTTP-关系密切的协议-IP、TCP-和-DNS" class="headerlink" title="与 HTTP 关系密切的协议 : IP、TCP 和 DNS"></a>与 HTTP 关系密切的协议 : IP、TCP 和 DNS</h3><ul>
-<li>负责传输的 IP 协议<br>按层次分，IP(Internet Protocol)网际协议位于网络层。Internet Protocol 这个名称可能听起来有点夸张，但事实正是如此，因为几乎 所有使用网络的系统都会用到 IP 协议。TCP/IP 协议族中的 IP 指的就 是网际协议，协议名称中占据了一半位置，其重要性可见一斑。可能 有人会把“IP”和“IP 地址”搞混，“IP”其实是一种协议的名称。<br>IP 协议的作用是把各种数据包传送给对方。而要保证确实传送到对方 那里，则需要满足各类条件。其中两个重要的条件是 IP 地址和 MAC 地址(Media Access Control Address)。<br>IP 地址指明了节点被分配到的地址，MAC 地址是指网卡所属的固定 地址。IP 地址可以和 MAC 地址进行配对。IP 地址可变换，但 MAC 地址基本上不会更改。<br>使用 ARP 协议凭借 MAC 地址进行通信<br>IP 间的通信依赖 MAC 地址。在网络上，通信的双方在同一局域网 (LAN)内的情况是很少的，通常是经过多台计算机和网络设备中转 才能连接到对方。而在进行中转时，会利用下一站中转设备的 MAC 地址来搜索下一个中转目标。这时，会采用 ARP 协议(Address Resolution Protocol)。ARP 是一种用以解析地址的协议，根据通信方 的 IP 地址就可以反查出对应的 MAC 地址。<br>没有人能够全面掌握互联网中的传输状况<br>在到达通信目标前的中转过程中，那些计算机和路由器等网络设备只 能获悉很粗略的传输路线。<br>这种机制称为路由选择(routing)，有点像快递公司的送货过程。想 要寄快递的人，只要将自己的货物送到集散中心，就可以知道快递公 司是否肯收件发货，该快递公司的集散中心检查货物的送达地址，明 确下站该送往哪个区域的集散中心。接着，那个区域的集散中心自会 判断是否能送到对方的家中。<br>我们是想通过这个比喻说明，无论哪台计算机、哪台网络设备，它们 都无法全面掌握互联网中的细节。<br><img src="https://upload-images.jianshu.io/upload_images/2149459-cb034a1002b4133a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li><p>确保可靠性的 TCP 协议<br>按层次分，TCP 位于传输层，提供可靠的字节流服务。<br>所谓的字节流服务(Byte Stream Service)是指，为了方便传输，将大 块数据分割成以报文段(segment)为单位的数据包进行管理。而可 靠的传输服务是指，能够把数据准确可靠地传给对方。一言以蔽之， TCP 协议为了更容易传送大数据才把数据分割，而且 TCP 协议能够 确认数据最终是否送达到对方。<br>确保数据能到达目标<br>为了准确无误地将数据送达目标处，TCP 协议采用了三次握手 (three-way handshaking)策略。用 TCP 协议把数据包送出去后，TCP 不会对传送后的情况置之不理，它一定会向对方确认是否成功送达。<br>握手过程中使用了 TCP 的标志(flag) —— SYN(synchronize) 和 ACK(acknowledgement)。<br>发送端首先发送一个带 SYN 标志的数据包给对方。接收端收到后， 回传一个带有 SYN/ACK 标志的数据包以示传达确认信息。最后，发 送端再回传一个带 ACK 标志的数据包，代表“握手”结束。<br>若在握手过程中某个阶段莫名中断，TCP 协议会再次以相同的顺序发 送相同的数据包。<br><img src="https://upload-images.jianshu.io/upload_images/2149459-1af8effd833a42e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>自定义UI见面，可以自行修改<code>FMCameraView</code>中的代码</p>
 </li>
-<li><p>负责域名解析的 DNS 服务<br>DNS(Domain Name System)服务是和 HTTP 协议一样位于应用层的<br>协议。它提供域名到 IP 地址之间的解析服务。 计算机既可以被赋予 IP 地址，也可以被赋予主机名和域名。比如<br><a href="http://www.hackr.jp。" target="_blank" rel="noopener">www.hackr.jp。</a><br>用户通常使用主机名或域名来访问对方的计算机，而不是直接通过 IP 地址访问。因为与 IP 地址的一组纯数字相比，用字母配合数字的表 示形式来指定计算机名更符合人类的记忆习惯。<br>但要让计算机去理解名称，相对而言就变得困难了。因为计算机更擅 长处理一长串数字。<br>为了解决上述的问题，DNS 服务应运而生。DNS 协议提供通过域名 查找 IP 地址，或逆向从 IP 地址反查域名的服务。<br><img src="https://upload-images.jianshu.io/upload_images/2149459-9bc3e9fc2901a35f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<li><p>相机界面初始化，可参照<code>FMCustomCameraViewController</code></p>
 </li>
 </ul>
-</li>
-<li><h3 id="各种协议与-HTTP-协议的关系"><a href="#各种协议与-HTTP-协议的关系" class="headerlink" title="各种协议与 HTTP 协议的关系"></a>各种协议与 HTTP 协议的关系</h3><ul>
-<li>学习了和 HTTP 协议密不可分的 TCP/IP 协议族中的各种协议后，我 们再通过这张图来了解下 IP 协议、TCP 协议和 DNS 服务在使用 HTTP 协议的通信过程中各自发挥了哪些作用。<strong><em>（在浏览器地址栏输入访问一个网址的流程）</em></strong><br><img src="https://upload-images.jianshu.io/upload_images/2149459-bc660dfafc8458c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-</ul>
-</li>
-</ul>
-
+<h5 id="点击获取Demo"><a href="#点击获取Demo" class="headerlink" title="点击获取Demo"></a><a href="https://github.com/OSzhou/FMCustomCamera" target="_blank" rel="noopener">点击获取Demo</a></h5>
         
         </div>
         <footer class="article-footer">
@@ -310,7 +295,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2019/08/01/[object Object]/" data-id="ckj15sjgw00375ky0f2ta98j2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2019/08/01/[object Object]/" data-id="ckj1d5zzp0029pmy0fv2yvbk0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -385,11 +370,11 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2019/12/25/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/08/01/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Swfit-01.可变参数,多重可选项，MemoryLayout。。。
+                    网络基础
                 
             </div>
         </a>
@@ -529,7 +514,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/My-poetry/">My poetry</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favpoetry/">favpoetry</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/favwords/">favwords</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li></ul>
         </div>
     </div>
 
@@ -538,7 +523,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -547,7 +532,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Net/">Net</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/">OC</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words/">Words</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XCode/">XCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poetry/">poetry</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/">tool</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -556,7 +541,7 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/JS/" style="font-size: 18.33px;">JS</a> <a href="/tags/Net/" style="font-size: 15px;">Net</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a> <a href="/tags/UI/" style="font-size: 15px;">UI</a> <a href="/tags/Words/" style="font-size: 11.67px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.67px;">code</a> <a href="/tags/poetry/" style="font-size: 13.33px;">poetry</a> <a href="/tags/tool/" style="font-size: 13.33px;">tool</a>
+            <a href="/tags/JS/" style="font-size: 18.57px;">JS</a> <a href="/tags/Net/" style="font-size: 14.29px;">Net</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/Swift/" style="font-size: 17.14px;">Swift</a> <a href="/tags/UI/" style="font-size: 15.71px;">UI</a> <a href="/tags/Words/" style="font-size: 11.43px;">Words</a> <a href="/tags/XCode/" style="font-size: 10px;">XCode</a> <a href="/tags/code/" style="font-size: 11.43px;">code</a> <a href="/tags/poetry/" style="font-size: 12.86px;">poetry</a> <a href="/tags/tool/" style="font-size: 12.86px;">tool</a>
         </div>
     </div>
 
