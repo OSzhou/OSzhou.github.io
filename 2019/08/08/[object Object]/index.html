@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Socket原理知识摘要01 | Fighting</title>
+    <title>FMCustomCamera 自定义相机(Swift) | Fighting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="什么是TCP/IP、UDP？TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。 UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。 这里有一张图，表明了这些协议的关系。 TCP/IP协">
-<meta name="keywords" content="Net">
+    <meta name="description" content="问题： OC中类别(Category)是什么？  Category类别是Objective-C语言中提供的一个灵活的类扩展机制。类别用于在不获悉、不改变原来代码的情况下往一个已经存在的类中添加新的方法，只需要知道这个类的公开接口，而不需要知道类的源代码。类别只能为已存在的类添加新的功能扩展方法，而不能添加新的属性。类别扩展的新方法有更高的优先级，会覆盖同名的原类的已有方法。">
+<meta name="keywords" content="UI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Socket原理知识摘要01">
-<meta property="og:url" content="http://blogzhou.top/2018/08/20/[object Object]/index.html">
+<meta property="og:title" content="FMCustomCamera 自定义相机(Swift)">
+<meta property="og:url" content="http://blogzhou.top/2019/08/08/[object Object]/index.html">
 <meta property="og:site_name" content="Fighting">
-<meta property="og:description" content="什么是TCP/IP、UDP？TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。 UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。 这里有一张图，表明了这些协议的关系。 TCP/IP协">
+<meta property="og:description" content="问题： OC中类别(Category)是什么？  Category类别是Objective-C语言中提供的一个灵活的类扩展机制。类别用于在不获悉、不改变原来代码的情况下往一个已经存在的类中添加新的方法，只需要知道这个类的公开接口，而不需要知道类的源代码。类别只能为已存在的类添加新的功能扩展方法，而不能添加新的属性。类别扩展的新方法有更高的优先级，会覆盖同名的原类的已有方法。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://blogzhou.top/css/images/tree_17.jpg">
-<meta property="og:updated_time" content="2020-12-18T10:35:14.637Z">
+<meta property="og:image" content="http://blogzhou.top/css/images/flower_03.jpg">
+<meta property="og:updated_time" content="2020-12-29T10:19:08.884Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Socket原理知识摘要01">
-<meta name="twitter:description" content="什么是TCP/IP、UDP？TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。 UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。 这里有一张图，表明了这些协议的关系。 TCP/IP协">
-<meta name="twitter:image" content="http://blogzhou.top/css/images/tree_17.jpg">
+<meta name="twitter:title" content="FMCustomCamera 自定义相机(Swift)">
+<meta name="twitter:description" content="问题： OC中类别(Category)是什么？  Category类别是Objective-C语言中提供的一个灵活的类扩展机制。类别用于在不获悉、不改变原来代码的情况下往一个已经存在的类中添加新的方法，只需要知道这个类的公开接口，而不需要知道类的源代码。类别只能为已存在的类添加新的功能扩展方法，而不能添加新的属性。类别扩展的新方法有更高的优先级，会覆盖同名的原类的已有方法。">
+<meta name="twitter:image" content="http://blogzhou.top/css/images/flower_03.jpg">
     
 
     
@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
         
             
 	
-		<img src="/css/images/tree_17.jpg" class="article-banner" />
+		<img src="/css/images/flower_03.jpg" class="article-banner" />
 	
 
 
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Socket原理知识摘要01
+            FMCustomCamera 自定义相机(Swift)
         </h1>
     
 
@@ -251,8 +251,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/08/20/[object Object]/">
-            <time datetime="2018-08-20T12:30:50.000Z" itemprop="datePublished">2018-08-20</time>
+        <a href="/2019/08/08/[object Object]/">
+            <time datetime="2019-08-08T07:32:08.000Z" itemprop="datePublished">2019-08-08</time>
         </a>
     </div>
 
@@ -266,7 +266,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Net/">Net</a>
+        <a class="tag-link" href="/tags/UI/">UI</a>
     </div>
 
                     </div>
@@ -277,18 +277,65 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <ul>
-<li>什么是TCP/IP、UDP？<br>TCP/IP（Transmission Control Protocol/Internet Protocol）即传输控制协议/网间协议，是一个工业标准的协议集，它是为广域网（WANs）设计的。<pre><code> UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是属于TCP/IP协议族中的一种。
-这里有一张图，表明了这些协议的关系。
-</code></pre><img src="https://upload-images.jianshu.io/upload_images/2149459-018a4abf564f5151.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>TCP/IP协议族包括运输层、网络层、链路层。现在你知道TCP/IP与UDP的关系了吧。<a id="more"></a></li>
-<li>Socket在哪里呢？<pre><code>在图1中，我们没有看到Socket的影子，那么它到底在哪里呢？还是用图来说话，一目了然。
-</code></pre><img src="https://upload-images.jianshu.io/upload_images/2149459-fda178d167d063fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原来socket在这里"></li>
-<li>Socket是什么呢？<pre><code>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。
-</code></pre></li>
-<li>你会使用它们吗？<pre><code>前人已经给我们做了好多的事了，网络间的通信也就简单了许多，但毕竟还是有挺多工作要做的。以前听到Socket编程，觉得它是比较高深的编程知识，但是只要弄清Socket编程的工作原理，神秘的面纱也就揭开了。
-一个生活中的场景。你要打电话给一个朋友，先拨号，朋友听到电话铃声后提起电话，这时你和你的朋友就建立起了连接，就可以讲话了。等交流结束，挂断电话结束此次交谈。    生活中的场景就解释了这工作原理，也许TCP/IP协议族就是诞生于生活中，这也不一定。
-</code></pre><img src="https://upload-images.jianshu.io/upload_images/2149459-ac55d6c6773adc4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>先从服务器端说起。服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接收请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。</li>
+            <blockquote>
+<p>问题： OC中类别(Category)是什么？</p>
+</blockquote>
+<p>Category类别是Objective-C语言中提供的一个灵活的类扩展机制。类别用于在不获悉、不改变原来代码的情况下往一个已经存在的类中添加新的方法，只需要知道这个类的公开接口，而不需要知道类的源代码。类别只能为已存在的类添加新的功能扩展方法，而不能添加新的属性。类别扩展的新方法有更高的优先级，会覆盖同名的原类的已有方法。</p>
+<a id="more"></a>
+<blockquote>
+<p>问题： Category类别与其他特性的比较？</p>
+</blockquote>
+<p>与继承Inheritance的比较：</p>
+<p>1.子类继承是进行类扩展的另一种常用方法，当然基于子类继承的扩展更加自由、正式，既可以扩展属性也可以扩展方法。类别可以在不获悉、不改变原来代码的情况下往里面添加新的方法，但也只能添加方法，不能添加属性，属于功能上的扩展。类别扩展的优点是不需要创建一个新的类，而是在系统中已有的类上直接扩展、拼装，不需要更改系统类就可以添加并使用扩展方法。</p>
+<p>2.相对于子类继承扩展，类别的另一明显优势是实现了功能的局部化封装，扩展的功能只会在本类被引用时看到。例如，假设原类为UIButton，现在要使用类别扩展一些用于模块A的方法，那么这些扩展方法就可以定义在一个叫做UIButton+A.h的头文件中，只有在引用UIButton+A.h的地方，才能看到原UIButton类有模块A添加的那些扩展方法，如果不需要模块A的功能，不引用UIButton+A.h头文件就看不到UIButton的那些扩展方法的存在，实现扩展模块的隔离。</p>
+<ul>
+<li>与扩展Extension的比较：</li>
 </ul>
+<p>Category类别和Extension扩展的明显不同在于，后者可以添加属性。另外后者添加的方法是必须要实现的。Extension可以认为是一个私有的匿名的Category，因为Extension定义在.m文件头部，添加的属性和方法都没有暴露在头文件，在不考虑运行时特性的前提下这些扩展属性和方法只能类内部使用，一定程度上可以说是私有的。</p>
+<blockquote>
+<p>问题： 类别有什么作用和好处？类别的局限性和使用注意事项？</p>
+</blockquote>
+<p>作用：</p>
+<ul>
+<li>可以将类的实现分散到多个不同文件或多个不同框架中（扩充新的方法）；</li>
+<li>可以创建对私有方法的前向引用；</li>
+<li><p>可以向对象添加非正式协议；<br>局限性：</p>
+</li>
+<li><p>类别只能向原类中添加新的方法，且只能添加而不能删除或修改原方法，不能向原类中添加新的属性；</p>
+</li>
+<li><p>类别向原类中添加的方法是全局有效的而且优先级相对最高，如果和原类的方法重名，会无条件覆盖掉原来的方法，造成难以发现的潜在危险，因此使用类别添加方法一定注意保证是单纯的添加新方法，避免覆盖原来的方法(可以通过添加该类别的方法前缀来防止冲突)，否则原方法被类别覆盖了，团队中其他成员不知情的情况下用到这个被覆盖的方法会出现意想不到的问题而难以察觉纠正。</p>
+</li>
+</ul>
+<p>问题： Category类别和Extension类扩展的使用方法？</p>
+<p>类别和扩展的区别我们已经知道了，最明显的是类别不可以添加新属性而类扩展可以。类别的使用方法很简单，就是新建某个类的类别扩展文件，然后添加新的方法。而类扩展并不常用，只是常用在.m文件中的头部进行头文件的私有属性变量补充，也就是所谓的类的Continuous区域，是将不想暴露给外部的一些变量定义在类扩展中。</p>
+<h5 id="创建类别或扩展文件："><a href="#创建类别或扩展文件：" class="headerlink" title="创建类别或扩展文件："></a>创建类别或扩展文件：</h5><p>为工程添加新文件并选择Objective-C File:<br><img src="https://img-blog.csdn.net/20170119215730819?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29yZG92YQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>填写自定义的扩展名后缀，然后选择文件类型，这里选择Category类别或者Extension扩展，最后选择要扩展的已有类：<br><img src="https://img-blog.csdn.net/20170119221929670?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29yZG92YQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="https://img-blog.csdn.net/20170119222312589?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29yZG92YQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>创建之后得到对应的类别文件：<br><img src="https://img-blog.csdn.net/20170119222421048?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29yZG92YQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h5 id="添加新的扩展方法："><a href="#添加新的扩展方法：" class="headerlink" title="添加新的扩展方法："></a>添加新的扩展方法：</h5><p>这里以扩展NSString类的方法为例展示类别扩展的具体用法，分别添加一个类方法和实例方法，并在需要的地方调用：</p>
+<p>类别头文件方法声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/* NSString+Category.h */</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface NSString (Category) &#123;</span><br><span class="line">    // 不可以添加实例变量，编译器会直接报错！</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 实例变量被禁止，此处添加属性变量是无意义的，定义的新的属性，编译器没有实现存取方法，自己也无法手动实现存取方法，因为无法获取加下划线的实例变量，除非利用运行时强行实现存取方法则可以成功为类别添加属性，代价较高 */</span><br><span class="line">//@property (nonatomic, copy) NSString *newString;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 扩展一个类方法</span><br><span class="line"> */</span><br><span class="line">+ (void)categoryClassMethodOfString;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 扩展一个实例方法</span><br><span class="line"> */</span><br><span class="line">- (void)categoryInstanceMethodOfString;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>类别方法实现，类别的方法可以不实现，不实现则不可调用否则会崩溃：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* NSString+Category.m */</span><br><span class="line">#import &quot;NSString+Category.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation NSString (Category)</span><br><span class="line"></span><br><span class="line">+ (void)categoryClassMethodOfString &#123;</span><br><span class="line">    NSLog(@&quot;categoryClassMethodOfString&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)categoryInstanceMethodOfString &#123;</span><br><span class="line">    NSLog(@&quot;categoryInstanceMethodOfString&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>在需要的类中引入类别头文件NSString+Category.h，然后即可调用新方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+Category.h&quot;</span><br><span class="line">// 1.调用类别扩展的类方法</span><br><span class="line">[NSString categoryClassMethodOfString];</span><br><span class="line"></span><br><span class="line">// 2.调用类别扩展的实例方法</span><br><span class="line">NSString *string = [NSString stringWithFormat:@&quot;&quot;];</span><br><span class="line">[string categoryInstanceMethodOfString];</span><br></pre></td></tr></table></figure>
+<h5 id="类扩展的一般用法："><a href="#类扩展的一般用法：" class="headerlink" title="类扩展的一般用法："></a>类扩展的一般用法：</h5><p>类扩展即类的.m文件中@implementation之前开始的部分，所谓的类的continuous区域：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface class name ()</span><br><span class="line">// ...</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>类扩展的作用本来是用于私有函数的前向声明，但最新编译器无需声明也有相同的效果，因此私有方法可在.m文件中任意位置直接写实现而无需在此处进行前向声明，如果在此处声明函数那么一定要在后面进行实现，否则编译器会给出警告。现在类扩展区域的作用主要是快速定义类的私有属性，即将暴露给外部的属性变量定义在头文件中，而不想暴露给外部的属性则直接定义在类扩展区域。【注意这里的私有属性和私有方法并不是绝对私有的，OC中没有绝对的私有方法和私有变量，因为即使它们隐藏在.m实现文件里不暴露在头文件中，开发者仍然可以利用runtime运行时机制对其暴力访问，只是一般情况可以达到私有的效果】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/* 类扩展区域 */</span><br><span class="line">@interface ViewController ()</span><br><span class="line"></span><br><span class="line">// 类扩展属性(默认为private, 类外部不可访问)</span><br><span class="line">@property (nonatomic,copy) NSString *extensionVariable;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 类扩展方法声明，可省略，要在立刻在后面进行函数实现</span><br><span class="line"> */</span><br><span class="line">- (void)extensionInstanceMethod;</span><br><span class="line">+ (void)extensionClassMethod;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdn.net/20170119232957657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29yZG92YQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<blockquote>
+<p>问题： 为什么类别只能添加扩展方法而不能添加属性变量？</p>
+</blockquote>
+<p>这个问法有点歧义，实际问的是为什么向类别添加属性会失败，而非官方为何有意不让类别扩展属性，如果是有意，则可能从设计上考虑保持类别特性的单纯，专门用来扩展功能，和继承的角色区别开，防止类别污染被扩展的类。</p>
+<p>话说回来，在类别中扩展属性不能成功的原因是无法在类别中取得属性的加下划线的实例变量名，导致无法手动实现实例变量的存取方法。在类别中定义了属性后，属性其实也成功添加到了类的属性列表中，但编译器只为其声明了存取方法，没有实现，同时又没有合成加下划线的实例变量名，导致无法访问实例变量也无法自己手动实现其存取方法，对于一个不能访问的属性则失去了存在的意义。</p>
+<p>但是如果使用运行时的武器，我们其实可以强行实现类别中属性的存取方法，实现在类别中扩展属性。这里在运行时，实现为NSString类扩展一个叫做newString的属性：</p>
+<p>NSString+Category.h :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface NSString (Category)</span><br><span class="line">/* 在类别中扩展属性 */</span><br><span class="line">@property (nonatomic, copy) NSString *newString;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>NSString+Category.m :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+Category.h&quot;</span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line"></span><br><span class="line">@implementation NSString (Category)</span><br><span class="line">/**</span><br><span class="line"> * 运行时强行实现newString的getter和setter</span><br><span class="line"> */</span><br><span class="line">- (NSString *)newString &#123;</span><br><span class="line">    return objc_getAssociatedObject(self, @&quot;newString&quot;);</span><br><span class="line">&#125;</span><br><span class="line">- (void)setNewString:(NSString *)newString &#123;</span><br><span class="line">    objc_setAssociatedObject(self, @&quot;newString&quot;, newString, OBJC_ASSOCIATION_COPY);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>main.m :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;NSString+Category.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    NSString *string;</span><br><span class="line">    /* 调用newString的setter方法 */</span><br><span class="line">    string.newString = @&quot;newString&quot;;</span><br><span class="line">    /* 调用newString的getter方法 */</span><br><span class="line">    NSLog(@&quot;%@&quot;,string.newString);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -299,7 +346,7 @@ var _hmt = _hmt || [];
 
 </div>
 
-    <a data-url="http://blogzhou.top/2018/08/20/[object Object]/" data-id="ckj9u9lri001nsxy0ws29yut7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://blogzhou.top/2019/08/08/[object Object]/" data-id="ckj9u9lu7004ksxy0kksu5vg1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -374,19 +421,19 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2018/08/30/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/12/25/[object Object]/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Socket原理知识摘要02
+                    Swfit-01.可变参数,多重可选项，MemoryLayout。。。
                 
             </div>
         </a>
     
     
-        <a href="/2018/08/01/[object Object]/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/08/01/[object Object]/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">单向散列函数，数字签名，证书</div>
+            <div class="article-nav-title">FMCustomCamera 自定义相机(Swift)</div>
         </a>
     
 </nav>
